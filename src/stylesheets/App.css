@@ -1,0 +1,23 @@
+/* Cover the page fully */
+body {
+    height: 100%;
+    width: 100%;
+  }
+  
+  /* Container and wrapper to ensure header and footer display properly*/
+  .page-container {
+    position: relative;
+    min-height: 100vh;
+    background-color: #272728;  
+  }
+  
+  .content-wrap {
+    padding-bottom: 70px;
+  }
+  
+  /* Styling specific to App element. */
+  .App {
+    height: 100vh;
+    width: 100%;
+  }
+  

@@ -1,0 +1,23 @@
+.header {
+    background: #4C4C4F;
+    display: flex;
+    justify-content: space-between;
+    height: 60px;
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+  }
+
+.logo {
+    color: red;
+    padding-left: 25px;
+    align-self: center;
+}
+
+.logo .red {
+    color: #8C0F0F;
+}
+
+.logo .pink {
+    color: #9B0AB3;
+}
