@@ -1,0 +1,49 @@
+.card-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    color: #C7C6C6;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    width: 100%;
+    background-color: #4C4C4F;
+}
+
+.user {
+    display: flex;
+    align-items: center;
+}
+
+.username {
+    margin-bottom: 10px;
+}
+
+.post-image {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    width: 80%;
+    height: auto;
+}
+
+.post-text {
+    margin-bottom: 10px;
+}
+
+.post-info {
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.arrest {
+    display: flex;
+    margin-top: 5px;
+    column-gap: 10px;
+}

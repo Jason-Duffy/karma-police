@@ -1,23 +1,45 @@
-/* Cover the page fully */
 body {
+    background-color: #272728;
+}
+
+/* Container and wrapper to ensure header and footer display properly*/
+.page-container {
+    position: relative;
+    height: 100%;
+    min-height: 100vh;
+    background-color: #272728;
+}
+
+.container-wrap {
+    z-index: 1;
+    height: 100%;
+    min-height: 100vh;
+}
+
+/* Styling specific to App element. */
+.App {
     height: 100%;
     width: 100%;
-  }
-  
-  /* Container and wrapper to ensure header and footer display properly*/
-  .page-container {
+}
+
+.main-content {
     position: relative;
-    min-height: 100vh;
-    background-color: #272728;  
-  }
-  
-  .content-wrap {
-    padding-bottom: 70px;
-  }
-  
-  /* Styling specific to App element. */
-  .App {
-    height: 100vh;
-    width: 100%;
-  }
-  
+    width: 70%;
+    height: 100%;
+    margin-top: 84px;
+    margin-left: 30px;
+    display: inline-flex;
+}
+
+.sidebar {
+    position: absolute;
+    width: 22%;
+    height: 100%;
+    margin-top: 120px;
+    margin-left: 30px;
+    margin-right: 30px;
+    display: inline-flex;
+    align-items: center;
+    flex-direction: column;
+    row-gap: 30px;
+}

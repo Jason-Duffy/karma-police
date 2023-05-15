@@ -1,0 +1,41 @@
+.sort {
+    height: 70px;
+    width: 100%;
+    background-color: #4C4C4F;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+p {
+    color: #C7C6C6;
+    margin-left: 10px;
+    margin-top: 10px;
+    align-self: flex-start;
+}
+
+.arrows {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+    justify-content: space-between;
+    column-gap: 10px;
+}
+
+.down-arrow:hover {
+    margin-bottom: 10px;
+    filter: drop-shadow(1px 1px 1px black);
+}
+
+.down-arrow:active {
+    filter: none;
+}
+
+.up-arrow:hover {
+    margin-bottom: 10px;
+    filter: drop-shadow(1px 1px 1px black);
+}
+
+.up-arrow:active {
+    filter: none;
+}

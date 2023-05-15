@@ -8,7 +8,7 @@ const Header = () => {
         <div className="header">
             <h1 className="logo"><span className="red">KARMA</span><span className="pink">POLICE</span></h1>
             <div className="rightSide">
-                <DisplayToggle />
+                <DisplayToggle id="icon"/>
                 <Searchbar />
             </div>
         </div>

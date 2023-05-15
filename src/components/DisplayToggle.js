@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+//import { ThemeContext } from './ThemeContext';
 import { FaMoon, FaSun } from "react-icons/fa";
+import '../stylesheets/DisplayToggle.css';
 
 const Icon = ({ darkMode, toggleDarkMode }) => {
     return (

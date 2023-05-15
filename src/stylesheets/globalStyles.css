@@ -1,0 +1,13 @@
+:root {
+    --header-background-color: #4C4C4F;
+    --background-color:#272728;
+    --midground-color: #4C4C4F;
+    --text-color: #C7C6C6;
+}
+
+body.light-mode {
+    --header-background-color: #4C4C4F;
+    --background-color: #FFFFFF;
+    --midground-color: #E8E8E8;
+    --text-color: #000000;
+}
