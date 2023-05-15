@@ -5,10 +5,12 @@ import Searchbar from './Searchbar';
 
 const Header = () => {
     return (
-        <div class="header">
-            <h1 class="logo"><span class="red">KARMA</span><span class="pink">POLICE</span></h1>
-            <DisplayToggle />
-            <Searchbar />
+        <div className="header">
+            <h1 className="logo"><span className="red">KARMA</span><span className="pink">POLICE</span></h1>
+            <div className="rightSide">
+                <DisplayToggle />
+                <Searchbar />
+            </div>
         </div>
     );
 }

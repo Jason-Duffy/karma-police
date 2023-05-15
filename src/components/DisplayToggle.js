@@ -1,10 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { FaMoon, FaSun } from "react-icons/fa";
+
+const Icon = ({ darkMode, toggleDarkMode }) => {
+    return (
+        darkMode ? 
+            <FaMoon color='#D9D9D9' onClick={toggleDarkMode} size={23} /> 
+        : 
+            <FaSun color='#F2CA00' onClick={toggleDarkMode} size={23} />
+    );
+}
 
 const DisplayToggle = () => {
+    const [darkMode, setDarkMode] = useState(true);
+
+    const toggleDarkMode = () => {
+        setDarkMode(!darkMode);
+    };
+
     return (
-        <button>
-            
-        </button>
+        <Icon className="icon" darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
     );
 }
 
