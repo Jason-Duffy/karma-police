@@ -2,4 +2,5 @@
     height: 600px;
     width: 100%;
     background-color: var(--border-color);
+    border-radius: 8px;
 }

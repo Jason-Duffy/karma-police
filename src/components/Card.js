@@ -41,7 +41,7 @@ const Card = () => {
                 </div>
             </div>
             <div class="arrest">
-                <GiHandcuffs color="#C7C6C6" size="20" /> <span>Arrest this man/girl</span>
+                <GiHandcuffs color="#C7C6C6" size="20" /> <span>Arrest This Man/Girl</span>
             </div>
         </div>
     );
