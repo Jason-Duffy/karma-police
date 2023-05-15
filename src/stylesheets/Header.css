@@ -11,14 +11,16 @@
 
 .logo {
     padding-left: 25px;
+    font-size: 48px;
+    font-family: 'Bebas Neue', sans-serif;
 }
 
 .logo .red {
-    color: #8C0F0F;
+    color: var(--accent-color);
 }
 
 .logo .pink {
-    color: #9B0AB3;
+    color: var(--secondary-text-color);
 }
 
 .rightSide {
