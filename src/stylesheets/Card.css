@@ -3,7 +3,7 @@
     flex-direction: column;
     width: 100%;
     height: auto;
-    color: var(--text-color);
+    color: var(--primary-text-color);
 }
 
 .card {
@@ -12,7 +12,7 @@
     align-items: center;
     height: auto;
     width: 100%;
-    background-color: var(--midground-color);
+    background-color: var(--border-color);
 }
 
 .user {
@@ -33,6 +33,7 @@
 
 .post-text {
     margin-bottom: 10px;
+    color: var(--secondary-text-color);
 }
 
 .post-info {

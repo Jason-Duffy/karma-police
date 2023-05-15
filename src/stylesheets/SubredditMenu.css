@@ -1,5 +1,5 @@
 .subredditMenu {
     height: 600px;
     width: 100%;
-    background-color: var(--midground-color);
+    background-color: var(--border-color);
 }
