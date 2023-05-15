@@ -1,5 +1,5 @@
 body {
-    background-color: #272728;
+    background-color: var(--background-color);
 }
 
 /* Container and wrapper to ensure header and footer display properly*/
@@ -7,7 +7,7 @@ body {
     position: relative;
     height: 100%;
     min-height: 100vh;
-    background-color: #272728;
+    background-color: var(--background-color);
 }
 
 .container-wrap {

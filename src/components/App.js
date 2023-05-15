@@ -1,5 +1,6 @@
 import React from 'react';
 import '../stylesheets/App.css';
+import '../stylesheets/globalStyles.css';
 import Header from './Header';
 import Card from './Card';
 import Sort from './Sort';
