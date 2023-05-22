@@ -15,11 +15,11 @@
     font-family: 'Bebas Neue', sans-serif;
 }
 
-.logo .red {
+.logo .karma {
     color: var(--accent-color);
 }
 
-.logo .pink {
+.logo .police {
     color: var(--secondary-text-color);
 }
 

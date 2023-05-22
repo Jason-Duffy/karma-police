@@ -6,7 +6,7 @@ import Searchbar from './Searchbar';
 const Header = () => {
     return (
         <div className="header">
-            <h1 className="logo"><span className="red">KARMA</span><span className="pink">POLICE</span></h1>
+            <h1 className="logo"><span className="karma">KARMA</span><span className="police">POLICE</span></h1>
             <div className="rightSide">
                 <DisplayToggle id="icon"/>
                 <Searchbar />

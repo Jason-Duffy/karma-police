@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useSelector } from 'react-redux';
+import { selectTheme, themeColors } from '../redux/themeSlice'; 
 import '../stylesheets/Card.css';
 import { FaUserCircle, FaYinYang, FaRegClock, FaRegComment } from "react-icons/fa";
 import { GiHandcuffs } from "react-icons/gi";
@@ -14,10 +16,13 @@ const postComments = 45;
 
 
 const Card = () => {
+    const theme = useSelector(selectTheme); // get the current theme
+    const accentColor = themeColors[theme].accent;
+
     return (
         <div className="card-container">
             <div class="user">
-                <FaUserCircle color="#C7C6C6" size="20" />
+                <FaUserCircle color={accentColor} size="20" />
                 <p className="username" >{username}</p>
             </div>
             <div className="card">
@@ -30,18 +35,18 @@ const Card = () => {
                 <p className="post-text">{postText}</p>
                 <div className="post-info">
                     <div className="karma">
-                        <FaYinYang color="#C7C6C6" size="20" /><span>{postAuthorKarma}</span>
+                        <FaYinYang color={accentColor} size="20" /><span>{postAuthorKarma}</span>
                     </div>
                     <div className="post-age">
-                        <FaRegClock color="#C7C6C6" size="20" /><span>{postAge} Hours</span>
+                        <FaRegClock color={accentColor} size="20" /><span>{postAge} Hours</span>
                     </div>
                     <div className="post-comments">
-                        <FaRegComment color="#C7C6C6" size="20" /><span>{postComments}</span>
+                        <FaRegComment color={accentColor} size="20" /><span>{postComments}</span>
                     </div>
                 </div>
             </div>
             <div class="arrest">
-                <GiHandcuffs color="#C7C6C6" size="20" /> <span>Arrest This Man/Girl</span>
+                <GiHandcuffs color={accentColor} size="20" /> <span>Arrest This Man/Girl</span>
             </div>
         </div>
     );

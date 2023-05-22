@@ -1,19 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import '../stylesheets/Sort.css';
 import { FaArrowCircleDown, FaArrowCircleUp } from "react-icons/fa";
 import { useSelector } from 'react-redux';
-import { selectTheme } from '../redux/themeSlice'; 
+import { selectTheme, themeColors } from '../redux/themeSlice'; 
 
 const Sort = () => {
     const theme = useSelector(selectTheme); // get the current theme
-    const [accentColor, setAccentColor] = useState('#F7C948');  // default color
-
-    // Effect to update accent color when theme changes
-    useEffect(() => {
-        const rootStyle = getComputedStyle(document.body);
-        const colorVariable = '--accent-color';
-        setAccentColor(rootStyle.getPropertyValue(colorVariable).trim());
-    }, [theme]);
+    const accentColor = themeColors[theme].accent;
 
     return (
         <div className="sort">
