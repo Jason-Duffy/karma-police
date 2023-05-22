@@ -34,7 +34,7 @@ const Card = () => {
                 />
                 <p className="post-text">{postText}</p>
                 <div className="post-info">
-                    <div className="karma">
+                    <div className="karma-score">
                         <FaYinYang color={accentColor} size="20" /><span>{postAuthorKarma}</span>
                     </div>
                     <div className="post-age">
