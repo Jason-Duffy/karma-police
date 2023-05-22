@@ -3,12 +3,16 @@ import '../stylesheets/Sort.css';
 import { FaArrowCircleDown, FaArrowCircleUp } from "react-icons/fa";
 
 const Sort = () => {
+
+    const accentColor = getComputedStyle(document.documentElement)
+        .getPropertyValue('--accent-color');
+
     return (
         <div className="sort">
             <p>Sort by Karma</p>
             <div className="arrows">
-                <FaArrowCircleDown className="down-arrow" size={40} color="#4578DE" />
-                <FaArrowCircleUp className="up-arrow" size={40} color="#4578DE" />
+                <FaArrowCircleDown className="down-arrow" size={40} color={accentColor} />
+                <FaArrowCircleUp className="up-arrow" size={40} color={accentColor} />
             </div>
         </div>
     );
