@@ -24,6 +24,12 @@ button {
     font-size: 16px;
 }
 
+li:hover {
+    margin-left: 5px;
+    transition-delay: 10ms;
+    transition-property: margin-left;
+}
+
 .subredditMenu .active {
     text-decoration: underline;
     font-weight: bold;
