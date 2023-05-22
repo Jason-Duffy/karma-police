@@ -23,20 +23,14 @@ p {
     column-gap: 10px;
 }
 
-.down-arrow:hover {
-    margin-bottom: 10px;
+.up-arrow {
     filter: drop-shadow(1px 1px 1px black);
 }
 
-.down-arrow:active {
-    filter: none;
-}
-
-.up-arrow:hover {
-    margin-bottom: 10px;
+.down-arrow {
     filter: drop-shadow(1px 1px 1px black);
 }
 
-.up-arrow:active {
+.selected {
     filter: none;
 }

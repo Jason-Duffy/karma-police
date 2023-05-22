@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useSelector } from 'react-redux';
 import { selectTheme, themeColors } from '../redux/themeSlice'; 
 import '../stylesheets/Card.css';
@@ -21,7 +21,7 @@ const Card = () => {
 
     return (
         <div className="card-container">
-            <div class="user">
+            <div className="user">
                 <FaUserCircle color={accentColor} size="20" />
                 <p className="username" >{username}</p>
             </div>
@@ -45,7 +45,7 @@ const Card = () => {
                     </div>
                 </div>
             </div>
-            <div class="arrest">
+            <div className="arrest">
                 <GiHandcuffs color={accentColor} size="20" /> <span>Arrest This Man/Girl</span>
             </div>
         </div>
