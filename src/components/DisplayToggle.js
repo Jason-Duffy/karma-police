@@ -1,20 +1,22 @@
-import React, { useContext } from 'react';
-import { ThemeContext } from './ThemeContext';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { toggleTheme, selectTheme } from '../redux/themeSlice';
 import { FaMoon, FaSun } from "react-icons/fa";
 import '../stylesheets/DisplayToggle.css';
 
 const Icon = () => {
-    const { darkMode, setDarkMode } = useContext(ThemeContext);
+    const dispatch = useDispatch();
+    const theme = useSelector(selectTheme);
 
-    const toggleDarkMode = () => {
-        setDarkMode(!darkMode);
+    const toggleThemeMode = () => {
+        dispatch(toggleTheme());
     };
 
     return (
-        darkMode ?
-            <FaMoon color='#D9D9D9' onClick={toggleDarkMode} size={23} />
+        theme === 'dark' ?
+            <FaMoon color='#D9D9D9' onClick={toggleThemeMode} size={23} />
             :
-            <FaSun color='#F2CA00' onClick={toggleDarkMode} size={23} />
+            <FaSun color='#F2CA00' onClick={toggleThemeMode} size={23} />
     );
 }
 
