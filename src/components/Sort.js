@@ -10,9 +10,9 @@ const Sort = () => {
 
     // Effect to update accent color when theme changes
     useEffect(() => {
-        const rootStyle = getComputedStyle(document.documentElement);
-        const colorVariable = `--accent-color`;
-        setAccentColor(rootStyle.getPropertyValue(colorVariable));
+        const rootStyle = getComputedStyle(document.body);
+        const colorVariable = '--accent-color';
+        setAccentColor(rootStyle.getPropertyValue(colorVariable).trim());
     }, [theme]);
 
     return (
