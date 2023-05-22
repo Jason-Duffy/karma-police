@@ -49,3 +49,9 @@
     margin-top: 5px;
     column-gap: 10px;
 }
+
+.karma-score, .post-age, .post-comments {
+    display: flex;
+    column-gap: 5px;
+    align-items: center;
+}
