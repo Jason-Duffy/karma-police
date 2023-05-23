@@ -20,7 +20,7 @@ export default function App() {
   }, [theme]);
 
   // Inline style object.
-  const background = useThemeObject("backgroundColor", themeColors.accent);
+  const background = useThemeObject("backgroundColor", "background");
 
   // Set body element to background colour from theme.
   document.body.style.backgroundColor = themeColors.background;
