@@ -1,6 +1,5 @@
 import React from "react";
-import { useSelector } from 'react-redux';
-import { selectTheme, themeColors } from '../redux/themeSlice'; 
+import { useThemeColors, useThemeObject } from '../hooks/themeHooks';
 import '../stylesheets/Card.css';
 import { FaUserCircle, FaYinYang, FaRegClock, FaRegComment } from "react-icons/fa";
 import { GiHandcuffs } from "react-icons/gi";
@@ -16,23 +15,28 @@ const postComments = 45;
 
 
 const Card = () => {
-    const theme = useSelector(selectTheme); // get the current theme
-    const accentColor = themeColors[theme].accent;
+
+    // Inline style variables and objects.
+    const themeColors = useThemeColors();
+    const accentColor = themeColors.accent;
+    const primaryText = useThemeObject("color", "primaryText");
+    const secondaryText = useThemeObject("color", "secondaryText");
+    const borderColor = useThemeObject("backgroundColor", "border");
 
     return (
-        <div className="card-container">
+        <div className="card-container" style={primaryText}>
             <div className="user">
                 <FaUserCircle color={accentColor} size="20" />
                 <p className="username" >{username}</p>
             </div>
-            <div className="card">
+            <div className="card" style={borderColor}>
                 <p className="post-title">{postTitle}</p>
                 <img
                     className="post-image"
                     src={sampleImage}
                     alt="example"
                 />
-                <p className="post-text">{postText}</p>
+                <p className="post-text" style={secondaryText}>{postText}</p>
                 <div className="post-info">
                     <div className="karma-score">
                         <FaYinYang color={accentColor} size="20" /><span>{postAuthorKarma}</span>
