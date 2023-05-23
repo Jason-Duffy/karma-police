@@ -7,3 +7,10 @@ export const useThemeColors = () => {
     const theme = useSelector(selectTheme);
     return themeColors[theme];
 };
+
+
+export const useThemeObject = (property, color) => {
+    const theme = useThemeColors();
+    return {property: theme.color};
+};
+
