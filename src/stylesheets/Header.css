@@ -1,5 +1,4 @@
 .header {
-    background: var(--background-color);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -13,14 +12,6 @@
     padding-left: 25px;
     font-size: 48px;
     font-family: 'Bebas Neue', sans-serif;
-}
-
-.logo .karma {
-    color: var(--accent-color);
-}
-
-.logo .police {
-    color: var(--secondary-text-color);
 }
 
 .rightSide {
