@@ -11,6 +11,8 @@ export const useThemeColors = () => {
 
 export const useThemeObject = (property, color) => {
     const theme = useThemeColors();
-    return {property: theme.color};
+    let styleObject = {};
+    styleObject[property] = theme[color];
+    return styleObject;
 };
 
