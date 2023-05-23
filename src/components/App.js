@@ -20,12 +20,12 @@ export default function App() {
   }, [theme]);
 
   // Inline style object.
-  const background = useThemeObject("background", themeColors.background);
+  const background = useThemeObject("backgroundColor", themeColors.accent);
 
   // Set body element to background colour from theme.
   document.body.style.backgroundColor = themeColors.background;
 
-
+  
   return (
     <div className="page-container" style={background}>
       <div className="container-wrap">
