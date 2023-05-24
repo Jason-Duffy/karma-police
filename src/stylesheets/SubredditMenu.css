@@ -1,26 +1,23 @@
 .subredditMenu {
     min-height: 100px;
     width: 100%;
-    background-color: var(--border-color);
     border-radius: 8px;
 }
 
-ul {
-    color: var(--secondary-text-color);
+#sr-list{
     margin-top: 10px;
     margin-left: 40px;
     margin-bottom: 17px;
 }
 
-li {
+#sr-name {
     line-height: 40px;
     list-style-type: circle;
 }
 
-button {
+#sr-button {
     border: 0;
     background-color: transparent;
-    color: var(--secondary-text-color);
     font-size: 16px;
 }
 
@@ -28,10 +25,4 @@ li:hover {
     margin-left: 5px;
     transition-delay: 10ms;
     transition-property: margin-left;
-}
-
-.subredditMenu .active {
-    text-decoration: underline;
-    font-weight: bold;
-    color: var(--accent-color);
 }

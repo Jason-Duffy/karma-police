@@ -23,6 +23,10 @@
     margin-bottom: 10px;
 }
 
+.post-title {
+    align-self: flex-start;
+}
+
 .post-image {
     margin-top: 20px;
     margin-bottom: 10px;

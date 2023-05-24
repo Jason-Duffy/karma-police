@@ -15,3 +15,8 @@ body.dark {
     --accent-color: #BF616A;
     --border-color: #4C566A;
 }
+
+p {
+    margin-left: 10px;
+    margin-top: 10px;
+}
