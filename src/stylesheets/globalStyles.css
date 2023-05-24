@@ -1,21 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans&family=Roboto:wght@300;400&display=swap');
 
-body.light {
-    --background-color: #ECEFF4;
-    --primary-text-color: #2E3440;
-    --secondary-text-color: #4C566A;
-    --accent-color: #D08770;
-    --border-color: #D8DEE9;
-}
-
-body.dark {
-    --background-color: #1C1E26;
-    --primary-text-color: #ECEFF4;
-    --secondary-text-color: #88C0D0;
-    --accent-color: #BF616A;
-    --border-color: #4C566A;
-}
-
 p {
     margin-left: 10px;
     margin-top: 10px;
