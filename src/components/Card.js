@@ -1,9 +1,10 @@
 import React from "react";
 import { useThemeColors, useThemeObject } from '../hooks/themeHooks';
+import UserInfo from "./UserInfo";
+import CardContent from "./CardContent";
+import PostInfo from "./PostInfo";
+import ArrestAction from "./ArrestAction";
 import '../stylesheets/Card.css';
-import { FaUserCircle, FaYinYang, FaRegClock, FaRegComment } from "react-icons/fa";
-import { GiHandcuffs } from "react-icons/gi";
-import sampleImage from '../images/istockphoto-1347249753-2048x2048.jpg';
 
 
 const username = "User65529";
@@ -14,8 +15,8 @@ const postAge = 14;
 const postComments = 45;
 
 
+// Card.js
 const Card = () => {
-
     // Inline style variables and objects.
     const themeColors = useThemeColors();
     const accentColor = themeColors.accent;
@@ -25,33 +26,12 @@ const Card = () => {
 
     return (
         <div className="card-container" style={primaryText}>
-            <div className="user">
-                <FaUserCircle color={accentColor} size="20" />
-                <p className="username" >{username}</p>
-            </div>
             <div className="card" style={borderColor}>
-                <p className="post-title">{postTitle}</p>
-                <img
-                    className="post-image"
-                    src={sampleImage}
-                    alt="example"
-                />
-                <p className="post-text" style={secondaryText}>{postText}</p>
-                <div className="post-info">
-                    <div className="karma-score">
-                        <FaYinYang color={accentColor} size="20" /><span>{postAuthorKarma}</span>
-                    </div>
-                    <div className="post-age">
-                        <FaRegClock color={accentColor} size="20" /><span>{postAge} Hours</span>
-                    </div>
-                    <div className="post-comments">
-                        <FaRegComment color={accentColor} size="20" /><span>{postComments}</span>
-                    </div>
-                </div>
+                <UserInfo username={username} accentColor={accentColor} />
+                <CardContent postTitle={postTitle} postText={postText} borderColor={borderColor} secondaryText={secondaryText} />
+                <PostInfo postAuthorKarma={postAuthorKarma} postAge={postAge} postComments={postComments} accentColor={accentColor} />
             </div>
-            <div className="arrest">
-                <GiHandcuffs color={accentColor} size="20" /> <span>Arrest This Man/Girl</span>
-            </div>
+            <ArrestAction accentColor={accentColor} />
         </div>
     );
 };
