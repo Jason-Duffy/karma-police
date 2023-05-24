@@ -9,6 +9,7 @@ const SubredditMenu = () => {
 
     // Get theme objects and variables
     const background = useThemeObject("backgroundColor", "border");
+    const primaryText = useThemeObject("color", "primaryText");
     const secondaryText = useThemeObject("color", "secondaryText");
     const accentColor = useThemeObject("color", "accent");
 
@@ -22,7 +23,7 @@ const SubredditMenu = () => {
 
     return (
         <div className="subredditMenu" style={background}>
-            <p>Subreddit</p>
+            <p style={primaryText}>Subreddit</p>
             <ul id="sr-list" style={secondaryText}>
                 {
                     subredditList.map((subreddit, i) => {
