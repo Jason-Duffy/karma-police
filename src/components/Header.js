@@ -1,5 +1,5 @@
 import React from "react";
-import { useThemeColors, useThemeObject } from '../hooks/themeHooks';
+import { useThemeObject } from '../hooks/themeHooks';
 import '../stylesheets/Header.css'
 import DisplayToggle from './DisplayToggle';
 import Searchbar from './Searchbar';
