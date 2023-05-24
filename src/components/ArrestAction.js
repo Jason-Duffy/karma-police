@@ -1,5 +1,6 @@
 import React from "react";
 import { GiHandcuffs } from "react-icons/gi";
+import "../stylesheets/ArrestAction.css";
 
 const ArrestAction = ({ accentColor }) => (
     <div className="arrest">

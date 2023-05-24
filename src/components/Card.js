@@ -26,8 +26,8 @@ const Card = () => {
 
     return (
         <div className="card-container" style={primaryText}>
+            <UserInfo username={username} accentColor={accentColor} />
             <div className="card" style={borderColor}>
-                <UserInfo username={username} accentColor={accentColor} />
                 <CardContent postTitle={postTitle} postText={postText} borderColor={borderColor} secondaryText={secondaryText} />
                 <PostInfo postAuthorKarma={postAuthorKarma} postAge={postAge} postComments={postComments} accentColor={accentColor} />
             </div>

@@ -1,5 +1,6 @@
 import React from "react";
 import { FaUserCircle } from "react-icons/fa";
+import "../stylesheets/UserInfo.css";
 
 const UserInfo = ({ username, accentColor }) => (
     <div className="user">

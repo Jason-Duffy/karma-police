@@ -1,4 +1,5 @@
 import React from "react";
+import "../stylesheets/CardContent.css";
 import sampleImage from '../images/istockphoto-1347249753-2048x2048.jpg';
 
 const CardContent = ({ postTitle, postText, borderColor, secondaryText }) => (

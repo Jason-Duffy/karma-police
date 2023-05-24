@@ -1,0 +1,14 @@
+.post-title {
+    align-self: flex-start;
+}
+
+.post-image {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    width: 80%;
+    height: auto;
+}
+
+.post-text {
+    margin-bottom: 10px;
+}
