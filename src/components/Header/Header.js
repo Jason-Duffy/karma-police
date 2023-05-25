@@ -6,7 +6,7 @@ import { useThemeObject } from '../../hooks/themeHooks';
 import DisplayToggle from './DisplayToggle/DisplayToggle';
 import Searchbar from './Searchbar/Searchbar';
 import MenuButton from "./MenuButton/MenuButton";
-import Sort from "../../elements/Sort/Sort";
+import Sort from "../../elements/SortButtons/SortButtons";
 import { selectMenuButtonState } from "../../redux/menuButtonSlice";
 // Style imports.
 import './Header.css';

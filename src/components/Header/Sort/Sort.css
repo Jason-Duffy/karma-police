@@ -1,0 +1,12 @@
+.sort {
+    height: 70px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 8px;
+}
+
+#sort-label {
+    align-self: flex-start;
+}

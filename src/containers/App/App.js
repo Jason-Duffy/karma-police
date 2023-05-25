@@ -7,7 +7,7 @@ import { selectTheme } from '../../redux/themeSlice';
 import { selectMenuButtonState } from '../../redux/menuButtonSlice';
 import Header from '../../components/Header/Header';
 import Card from '../../components/Card/Card';
-import Sort from '../../elements/Sort/Sort';
+import Sort from '../../components/Header/Sort/Sort';
 import SubredditMenu from '../../components/Sidebar/SubredditMenu/SubredditMenu';
 // Style imports
 import './App.css';
