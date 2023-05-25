@@ -4,10 +4,10 @@ import { selectTheme } from '../redux/themeSlice';
 import { useThemeColors, useThemeObject } from '../hooks/themeHooks';
 import '../stylesheets/App.css';
 import '../stylesheets/globalStyles.css';
-import Header from './Header';
-import Card from './Card';
-import Sort from './Sort';
-import SubredditMenu from './SubredditMenu';
+import Header from '../components/Header/Header';
+import Card from '../components/Card';
+import Sort from '../components/Sort';
+import SubredditMenu from '../components/SubredditMenu';
 import { selectMenuButtonState } from '../redux/menuButtonSlice';
 
 export default function App() {

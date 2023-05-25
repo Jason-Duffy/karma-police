@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { useThemeColors } from '../hooks/themeHooks';
-import '../stylesheets/Searchbar.css';
+import { useThemeColors } from '../../../hooks/themeHooks';
+import '../../../stylesheets/Searchbar.css';
 
 const Searchbar = () => {
 

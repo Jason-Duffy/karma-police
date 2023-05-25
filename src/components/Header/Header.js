@@ -1,11 +1,12 @@
 import React from "react";
-import { useThemeObject } from '../hooks/themeHooks';
-import '../stylesheets/Header.css'
-import DisplayToggle from './DisplayToggle';
-import Searchbar from './Searchbar';
+import { useThemeObject } from '../../hooks/themeHooks';
+import '../../stylesheets/Header.css'
+import DisplayToggle from '../DisplayToggle';
+import Searchbar from './Searchbar/Searchbar';
 import MenuButton from "./MenuButton";
+import Sort from "../Sort";
 import { useSelector } from 'react-redux';
-import { selectMenuButtonState } from "../redux/menuButtonSlice";
+import { selectMenuButtonState } from "../../redux/menuButtonSlice";
 
 const Header = () => {
 
@@ -41,6 +42,8 @@ const Header = () => {
                     <Searchbar />
                 </div>
                 <div className="menu-block" id="block-2" style={menuBackground}>
+                    <MenuButton />
+                    <Sort />
                 </div>
             </div>
         </div>

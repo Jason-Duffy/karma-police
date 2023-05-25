@@ -1,8 +1,8 @@
 import React from "react";
 import { HiMenu } from "react-icons/hi";
-import { useThemeColors, useThemeObject } from '../hooks/themeHooks';
+import { useThemeColors, useThemeObject } from '../../hooks/themeHooks';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectMenuButtonState, toggleMenuButtonState } from "../redux/menuButtonSlice";
+import { selectMenuButtonState, toggleMenuButtonState } from "../../redux/menuButtonSlice";
 import "../stylesheets/MenuButton.css"
 
 

@@ -1,9 +1,9 @@
 import React from "react";
 import { useDispatch, useSelector } from 'react-redux';
-import { useThemeObject } from "../hooks/themeHooks";
+import { useThemeObject } from "../../hooks/themeHooks";
 import '../stylesheets/SubredditMenu.css';
 import subredditList from '../data/subreddits.json';
-import { setSubreddit, selectSubreddit } from "../redux/subredditSlice";
+import { setSubreddit, selectSubreddit } from "../../redux/subredditSlice";
 
 const SubredditMenu = () => {
 

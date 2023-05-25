@@ -1,5 +1,5 @@
 import React from "react";
-import { useThemeColors, useThemeObject } from '../hooks/themeHooks';
+import { useThemeColors, useThemeObject } from '../../hooks/themeHooks';
 import UserInfo from "./UserInfo";
 import CardContent from "./CardContent";
 import PostInfo from "./PostInfo";

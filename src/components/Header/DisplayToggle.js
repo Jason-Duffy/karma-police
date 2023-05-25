@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { toggleTheme, selectTheme } from '../redux/themeSlice';
+import { toggleTheme, selectTheme } from '../../redux/themeSlice';
 import { FaMoon, FaSun } from "react-icons/fa";
 import '../stylesheets/DisplayToggle.css';
 
