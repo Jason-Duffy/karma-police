@@ -1,0 +1,13 @@
+.menuIcon {
+    border-radius: 20px;
+    margin-left: 40px;
+    transition: transform 0.3s ease;
+}
+
+.menuIcon.rotate {
+    transform: rotate(-90deg);
+}
+
+.menu-container {
+    position: relative;
+}

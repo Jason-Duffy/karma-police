@@ -8,6 +8,7 @@ import Header from './Header';
 import Card from './Card';
 import Sort from './Sort';
 import SubredditMenu from './SubredditMenu';
+import { selectMenuButtonState } from '../redux/menuButtonSlice';
 
 export default function App() {
 
@@ -25,7 +26,20 @@ export default function App() {
   // Set body element to background colour from theme.
   document.body.style.backgroundColor = themeColors.background;
 
-  
+  // Blur the site when the menu is open. 
+  const menuButtonState = useSelector(selectMenuButtonState);
+
+  useEffect(() => {
+    const pageContainer = document.querySelector('.main-content');
+
+    if (menuButtonState === 'open') {
+      pageContainer.classList.add('blur');
+    } else {
+      pageContainer.classList.remove('blur');
+    }
+  }, [menuButtonState]);
+
+
   return (
     <div className="page-container" style={background}>
       <div className="container-wrap">
@@ -34,7 +48,7 @@ export default function App() {
           <div className='main-content'>
             <Card />
           </div>
-          <div className='sidebar'>
+          <div className='sidebar desktop'>
             <Sort />
             <SubredditMenu />
           </div>

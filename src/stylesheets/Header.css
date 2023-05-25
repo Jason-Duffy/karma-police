@@ -1,3 +1,7 @@
+.header-container {
+    
+}
+
 .header {
     display: flex;
     justify-content: space-between;
@@ -5,8 +9,8 @@
     height: 60px;
     position: fixed;
     width: 100%;
-    z-index: 10;
-  }
+    z-index: 3;
+}
 
 .logo {
     padding-left: 25px;
@@ -19,4 +23,69 @@
     justify-content: space-between;
     align-items: center;
     column-gap: 25px;
+}
+
+.menu-container {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 60px;
+    row-gap: 5px;
+    z-index: 2;
+}
+
+.menu-block {
+    height: 60px;
+    border-radius: 8px;
+}
+
+.menu-container.mobile.hidden {
+    display: none;
+}
+
+.menu-container.mobile {
+    position: absolute;
+    /* start at the bottom of the header */
+    transition: transform 0.3s ease-out;
+    /* transition will affect the transform property */
+}
+
+.menu-container.mobile.open {
+    transform: translateY(0);
+    /* open state: translate down by its own height */
+
+}
+
+.menu-container.mobile.closed {
+    transform: translateY(-101%);
+    /* closed state: normal position */
+}
+
+
+#block-1 {
+
+}
+
+#block-2 {
+    margin-top: 5px;
+}
+
+.mobile {
+    display: none;
+}
+
+@media only screen and (max-width: 768px) {
+    .header {
+        justify-content: center;
+    }
+
+    .desktop {
+        display: none;
+    }
+
+    .mobile {
+        display: block;
+    }
 }

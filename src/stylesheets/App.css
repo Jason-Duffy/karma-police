@@ -20,9 +20,10 @@
 .main-content {
     width: 70%;
     height: 100%;
-    margin-top: 64px;
+    margin-top: 104px;
     margin-left: 30px;
     display: inline-flex;
+    position: relative;
 }
 
 .sidebar {
@@ -36,4 +37,23 @@
     align-items: center;
     flex-direction: column;
     row-gap: 30px;
+}
+
+.blur {
+    filter: blur(5px);  /* Adjust this value to your liking */
+    transition: filter 0.3s ease;
+}
+
+@media only screen and (max-width: 768px) {
+    .App {
+        display: flex;
+        justify-content: center;
+    }
+    
+    .main-content {
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+        min-width: 365px;
+    }
 }
