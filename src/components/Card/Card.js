@@ -1,10 +1,14 @@
+// React module imports.
 import React from "react";
+// Local imports.
 import { useThemeColors, useThemeObject } from '../../hooks/themeHooks';
-import UserInfo from "./UserInfo";
-import CardContent from "./CardContent";
-import PostInfo from "./PostInfo";
-import ArrestAction from "./ArrestAction";
-import '../stylesheets/Card.css';
+import UserInfo from "./UserInfo/UserInfo";
+import CardContent from "./CardContent/CardContent";
+import PostInfo from "./PostInfo/PostInfo";
+import ArrestAction from "./ArrestAction/ArrestAction";
+// Style imports.
+import '../../stylesheets/globalStyles.css';
+import './Card.css';
 
 
 const username = "User65529";
@@ -25,9 +29,9 @@ const Card = () => {
     const borderColor = useThemeObject("backgroundColor", "border");
 
     return (
-        <div className="card-container" style={primaryText}>
+        <div className="card-container flex" style={primaryText}>
             <UserInfo username={username} accentColor={accentColor} />
-            <div className="card" style={borderColor}>
+            <div className="card flex" style={borderColor}>
                 <CardContent postTitle={postTitle} postText={postText} borderColor={borderColor} secondaryText={secondaryText} />
                 <PostInfo postAuthorKarma={postAuthorKarma} postAge={postAge} postComments={postComments} accentColor={accentColor} />
             </div>

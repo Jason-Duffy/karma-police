@@ -1,9 +1,12 @@
+// React module imports.
 import React from "react";
-import '../stylesheets/Sort.css';
-import { useThemeObject, useThemeColors } from "../hooks/themeHooks";
 import { FaArrowCircleDown, FaArrowCircleUp } from "react-icons/fa";
 import { useDispatch, useSelector } from 'react-redux';
-import { setSortOrder, selectSort } from "../redux/sortSlice";
+// Local imports.
+import { useThemeObject, useThemeColors } from "../../hooks/themeHooks";
+import { setSortOrder, selectSort } from "../../redux/sortSlice";
+// Style imports.
+import './Sort.css';
 
 const Sort = () => {
 

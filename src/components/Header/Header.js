@@ -1,12 +1,16 @@
+// React module imports.
 import React from "react";
-import { useThemeObject } from '../../hooks/themeHooks';
-import '../../stylesheets/Header.css'
-import DisplayToggle from '../DisplayToggle';
-import Searchbar from './Searchbar/Searchbar';
-import MenuButton from "./MenuButton";
-import Sort from "../Sort";
 import { useSelector } from 'react-redux';
+// Local imports.
+import { useThemeObject } from '../../hooks/themeHooks';
+import DisplayToggle from './DisplayToggle/DisplayToggle';
+import Searchbar from './Searchbar/Searchbar';
+import MenuButton from "./MenuButton/MenuButton";
+import Sort from "../../elements/Sort/Sort";
 import { selectMenuButtonState } from "../../redux/menuButtonSlice";
+// Style imports.
+import './Header.css';
+
 
 const Header = () => {
 

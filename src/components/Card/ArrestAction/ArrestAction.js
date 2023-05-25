@@ -1,9 +1,13 @@
+// React module imports.
 import React from "react";
 import { GiHandcuffs } from "react-icons/gi";
-import "../stylesheets/ArrestAction.css";
+// Local imports.
+import "./ArrestAction.css";
+// Style imports.
+
 
 const ArrestAction = ({ accentColor }) => (
-    <div className="arrest">
+    <div className="arrest flex">
         <GiHandcuffs color={accentColor} size="20" /> <span>Arrest This Man/Girl</span>
     </div>
 );

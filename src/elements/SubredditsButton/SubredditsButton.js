@@ -1,4 +1,7 @@
+// React module imports.
 import React from "react";
+// Local imports.
+// Style imports.
 
 const SubredditsButton = () => {
     return (

@@ -4,3 +4,11 @@ p {
     margin-left: 10px;
     margin-top: 10px;
 }
+
+.flex {
+    display: flex;
+}
+
+.inline-flex {
+    display: inline-flex;
+}

@@ -1,6 +1,10 @@
+// React module imports.
 import React from "react";
-import "../stylesheets/CardContent.css";
-import sampleImage from '../images/istockphoto-1347249753-2048x2048.jpg';
+// Local imports.
+import sampleImage from '../../../assets/images/istockphoto-1347249753-2048x2048.jpg';
+// Style imports. 
+import "./CardContent.css";
+
 
 const CardContent = ({ postTitle, postText, borderColor, secondaryText }) => (
     <div className="card" style={borderColor}>

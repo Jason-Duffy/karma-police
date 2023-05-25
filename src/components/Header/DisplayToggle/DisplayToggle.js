@@ -1,8 +1,12 @@
+// React module imports.
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { toggleTheme, selectTheme } from '../../redux/themeSlice';
 import { FaMoon, FaSun } from "react-icons/fa";
-import '../stylesheets/DisplayToggle.css';
+// Local imports.
+import { toggleTheme, selectTheme } from '../../../redux/themeSlice';
+// Style imports.
+import './DisplayToggle.css';
+
 
 const Icon = () => {
     const dispatch = useDispatch();

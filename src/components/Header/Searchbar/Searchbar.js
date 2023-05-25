@@ -1,6 +1,10 @@
+// React module imports.
 import React, { useState } from 'react';
+// Local imports.
 import { useThemeColors } from '../../../hooks/themeHooks';
-import '../../../stylesheets/Searchbar.css';
+// Style imports.
+import './Searchbar.css';
+
 
 const Searchbar = () => {
 
