@@ -12,7 +12,7 @@ const Header = () => {
     const background = useThemeObject("backgroundColor", "background");
     const accentColor = useThemeObject("color", "accent");
     const borderColor = useThemeObject("color", "secondaryText");
-    const menuBackground = useThemeObject("backgroundColor", "primaryText");
+    const menuBackground = useThemeObject("backgroundColor", "background");
 
     // Get and manage the current menu state
     const menuButtonState = useSelector(selectMenuButtonState);
@@ -28,7 +28,7 @@ const Header = () => {
                     <span className="police" style={borderColor}>POLICE</span>
                 </h1>
                 <div className="rightSide desktop">
-                    <DisplayToggle id="icon" />
+                    <DisplayToggle />
                     <Searchbar />
                 </div>
                 <div className="menuButton mobile">
@@ -37,10 +37,10 @@ const Header = () => {
             </div>
             <div className={menuContainerClass}>
                 <div className="menu-block" id="block-1" style={menuBackground}>
-
+                    <DisplayToggle />
+                    <Searchbar />
                 </div>
                 <div className="menu-block" id="block-2" style={menuBackground}>
-
                 </div>
             </div>
         </div>
