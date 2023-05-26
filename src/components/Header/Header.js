@@ -8,6 +8,7 @@ import Searchbar from './Searchbar/Searchbar';
 import MenuButton from "./MenuButton/MenuButton";
 import Sort from "../../elements/SortButtons/SortButtons";
 import SubredditsButton from "../../elements/SubredditsButton/SubredditsButton";
+import SubredditList from "../../elements/SubredditList/SubredditList";
 import { selectMenuButtonState } from "../../redux/menuButtonSlice";
 // Style imports.
 import './Header.css';
@@ -49,6 +50,9 @@ const Header = () => {
                 <div className="menu-block" id="block-2" style={menuBackground}>
                     <SubredditsButton />
                     <Sort />
+                </div>
+                <div className="list-block" id="block-3" style={menuBackground}>
+                    <SubredditList />
                 </div>
             </div>
         </div>

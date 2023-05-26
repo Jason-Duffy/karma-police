@@ -2,18 +2,14 @@
 import React from "react";
 import { useDispatch, useSelector } from 'react-redux';
 // Local imports.
-import { useThemeObject } from "../../../hooks/themeHooks";
-import subredditList from '../../../assets/data/subreddits.json';
-import { setSubreddit, selectSubreddit } from "../../../redux/subredditSlice";
+import subredditList from '../../assets/data/subreddits.json';
+import { setSubreddit, selectSubreddit } from "../../redux/subredditSlice";
+import { useThemeObject } from "../../hooks/themeHooks";
 // Style imports.
-import './SubredditMenu.css';
+import './SubredditList.css';
 
+const SubredditList = () => {
 
-const SubredditMenu = () => {
-
-    // Get theme objects and variables
-    const background = useThemeObject("backgroundColor", "border");
-    const primaryText = useThemeObject("color", "primaryText");
     const secondaryText = useThemeObject("color", "secondaryText");
     const accentColor = useThemeObject("color", "accent");
 
@@ -26,8 +22,7 @@ const SubredditMenu = () => {
     };
 
     return (
-        <div className="subredditMenu" style={background}>
-            <p style={primaryText}>Subreddit</p>
+        <div>
             <ul id="sr-list" style={secondaryText}>
                 {
                     subredditList.map((subreddit, i) => {
@@ -55,4 +50,4 @@ const SubredditMenu = () => {
     );
 };
 
-export default SubredditMenu;
+export default SubredditList;

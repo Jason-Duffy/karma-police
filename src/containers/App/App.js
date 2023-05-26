@@ -8,7 +8,7 @@ import { selectMenuButtonState } from '../../redux/menuButtonSlice';
 import Header from '../../components/Header/Header';
 import Card from '../../components/Card/Card';
 import Sort from '../../components/Header/Sort/Sort';
-import SubredditMenu from '../../components/Sidebar/SubredditMenu/SubredditMenu';
+import Sidebar from '../../components/Sidebar/Sidebar';
 // Style imports
 import './App.css';
 import '../../stylesheets/globalStyles.css';
@@ -55,7 +55,7 @@ export default function App() {
           </div>
           <div className='sidebar inline-flex desktop'>
             <Sort />
-            <SubredditMenu />
+            <Sidebar />
           </div>
         </div>
       </div>
