@@ -22,17 +22,26 @@ const Header = () => {
     const borderColor = useThemeObject("color", "secondaryText");
     const menuBackground = useThemeObject("backgroundColor", "background");
 
-    // Get and manage the current menu state
+    // Get and manage the current menu and subreddit button states
     const menuButtonState = useSelector(selectMenuButtonState);
-
-    // Conditional className
-    const menuContainerClass = `menu-container mobile ${menuButtonState === 'open' ? 'open' : 'closed'}`;
-
-    // Get and manage the current subreddit button state
     const subredditButtonState = useSelector(selectSubredditButtonState);
 
+    // Conditional classNames
+    let menuContainerClass = '';
+
+    if (menuButtonState === 'open') {
+        menuContainerClass = 'menu-container mobile open';
+    } else {
+        menuContainerClass = 'menu-container mobile closed';
+    }
+
     // Conditional className
-    const srListContainerClass = `sr-list-container mobile ${subredditButtonState === 'open' ? 'open' : 'closed'}`;
+    let srListContainerClass = '';
+    if (subredditButtonState === 'open' && menuButtonState === 'open') {
+        srListContainerClass = 'sr-list-container mobile open';
+    } else {
+        srListContainerClass = 'sr-list-container mobile closed';
+    }
 
     return (
         <div className="header-container" style={background}>

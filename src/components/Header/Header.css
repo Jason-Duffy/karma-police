@@ -75,15 +75,11 @@
 
 .sr-list-container.mobile {
     position: absolute;
-    /* start at the bottom of the header */
-    transition: transform 0.3s ease-out;
-    /* transition will affect the transform property */
+    width: 100%;
 }
 
 .sr-list-container.mobile.open {
-    transform: translateY(0);
-    /* open state: translate down by its own height */
-
+    display: block;
 }
 
 .sr-list-container.mobile.closed {
