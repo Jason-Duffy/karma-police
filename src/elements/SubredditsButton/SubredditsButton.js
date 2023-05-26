@@ -1,7 +1,9 @@
 // React module imports.
-import React, { useState } from "react";
+import React from "react";
+import { useDispatch } from 'react-redux';
 // Local imports.
 import { useThemeObject, useThemeColors } from "../../hooks/themeHooks";
+import { toggleSubredditButtonState } from "../../redux/subredditButtonSlice";
 // Style imports.
 import './SubredditsButton.css';
 
@@ -13,23 +15,19 @@ const SubredditsButton = () => {
     const themeColors = useThemeColors();
     const buttonText = themeColors.primaryText;
 
-    const [isOpen, setIsOpen] = useState(false);
+    const dispatch = useDispatch();
 
-    const toggleMenuButtonState = () => {
-        setIsOpen(prevState => !prevState);
-      };
-
-    // Conditional className
-    const subredditsButtonClass = isOpen ? 'subredditsIcon menu-open' : 'subredditsIcon';
+    const toggleSubredditButton = () => {
+        dispatch(toggleSubredditButtonState());
+    };
 
     return (
         <div className="subreddits-button-container">
             <button
                 id="subreddits-button"
-                className={subredditsButtonClass}
                 type="button"
                 style={buttonStyle}
-                onClick={toggleMenuButtonState}
+                onClick={toggleSubredditButton}
             >
                 <span id="subreddits-button-label" style={{color: buttonText}}>Subreddits</span>
             </ button>

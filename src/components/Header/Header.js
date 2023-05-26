@@ -10,6 +10,7 @@ import Sort from "../../elements/SortButtons/SortButtons";
 import SubredditsButton from "../../elements/SubredditsButton/SubredditsButton";
 import SubredditList from "../../elements/SubredditList/SubredditList";
 import { selectMenuButtonState } from "../../redux/menuButtonSlice";
+import { selectSubredditButtonState } from "../../redux/subredditButtonSlice";
 // Style imports.
 import './Header.css';
 
@@ -26,6 +27,12 @@ const Header = () => {
 
     // Conditional className
     const menuContainerClass = `menu-container mobile ${menuButtonState === 'open' ? 'open' : 'closed'}`;
+
+    // Get and manage the current subreddit button state
+    const subredditButtonState = useSelector(selectSubredditButtonState);
+
+    // Conditional className
+    const srListContainerClass = `sr-list-container mobile ${subredditButtonState === 'open' ? 'open' : 'closed'}`;
 
     return (
         <div className="header-container" style={background}>
@@ -51,8 +58,10 @@ const Header = () => {
                     <SubredditsButton />
                     <Sort />
                 </div>
-                <div className="list-block" id="block-3" style={menuBackground}>
-                    <SubredditList />
+                <div className={srListContainerClass}>
+                    <div className="list-block " id="block-3" style={menuBackground}>
+                        <SubredditList />
+                    </div>
                 </div>
             </div>
         </div>

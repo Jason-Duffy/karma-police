@@ -73,6 +73,24 @@
     /* closed state: normal position */
 }
 
+.sr-list-container.mobile {
+    position: absolute;
+    /* start at the bottom of the header */
+    transition: transform 0.3s ease-out;
+    /* transition will affect the transform property */
+}
+
+.sr-list-container.mobile.open {
+    transform: translateY(0);
+    /* open state: translate down by its own height */
+
+}
+
+.sr-list-container.mobile.closed {
+    display: none;
+    /* closed state: normal position */
+}
+
 
 #block-1 {
 
