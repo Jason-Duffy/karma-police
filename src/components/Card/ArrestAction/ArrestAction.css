@@ -1,4 +1,5 @@
 .arrest {
     margin-top: 5px;
     column-gap: 10px;
+    cursor: pointer;
 }

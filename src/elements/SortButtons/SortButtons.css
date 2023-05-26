@@ -8,10 +8,12 @@
 
 .up-arrow {
     filter: drop-shadow(1px 1px 1px black);
+    cursor: pointer;
 }
 
 .down-arrow {
     filter: drop-shadow(1px 1px 1px black);
+    cursor: pointer;
 }
 
 .selected {

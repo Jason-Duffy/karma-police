@@ -27,7 +27,9 @@ const Icon = () => {
 const DisplayToggle = () => {
 
     return (
-        <Icon className="icon" />
+        <div className='theme-icon'>
+            <Icon />
+        </div>
     );
 }
 
