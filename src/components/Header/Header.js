@@ -7,6 +7,7 @@ import DisplayToggle from './DisplayToggle/DisplayToggle';
 import Searchbar from './Searchbar/Searchbar';
 import MenuButton from "./MenuButton/MenuButton";
 import Sort from "../../elements/SortButtons/SortButtons";
+import SubredditsButton from "../../elements/SubredditsButton/SubredditsButton";
 import { selectMenuButtonState } from "../../redux/menuButtonSlice";
 // Style imports.
 import './Header.css';
@@ -46,7 +47,7 @@ const Header = () => {
                     <Searchbar />
                 </div>
                 <div className="menu-block" id="block-2" style={menuBackground}>
-                    <MenuButton />
+                    <SubredditsButton />
                     <Sort />
                 </div>
             </div>
