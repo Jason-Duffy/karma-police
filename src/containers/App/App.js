@@ -50,10 +50,10 @@ export default function App() {
       <div className="container-wrap">
         <div className="App">
           <Header />
-          <div className='main-content inline-flex'>
+          <div className='main-content'>
             <Card />
           </div>
-          <div className='sidebar inline-flex desktop'>
+          <div className='sidebar-container desktop'>
             <Sort />
             <Sidebar />
           </div>
