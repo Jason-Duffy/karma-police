@@ -1,7 +1,6 @@
 // React module imports.
 import React from "react";
 // Local imports.
-import sampleImage from '../../../../assets/images/istockphoto-1347249753-2048x2048.jpg';
 // Style imports. 
 import "./CardContent.css";
 

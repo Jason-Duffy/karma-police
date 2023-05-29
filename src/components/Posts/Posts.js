@@ -48,6 +48,7 @@ const Posts = () => {
                             title={post.title}
                             username={post.author}
                             imageUrl={post.url}
+                            postText={post.selftext}
                             key={i}
                         />
                     )
