@@ -6,9 +6,9 @@ import { useThemeColors, useThemeObject } from '../../hooks/themeHooks';
 import { selectTheme } from '../../redux/themeSlice';
 import { selectMenuButtonState } from '../../redux/menuButtonSlice';
 import Header from '../../components/Header/Header';
-import Card from '../../components/Card/Card';
 import Sort from '../../components/Header/Sort/Sort';
 import Sidebar from '../../components/Sidebar/Sidebar';
+import Posts from '../../components/Posts/Posts';
 // Style imports
 import './App.css';
 import '../../stylesheets/globalStyles.css';
@@ -51,7 +51,7 @@ export default function App() {
         <div className="App">
           <Header />
           <div className='main-content'>
-            <Card />
+            <Posts />
           </div>
           <div className='sidebar-container desktop'>
             <Sort />
