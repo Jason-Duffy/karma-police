@@ -46,6 +46,8 @@ const Posts = () => {
                     return (
                         <Card
                             title={post.title}
+                            username={post.author}
+                            imageUrl={post.url}
                             key={i}
                         />
                     )

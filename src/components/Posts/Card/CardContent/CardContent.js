@@ -6,12 +6,12 @@ import sampleImage from '../../../../assets/images/istockphoto-1347249753-2048x2
 import "./CardContent.css";
 
 
-const CardContent = ({ postTitle, postText, borderColor, secondaryText }) => (
+const CardContent = ({ postTitle, postText, borderColor, secondaryText, image }) => (
     <div className="card" style={borderColor}>
         <p className="post-title">{postTitle}</p>
         <img
             className="post-image"
-            src={sampleImage}
+            src={image}
             alt="example"
         />
         <p className="post-text" style={secondaryText}>{postText}</p>
