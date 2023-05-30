@@ -49,6 +49,8 @@ const Posts = () => {
                             username={post.author}
                             imageUrl={post.url}
                             postText={post.selftext}
+                            media={post.media}
+                            isVideo={post.is_video}
                             key={i}
                         />
                     )

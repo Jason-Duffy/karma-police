@@ -2,6 +2,7 @@
     align-self: flex-start;
 }
 
+/*
 .post-image {
     margin-top: 20px;
     margin-bottom: 10px;
@@ -9,7 +10,16 @@
     height: auto;
     max-width: 760px;
 }
+*/
 
 .post-text {
     margin-bottom: 10px;
 }
+
+.post-image {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    width: auto;
+    height: 65vh;
+  }
+  

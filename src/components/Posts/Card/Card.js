@@ -18,7 +18,7 @@ const postComments = 45;
 
 
 // Card.js
-const Card = ({ title, username, imageUrl, postText }) => {
+const Card = ({ title, username, imageUrl, postText, media, isVideo }) => {
     // Inline style variables and objects.
     const themeColors = useThemeColors();
     const accentColor = themeColors.accent;
@@ -36,6 +36,8 @@ const Card = ({ title, username, imageUrl, postText }) => {
                     borderColor={borderColor}
                     secondaryText={secondaryText}
                     image={imageUrl}
+                    media={media}
+                    isVideo={isVideo}
                 />
                 <PostInfo
                     postAuthorKarma={postAuthorKarma}
