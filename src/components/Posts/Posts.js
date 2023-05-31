@@ -47,10 +47,12 @@ const Posts = () => {
                         <Card
                             title={post.title}
                             username={post.author}
+                            postHint={post.post_hint}
                             imageUrl={post.url}
                             postText={post.selftext}
                             media={post.media}
                             isVideo={post.is_video}
+                            pollData={post.poll_data}
                             key={i}
                         />
                     )

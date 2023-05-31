@@ -7,7 +7,6 @@ import CardContent from "./CardContent/CardContent";
 import PostInfo from "./PostInfo/PostInfo";
 import ArrestAction from "./ArrestAction/ArrestAction";
 // Style imports.
-import '../../../stylesheets/globalStyles.css';
 import './Card.css';
 
 
@@ -18,7 +17,7 @@ const postComments = 45;
 
 
 // Card.js
-const Card = ({ title, username, imageUrl, postText, media, isVideo }) => {
+const Card = ({ title, username, imageUrl, postText, media, isVideo, pollData, postHint }) => {
     // Inline style variables and objects.
     const themeColors = useThemeColors();
     const accentColor = themeColors.accent;
@@ -27,9 +26,9 @@ const Card = ({ title, username, imageUrl, postText, media, isVideo }) => {
     const borderColor = useThemeObject("backgroundColor", "border");
 
     return (
-        <div className="card-container flex" style={primaryText}>
+        <div className="card-container" style={primaryText}>
             <UserInfo username={username} accentColor={accentColor} />
-            <div className="card flex" style={borderColor}>
+            <div className="card" style={borderColor}>
                 <CardContent
                     postTitle={title}
                     postText={postText}
@@ -38,6 +37,8 @@ const Card = ({ title, username, imageUrl, postText, media, isVideo }) => {
                     image={imageUrl}
                     media={media}
                     isVideo={isVideo}
+                    pollData={pollData}
+                    postHint={postHint}
                 />
                 <PostInfo
                     postAuthorKarma={postAuthorKarma}

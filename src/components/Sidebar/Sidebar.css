@@ -1,9 +1,18 @@
 .Sidebar {
-    display: flex;
     min-height: 100px;
-    margin-top: 30px;
-    align-items: flex-start;
-    flex-direction: column;
-    row-gap: 10px;
+    margin-top: 20px;
     border-radius: 8px;
+    position: fixed;
+    width: inherit;
+}
+
+.sidebar-sort {
+    margin-bottom: 110px;
+    width: inherit;
+}
+
+.sidebar-sr-list {
+    border-radius: inherit;
+    display: flex;
+    flex-direction: column;
 }

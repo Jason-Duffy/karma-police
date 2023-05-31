@@ -6,7 +6,6 @@ import { useThemeColors, useThemeObject } from '../../hooks/themeHooks';
 import { selectTheme } from '../../redux/themeSlice';
 import { selectMenuButtonState } from '../../redux/menuButtonSlice';
 import Header from '../../components/Header/Header';
-import Sort from '../../components/Header/Sort/Sort';
 import Sidebar from '../../components/Sidebar/Sidebar';
 import Posts from '../../components/Posts/Posts';
 // Style imports
@@ -54,7 +53,6 @@ export default function App() {
             <Posts />
           </div>
           <div className='sidebar-container desktop'>
-            <Sort />
             <Sidebar />
           </div>
         </div>
