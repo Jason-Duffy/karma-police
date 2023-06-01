@@ -2,6 +2,7 @@
 import React from "react";
 import he from 'he';
 // Local imports.
+import GalleryViewer from "./GalleryViewer/GalleryViewer";
 // Style imports. 
 import "./CardContent.css";
 
@@ -10,6 +11,15 @@ const CardContent = ({ postTitle, postText, borderColor, secondaryText, url, med
     // Remove escaped & character encodings from title.
     const decodedTitle = postTitle ? he.decode(postTitle.replace(/&amp;/g, '&')) : '';
 
+    // Extract decoded URLs from galleryData
+    let galleryImages = [];
+    if (galleryData) {
+        galleryImages = galleryData.items.map((item) => {
+            const galleryImageUrl = mediaMetaData && mediaMetaData[item.media_id].s.u;
+            // Remove escaped & character encodings from URL.
+            return galleryImageUrl ? he.decode(galleryImageUrl.replace(/&amp;/g, '&')) : '';
+        });
+    }
 
     // Function to determine media type and render accordingly.
     const renderMedia = () => {
@@ -56,22 +66,9 @@ const CardContent = ({ postTitle, postText, borderColor, secondaryText, url, med
         } else if (galleryData) {
             return (
                 <div className="image-container">
-                    {galleryData.items.map((item) => {
-                        // Remove query string from gallery image url
-                        const galleryImageUrl = mediaMetaData && mediaMetaData[item.media_id].s.u;
-                        const shortGalleryImageUrl = galleryImageUrl && galleryImageUrl.split("?")[0];
-                        console.log(galleryImageUrl);
-                        return (
-                            <img
-                                className="post-image"
-                                src={shortGalleryImageUrl}
-                                alt="gallery img"
-                                key={item.id}
-                            />
-                        )
-                    })}
+                    {galleryImages.length > 0 && <GalleryViewer images={galleryImages} />}
                 </div>
-            )
+            );
         } else {
             return <p>No media available</p>;
         }
