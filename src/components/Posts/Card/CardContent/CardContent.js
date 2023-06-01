@@ -69,6 +69,12 @@ const CardContent = ({ postTitle, postText, borderColor, secondaryText, url, med
                     {galleryImages.length > 0 && <GalleryViewer images={galleryImages} />}
                 </div>
             );
+        } else if (postHint === "link") {
+            return (
+                <div className="link-container">
+                    <a href={url} target="blank">{url}</a>
+                </div>
+            )
         } else {
             return <p>No media available</p>;
         }

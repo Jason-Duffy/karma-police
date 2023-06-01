@@ -1,73 +1,89 @@
 .card-content {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    border-radius: 8px;
-  }
-  
-  .post-title {
-    align-self: flex-start;
-    margin-bottom: 10px;
-  }
-  
-  .post-text {
-    margin-bottom: 10px;
-  }
-  
-  .video-container {
-    position: relative;
-    width: 100%;
-    padding-top: 56.25%; /* 16:9 aspect ratio */
-  }
-  
-  .video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border-radius: 8px;
+}
 
-  .image-container {
-    position: relative;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-  }
-  
-  .post-image {
-    margin-top: 20px;
-    margin-bottom: 10px;
-    max-height: 75vh;
-    max-width: 100%;
-    min-height: 50vh;
-    width: auto;
-  }
+.post-title {
+  align-self: flex-start;
+  margin-bottom: 10px;
+}
 
-  .poll-container {
+.post-text {
+  margin-bottom: 10px;
+}
 
-    display: flex;
-  }
+.video-container {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+  /* 16:9 aspect ratio */
+}
 
-  .poll-container a {
-    margin-left: 10px;
-    line-height: 20px;
-  }
+.video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
 
-  .poll-container ul {
-    margin-top: 25px;
-  }
+.image-container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
 
-  .poll-container a:link {
-   color: inherit;
-  }
+.post-image {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  max-height: 75vh;
+  max-width: 100%;
+  min-height: 50vh;
+  width: auto;
+}
 
-  .poll-container a:visited {
-    color: inherit;
-  }
+.poll-container {
 
-  .poll-container li{
-    line-height: 40px;
-    list-style-type: circle;
-    margin-left: 60px;
-  }
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.poll-container a {
+  margin-left: 10px;
+  line-height: 20px;
+}
+
+.poll-container ul {
+  margin-top: 25px;
+}
+
+.poll-container a:link {
+  color: inherit;
+}
+
+.poll-container a:visited {
+  color: inherit;
+}
+
+.poll-container li {
+  line-height: 40px;
+  list-style-type: circle;
+  margin-left: 60px;
+}
+
+.link-container a {
+  margin-left: 10px;
+  line-height: 20px;
+}
+
+.link-container a:link {
+  color: inherit;
+}
+
+.link-container a:visited {
+  color: inherit;
+}
