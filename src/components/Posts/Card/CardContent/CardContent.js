@@ -4,7 +4,7 @@ import React from "react";
 // Style imports. 
 import "./CardContent.css";
 
-const CardContent = ({ postTitle, postText, borderColor, secondaryText, image, media, isVideo, pollData, postHint }) => {
+const CardContent = ({ postTitle, postText, borderColor, secondaryText, url, media, isVideo, pollData, postHint }) => {
     const renderMedia = () => {
         if (media && media.type === "youtube.com") {
             const videoUrl = media.oembed.html.match(/src=["'](.*?)["']/)[1];
@@ -32,13 +32,13 @@ const CardContent = ({ postTitle, postText, borderColor, secondaryText, image, m
         } else if (postHint === "image" && !isVideo && !media) {
             return (
                 <div className="image-container">
-                    <img className="post-image" src={image} alt="example" />
+                    <img className="post-image" src={url} alt="example" />
                 </div>
             );
         } else if (pollData) {
             return (
               <div className="poll-container">
-                <a href={image} target="blank">{postText}</a>
+                <a href={url} target="blank">{postText}</a>
                 <ul>
                   {pollData.options.map((option) => (
                     <li key={option.id}>{option.text}</li>

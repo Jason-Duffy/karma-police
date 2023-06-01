@@ -37,7 +37,6 @@ const Posts = () => {
         fetchSubreddits();
     }, [currentSubreddit]);
 
-    // ...
 
     return (
         <div>
@@ -47,8 +46,10 @@ const Posts = () => {
                         <Card
                             title={post.title}
                             username={post.author}
+                            created={post.created} // New var
+                            comments={post.num_comments} // New var
                             postHint={post.post_hint}
-                            imageUrl={post.url}
+                            url={post.url}
                             postText={post.selftext}
                             media={post.media}
                             isVideo={post.is_video}

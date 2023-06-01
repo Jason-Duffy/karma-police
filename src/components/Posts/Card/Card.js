@@ -12,12 +12,21 @@ import './Card.css';
 
 //const postText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.";
 const postAuthorKarma = 227;
-const postAge = 14;
-const postComments = 45;
 
 
 // Card.js
-const Card = ({ title, username, imageUrl, postText, media, isVideo, pollData, postHint }) => {
+const Card = ({
+    title, 
+    username,
+    created, // New var
+    comments, // New var
+    postHint,
+    url,
+    postText,
+    media,
+    isVideo,
+    pollData
+}) => {
     // Inline style variables and objects.
     const themeColors = useThemeColors();
     const accentColor = themeColors.accent;
@@ -34,7 +43,7 @@ const Card = ({ title, username, imageUrl, postText, media, isVideo, pollData, p
                     postText={postText}
                     borderColor={borderColor}
                     secondaryText={secondaryText}
-                    image={imageUrl}
+                    url={url}
                     media={media}
                     isVideo={isVideo}
                     pollData={pollData}
@@ -42,8 +51,8 @@ const Card = ({ title, username, imageUrl, postText, media, isVideo, pollData, p
                 />
                 <PostInfo
                     postAuthorKarma={postAuthorKarma}
-                    postAge={postAge}
-                    postComments={postComments}
+                    created={created}
+                    comments={comments}
                     accentColor={accentColor}
                 />
             </div>

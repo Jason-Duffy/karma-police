@@ -1,10 +1,12 @@
 .post-info {
+    display: flex;
     width: 90%;
     justify-content: space-between;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
 }
 
 .karma-score, .post-age, .post-comments {
+    display: flex;
     column-gap: 5px;
     align-items: center;
 }
