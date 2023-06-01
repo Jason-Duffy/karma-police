@@ -37,7 +37,7 @@ const GalleryViewer = ({ images }) => {
                     onClick={handlePrevious} />
             ) : <></>}
 
-            <img src={currentImage} alt="Gallery Image" />
+            <img src={currentImage} alt="Gallery img" />
 
             {currentIndex < images.length - 1 ? (
                 <FaArrowAltCircleRight
