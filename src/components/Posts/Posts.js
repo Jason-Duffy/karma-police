@@ -54,6 +54,8 @@ const Posts = () => {
                             media={post.media}
                             isVideo={post.is_video}
                             pollData={post.poll_data}
+                            galleryData={post.gallery_data}
+                            mediaMetaData={post.media_metadata}
                             key={i}
                         />
                     )

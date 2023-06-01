@@ -5,7 +5,7 @@ import he from 'he';
 // Style imports. 
 import "./CardContent.css";
 
-const CardContent = ({ postTitle, postText, borderColor, secondaryText, url, media, isVideo, pollData, postHint }) => {
+const CardContent = ({ postTitle, postText, borderColor, secondaryText, url, media, isVideo, pollData, postHint, galleryData, mediaMetaData }) => {
 
     // Remove escaped & character encodings from title.
     const decodedTitle = postTitle ? he.decode(postTitle.replace(/&amp;/g, '&')) : '';
@@ -44,16 +44,35 @@ const CardContent = ({ postTitle, postText, borderColor, secondaryText, url, med
             );
         } else if (pollData) {
             return (
-              <div className="poll-container">
-                <a href={url} target="blank">{postText}</a>
-                <ul>
-                  {pollData.options.map((option) => (
-                    <li key={option.id}>{option.text}</li>
-                  ))}
-                </ul>
-              </div>
+                <div className="poll-container">
+                    <a href={url} target="blank">{postText}</a>
+                    <ul>
+                        {pollData.options.map((option) => (
+                            <li key={option.id}>{option.text}</li>
+                        ))}
+                    </ul>
+                </div>
             );
-          } else {
+        } else if (galleryData) {
+            return (
+                <div className="image-container">
+                    {galleryData.items.map((item) => {
+                        // Remove query string from gallery image url
+                        const galleryImageUrl = mediaMetaData && mediaMetaData[item.media_id].s.u;
+                        const shortGalleryImageUrl = galleryImageUrl && galleryImageUrl.split("?")[0];
+                        console.log(galleryImageUrl);
+                        return (
+                            <img
+                                className="post-image"
+                                src={shortGalleryImageUrl}
+                                alt="gallery img"
+                                key={item.id}
+                            />
+                        )
+                    })}
+                </div>
+            )
+        } else {
             return <p>No media available</p>;
         }
     };

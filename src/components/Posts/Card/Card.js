@@ -20,7 +20,9 @@ const Card = ({
     postText,
     media,
     isVideo,
-    pollData
+    pollData,
+    galleryData,
+    mediaMetaData
 }) => {
     // Inline style variables and objects.
     const themeColors = useThemeColors();
@@ -43,6 +45,8 @@ const Card = ({
                     isVideo={isVideo}
                     pollData={pollData}
                     postHint={postHint}
+                    galleryData={galleryData}
+                    mediaMetaData={mediaMetaData}
                 />
                 <PostInfo
                     username={username}
