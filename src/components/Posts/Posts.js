@@ -37,31 +37,29 @@ const Posts = () => {
         fetchSubreddits();
     }, [currentSubreddit]);
 
-
     return (
         <div>
-            {
-                subredditData.map((post, i) => {
-                    return (
-                        <Card
-                            title={post.title}
-                            username={post.author}
-                            created={post.created} // New var
-                            comments={post.num_comments} // New var
-                            postHint={post.post_hint}
-                            url={post.url}
-                            postText={post.selftext}
-                            media={post.media}
-                            isVideo={post.is_video}
-                            pollData={post.poll_data}
-                            galleryData={post.gallery_data}
-                            mediaMetaData={post.media_metadata}
-                            key={i}
-                        />
-                    )
-                })
-            }
-            <Card />
+            {subredditData.length > 0 ? (
+                subredditData.map((post, i) => (
+                    <Card
+                        title={post.title}
+                        username={post.author}
+                        created={post.created} // New var
+                        comments={post.num_comments} // New var
+                        postHint={post.post_hint}
+                        url={post.url}
+                        postText={post.selftext}
+                        media={post.media}
+                        isVideo={post.is_video}
+                        pollData={post.poll_data}
+                        galleryData={post.gallery_data}
+                        mediaMetaData={post.media_metadata}
+                        key={i}
+                    />
+                ))
+            ) : (
+                <p>Loading...</p>
+            )}
         </div>
     );
 };
