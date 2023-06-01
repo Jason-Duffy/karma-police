@@ -4,10 +4,13 @@
     align-items: center;
 }
 
-.gallery-viewer button {
-    padding: 10px;
-    border-radius: 8px;
-    height: 40px;
+.gallery-viewer-button {
+    filter: drop-shadow(1px 1px 1px black);
+    cursor: pointer;
+}
+
+.gallery-viewer-button:active{
+    filter: none;
 }
 
 .gallery-viewer img {
