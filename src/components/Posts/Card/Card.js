@@ -9,17 +9,12 @@ import ArrestAction from "./ArrestAction/ArrestAction";
 // Style imports.
 import './Card.css';
 
-
-//const postText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.";
-const postAuthorKarma = 227;
-
-
 // Card.js
 const Card = ({
     title, 
     username,
-    created, // New var
-    comments, // New var
+    created,
+    comments,
     postHint,
     url,
     postText,
@@ -50,7 +45,7 @@ const Card = ({
                     postHint={postHint}
                 />
                 <PostInfo
-                    postAuthorKarma={postAuthorKarma}
+                    username={username}
                     created={created}
                     comments={comments}
                     accentColor={accentColor}

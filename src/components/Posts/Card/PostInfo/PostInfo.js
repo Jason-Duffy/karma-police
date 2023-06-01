@@ -1,12 +1,14 @@
 // React module imports.
 import React from "react";
+import { useSelector } from "react-redux";
 import { FaYinYang, FaRegClock, FaRegComment } from "react-icons/fa";
 // Local imports.
+import { selectUserData } from "../../../../redux/userSlice";
 // Style imports.
 import "./PostInfo.css";
 
 
-const PostInfo = ({ postAuthorKarma, created, comments, accentColor }) => {
+const PostInfo = ({ username, created, comments, accentColor }) => {
 
     const iconSize = 20;
 
@@ -40,11 +42,16 @@ const PostInfo = ({ postAuthorKarma, created, comments, accentColor }) => {
         unit += 's';
     }
 
+    // Get Author Karma data.
+    const userData = useSelector((state) => selectUserData(state, username));
+
+    const karma = userData && userData.karma;
+
     return (
         <div className="post-info">
             <div className="karma-score">
                 <FaYinYang color={accentColor} size={iconSize} />
-                <span>{postAuthorKarma}</span>
+                <span>{karma}</span>
             </div>
             <div className="post-age">
                 <FaRegClock color={accentColor} size={iconSize} />
