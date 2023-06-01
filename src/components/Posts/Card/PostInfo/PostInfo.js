@@ -42,16 +42,19 @@ const PostInfo = ({ postAuthorKarma, created, comments, accentColor }) => {
 
     return (
         <div className="post-info">
-        <div className="karma-score">
-            <FaYinYang color={accentColor} size={iconSize} /><span>{postAuthorKarma}</span>
+            <div className="karma-score">
+                <FaYinYang color={accentColor} size={iconSize} />
+                <span>{postAuthorKarma}</span>
+            </div>
+            <div className="post-age">
+                <FaRegClock color={accentColor} size={iconSize} />
+                <span>{value} {unit}</span>
+            </div>
+            <div className="post-comments">
+                <FaRegComment color={accentColor} size={iconSize} />
+                <span>{comments}</span>
+            </div>
         </div>
-        <div className="post-age">
-            <FaRegClock color={accentColor} size={iconSize} /><span>{value} {unit}</span>
-        </div>
-        <div className="post-comments">
-            <FaRegComment color={accentColor} size={iconSize} /><span>{comments}</span>
-        </div>
-    </div>
     );
 };
 

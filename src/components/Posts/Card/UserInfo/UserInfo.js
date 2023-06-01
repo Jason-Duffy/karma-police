@@ -1,46 +1,49 @@
 // React module imports.
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { FaUserCircle } from "react-icons/fa";
 // Local imports.
+import { fetchUserData, selectUserData } from "../../../../redux/userSlice";
 // Style imports.
 import "./UserInfo.css";
 
+/*
+username: name,
+karma: total_karma,
+pfp: icon_img
+*/
+
 
 const UserInfo = ({ username, accentColor }) => {
+    const dispatch = useDispatch();
 
-    const fetchPostAuthorData = async (username) => {
-        try {
-            const response = await fetch(`https://www.reddit.com/user/${username}/about.json`);
-            const data = await response.json();
-            const newUserData = data.data;
+    useEffect(() => {
+        dispatch(fetchUserData(username));
+    }, [dispatch, username]);
 
-            return newUserData;
+    const userData = useSelector((state) => selectUserData(state, username));
 
+    const imageUrl = userData && userData.pfp;
+    const shortUrl = imageUrl && imageUrl.split("?")[0];
+    const imageSize = '40px';
 
-        } catch (error) {
-            console.error("Error fetching user data:", error);
-            // Handle error appropriately
-        }
-    };
-
-    // TODO: replace dummy value with parapeter passed in. 
-    username = "corwood";
-    fetchPostAuthorData(username)
-        .then((userData) => {
-            console.log(userData);
-            // Process the user data as needed
-        })
-        .catch((error) => {
-            console.error(error);
-            // Handle error appropriately
-        });
 
     return (
-        <div className="user flex">
-            <FaUserCircle color={accentColor} size="20" />
+        <div className="user">
+            {imageUrl ? (
+                <img
+                    className="user-pfp"
+                    src={shortUrl}
+                    alt="Post Author PfP"
+                    width={imageSize}
+                    height={imageSize}>
+                </img>
+            ) : (
+                <FaUserCircle color={accentColor} size="40" />
+            )}
             <p className="username">{username}</p>
         </div>
-    )
+    );
 };
 
 export default UserInfo;

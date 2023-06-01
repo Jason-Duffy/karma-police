@@ -1,8 +1,14 @@
 .user {
+    display: flex;
     align-items: center;
     cursor: pointer;
+    margin-bottom: 10px;
 }
 
 .username {
     margin-bottom: 10px;
+}
+
+.user-pfp {
+    border-radius: 20px;
 }
