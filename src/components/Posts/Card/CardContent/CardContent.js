@@ -1,10 +1,17 @@
 // React module imports.
 import React from "react";
+import he from 'he';
 // Local imports.
 // Style imports. 
 import "./CardContent.css";
 
 const CardContent = ({ postTitle, postText, borderColor, secondaryText, url, media, isVideo, pollData, postHint }) => {
+
+    // Remove escaped & character encodings from title.
+    const decodedTitle = postTitle ? he.decode(postTitle.replace(/&amp;/g, '&')) : '';
+
+
+    // Function to determine media type and render accordingly.
     const renderMedia = () => {
         if (media && media.type === "youtube.com") {
             const videoUrl = media.oembed.html.match(/src=["'](.*?)["']/)[1];
@@ -53,7 +60,7 @@ const CardContent = ({ postTitle, postText, borderColor, secondaryText, url, med
 
     return (
         <div className="card-content" style={borderColor}>
-            <p className="post-title">{postTitle}</p>
+            <p className="post-title">{decodedTitle}</p>
             {renderMedia()}
             <p className="post-text" style={secondaryText}>
                 {postText}
