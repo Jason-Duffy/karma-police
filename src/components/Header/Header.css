@@ -1,15 +1,17 @@
+
 .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 60px;
     position: fixed;
-    width: 100%;
+    width: 96%;
     z-index: 3;
+    margin-left: 2%;
+    margin-right: 2%;
 }
 
 .logo {
-    padding-left: 25px;
     font-size: 48px;
     font-family: 'Bebas Neue', sans-serif;
 }
