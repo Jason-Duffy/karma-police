@@ -1,5 +1,9 @@
 .arrest {
+    display: flex;
+    align-items: center;
     margin-top: 5px;
     column-gap: 10px;
     cursor: pointer;
+    font-weight: bold;
+    margin-top: 8px;
 }

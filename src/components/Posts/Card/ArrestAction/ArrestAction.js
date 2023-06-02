@@ -6,10 +6,14 @@ import "./ArrestAction.css";
 // Style imports.
 
 
-const ArrestAction = ({ accentColor }) => (
-    <div className="arrest flex">
-        <GiHandcuffs color={accentColor} size="20" /> <span>Arrest This Man/Girl</span>
+const ArrestAction = ({ accentColor }) => {
+
+    const iconSize = "40";
+    return (
+        <div className="arrest">
+        <GiHandcuffs className="cuffs" color={accentColor} size={iconSize} /> <span>Arrest This Man/Girl</span>
     </div>
-);
+    );
+};
 
 export default ArrestAction;
