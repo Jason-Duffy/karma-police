@@ -4,7 +4,7 @@ import styled from 'styled-components';
 // Local imports.
 import { useThemeColors } from "../../../../../hooks/themeHooks";
 // Style imports. 
-
+import './PostText.css';
 
 // Create styled component for post text. 
 // Workaround for styling child html entities whilst using dangerouslySetInnerHtml

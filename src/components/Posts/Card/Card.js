@@ -22,13 +22,13 @@ const Card = ({
     isVideo,
     pollData,
     galleryData,
-    mediaMetaData
+    mediaMetaData,
+    crosspostParentList
 }) => {
     // Inline style variables and objects.
     const themeColors = useThemeColors();
     const accentColor = themeColors.accent;
     const primaryText = useThemeObject("color", "primaryText");
-    const secondaryText = useThemeObject("color", "secondaryText");
     const borderColor = useThemeObject("backgroundColor", "border");
 
     return (
@@ -38,8 +38,6 @@ const Card = ({
                 <CardContent
                     postTitle={title}
                     postText={postText}
-                    borderColor={borderColor}
-                    secondaryText={secondaryText}
                     url={url}
                     media={media}
                     isVideo={isVideo}
@@ -47,6 +45,7 @@ const Card = ({
                     postHint={postHint}
                     galleryData={galleryData}
                     mediaMetaData={mediaMetaData}
+                    crosspostParentList={crosspostParentList}
                 />
                 <PostInfo
                     username={username}

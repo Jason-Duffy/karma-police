@@ -10,10 +10,10 @@ import { selectSubreddit } from "../../redux/subredditSlice";
 
 const Posts = () => {
 
+    // Get and manage current subreddit and subreddit data. 
     const dispatch = useDispatch();
     const subredditData = useSelector(selectSubredditData);
     const currentSubreddit = useSelector(selectSubreddit);
-
 
     const fetchSubreddits = async () => {
         try {
@@ -44,8 +44,8 @@ const Posts = () => {
                     <Card
                         title={post.title}
                         username={post.author}
-                        created={post.created} // New var
-                        comments={post.num_comments} // New var
+                        created={post.created}
+                        comments={post.num_comments}
                         postHint={post.post_hint}
                         url={post.url}
                         postText={post.selftext_html}
@@ -54,6 +54,7 @@ const Posts = () => {
                         pollData={post.poll_data}
                         galleryData={post.gallery_data}
                         mediaMetaData={post.media_metadata}
+                        crosspostParentList={post.crosspost_parent_list}
                         key={i}
                     />
                 ))
