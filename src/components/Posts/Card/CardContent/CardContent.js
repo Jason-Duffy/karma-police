@@ -1,19 +1,25 @@
 // React module imports.
 import React from "react";
 import he from 'he';
+import DOMPurify from 'dompurify';
 // Local imports.
 import PostMedia from "./PostMedia/PostMedia";
 import PostText from "./PostText/PostText";
+import { useThemeObject } from "../../../../hooks/themeHooks";
 // Style imports. 
 import "./CardContent.css";
 
-const CardContent = ({ postTitle, postText, borderColor, secondaryText, url, media, isVideo, pollData, postHint, galleryData, mediaMetaData }) => {
+const CardContent = ({ postTitle, postText, url, media, isVideo, pollData, postHint, galleryData, mediaMetaData, crosspostParentList }) => {
+
+    // Get style variables. 
+    const borderColor = useThemeObject("backgroundColor", "border");
 
     // Decode html entities from post title. 
     const decodedTitle = postTitle && he.decode(postTitle);
 
-    // Decode html entities from post text.
+    // Decode and sanitise html entities from post text.
     const decodedText = postText && he.decode(postText);
+    const sanitisedHTML = DOMPurify.sanitize(decodedText);
 
     const renderPoll = () => {
         if (pollData) {
@@ -40,9 +46,10 @@ const CardContent = ({ postTitle, postText, borderColor, secondaryText, url, med
                 postHint={postHint}
                 galleryData={galleryData}
                 mediaMetaData={mediaMetaData}
+                crosspostParentList={crosspostParentList}
             />
             { renderPoll() }
-            <PostText decodedText={decodedText} />
+            <PostText decodedText={sanitisedHTML} />
         </div>
     );
 };
