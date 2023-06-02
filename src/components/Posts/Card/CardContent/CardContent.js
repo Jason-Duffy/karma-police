@@ -3,13 +3,17 @@ import React from "react";
 import he from 'he';
 // Local imports.
 import GalleryViewer from "./GalleryViewer/GalleryViewer";
+import PostText from "./PostText/PostText";
 // Style imports. 
 import "./CardContent.css";
 
 const CardContent = ({ postTitle, postText, borderColor, secondaryText, url, media, isVideo, pollData, postHint, galleryData, mediaMetaData }) => {
 
-    // Remove escaped & character encodings from title.
+    // Remove escaped '&' character encodings from title.
     const decodedTitle = postTitle ? he.decode(postTitle.replace(/&amp;/g, '&')) : '';
+
+    // Decode html entities from post text.
+    const decodedText = postText && he.decode(postText);
 
     // Extract decoded URLs from galleryData
     let galleryImages = [];
@@ -79,7 +83,7 @@ const CardContent = ({ postTitle, postText, borderColor, secondaryText, url, med
                 </div>
             )
         } else {
-            return <p>No media available</p>;
+            return <></>
         }
     };
 
@@ -87,9 +91,7 @@ const CardContent = ({ postTitle, postText, borderColor, secondaryText, url, med
         <div className="card-content" style={borderColor}>
             <p className="post-title">{decodedTitle}</p>
             {renderMedia()}
-            <p className="post-text" style={secondaryText}>
-                {postText}
-            </p>
+            <PostText decodedText={decodedText}/>
         </div>
     );
 };

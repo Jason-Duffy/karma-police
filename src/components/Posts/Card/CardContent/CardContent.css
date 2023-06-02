@@ -20,12 +20,15 @@
   margin-right: 20px;
 }
 
+.post-text h1 {
+  color: inherit;
+}
+
 .youtube-video-container {
   position: relative;
   width: 100%;
   padding-top: 56.25%;
   /* 16:9 aspect ratio */
-  border: 1px solid blue;
 }
 
 .video {

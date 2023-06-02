@@ -48,7 +48,7 @@ const Posts = () => {
                         comments={post.num_comments} // New var
                         postHint={post.post_hint}
                         url={post.url}
-                        postText={post.selftext}
+                        postText={post.selftext_html}
                         media={post.media}
                         isVideo={post.is_video}
                         pollData={post.poll_data}
