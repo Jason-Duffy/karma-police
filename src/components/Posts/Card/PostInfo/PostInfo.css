@@ -2,7 +2,7 @@
     display: flex;
     width: 90%;
     justify-content: space-between;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 .karma-score, .post-age, .post-comments {

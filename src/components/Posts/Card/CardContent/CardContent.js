@@ -26,7 +26,7 @@ const CardContent = ({ postTitle, postText, borderColor, secondaryText, url, med
         if (media && media.type === "youtube.com") {
             const videoUrl = media.oembed.html.match(/src=["'](.*?)["']/)[1];
             return (
-                <div className="video-container">
+                <div className="youtube-video-container">
                     <iframe
                         className="video"
                         title={postTitle}
@@ -36,13 +36,16 @@ const CardContent = ({ postTitle, postText, borderColor, secondaryText, url, med
                 </div>
             );
         } else if (media && media.reddit_video) {
+            const decodedUrl = media.reddit_video.fallback_url ? he.decode(media.reddit_video.fallback_url.replace(/&amp;/g, '&')) : '';
+
             return (
-                <div className="video-container">
+                <div className="reddit-video-container">
                     <iframe
+                        className="video"
                         title={postTitle}
-                        width="100%"
-                        height="100%"
-                        src={media.reddit_video.fallback_url}>
+                        width={media.reddit_video.width}
+                        height={media.reddit_video.height}
+                        src={decodedUrl}>
                     </iframe>
                 </div>
             );
@@ -55,7 +58,7 @@ const CardContent = ({ postTitle, postText, borderColor, secondaryText, url, med
         } else if (pollData) {
             return (
                 <div className="poll-container">
-                    <a href={url} target="blank">{postText}</a>
+                    <a href={url} target="blank">Link to Poll on Reddit.</a>
                     <ul>
                         {pollData.options.map((option) => (
                             <li key={option.id}>{option.text}</li>

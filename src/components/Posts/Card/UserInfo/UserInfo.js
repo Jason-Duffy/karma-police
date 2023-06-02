@@ -26,6 +26,7 @@ const UserInfo = ({ username, accentColor }) => {
     const imageUrl = userData && userData.pfp;
     const shortUrl = imageUrl && imageUrl.split("?")[0];
     const imageSize = '40px';
+    const iconSize = "40";
 
 
     return (
@@ -39,7 +40,7 @@ const UserInfo = ({ username, accentColor }) => {
                     height={imageSize}>
                 </img>
             ) : (
-                <FaUserCircle color={accentColor} size="40" />
+                <FaUserCircle color={accentColor} size={iconSize} />
             )}
             <p className="username">{username}</p>
         </div>
