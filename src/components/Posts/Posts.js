@@ -54,7 +54,7 @@ const Posts = () => {
                         pollData={post.poll_data}
                         galleryData={post.gallery_data}
                         mediaMetaData={post.media_metadata}
-                        crosspostParentList={post.crosspost_parent_list}
+                        crossposts={post.crosspost_parent_list}
                         key={i}
                     />
                 ))

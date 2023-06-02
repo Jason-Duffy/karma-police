@@ -9,7 +9,7 @@ import { useThemeObject } from "../../../../hooks/themeHooks";
 // Style imports. 
 import "./CardContent.css";
 
-const CardContent = ({ postTitle, postText, url, media, isVideo, pollData, postHint, galleryData, mediaMetaData, crosspostParentList }) => {
+const CardContent = ({ postTitle, postText, url, media, isVideo, pollData, postHint, galleryData, mediaMetaData, crossposts }) => {
 
     // Get style variables. 
     const borderColor = useThemeObject("backgroundColor", "border");
@@ -46,7 +46,7 @@ const CardContent = ({ postTitle, postText, url, media, isVideo, pollData, postH
                 postHint={postHint}
                 galleryData={galleryData}
                 mediaMetaData={mediaMetaData}
-                crosspostParentList={crosspostParentList}
+                crossposts={crossposts}
             />
             { renderPoll() }
             <PostText decodedText={sanitisedHTML} />

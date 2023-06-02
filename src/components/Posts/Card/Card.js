@@ -23,7 +23,7 @@ const Card = ({
     pollData,
     galleryData,
     mediaMetaData,
-    crosspostParentList
+    crossposts
 }) => {
     // Inline style variables and objects.
     const themeColors = useThemeColors();
@@ -45,7 +45,7 @@ const Card = ({
                     postHint={postHint}
                     galleryData={galleryData}
                     mediaMetaData={mediaMetaData}
-                    crosspostParentList={crosspostParentList}
+                    crossposts={crossposts}
                 />
                 <PostInfo
                     username={username}
