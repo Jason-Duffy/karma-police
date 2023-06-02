@@ -3,9 +3,10 @@ import React from "react";
 import he from 'he';
 // Local imports.
 import GalleryViewer from "./GalleryViewer/GalleryViewer";
-// Style imports. 
+// Style imports.
+import './PostMedia.css';
 
-const PostMedia = ({ url, media, isVideo, postHint, galleryData, mediaMetaData }) => {
+const PostMedia = ({ url, media, isVideo, postHint, galleryData, mediaMetaData, crosspostParentList }) => {
 
     // Extract decoded URLs from galleryData
     let galleryImages = [];
@@ -32,9 +33,26 @@ const PostMedia = ({ url, media, isVideo, postHint, galleryData, mediaMetaData }
                     </iframe>
                 </div>
             );
+        } else if (crosspostParentList) {
+            if (crosspostParentList[0].media && crosspostParentList[0].media.reddit_video) {
+                const decodedUrl = crosspostParentList[0].media.reddit_video.fallback_url ? he.decode(crosspostParentList[0].media.reddit_video.fallback_url.replace(/&amp;/g, '&')) : '';
+                return (
+                    <div className="reddit-video-container">
+                        <iframe
+                            className="video"
+                            //title={postTitle}
+                            width={crosspostParentList[0].media.reddit_video.width}
+                            height={crosspostParentList[0].media.reddit_video.height}
+                            src={decodedUrl}>
+                        </iframe>
+                    </div>
+                );
+            } else {
+                return <p>CROSSPOST - ERROR - MEDIA NOT RECOGNISED</p>
+            }
+
         } else if (media && media.reddit_video) {
             const decodedUrl = media.reddit_video.fallback_url ? he.decode(media.reddit_video.fallback_url.replace(/&amp;/g, '&')) : '';
-
             return (
                 <div className="reddit-video-container">
                     <iframe
