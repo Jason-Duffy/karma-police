@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { FaArrowAltCircleLeft, FaArrowAltCircleRight } from "react-icons/fa";
 // Local imports.
-import { useThemeColors } from "../../../../../hooks/themeHooks";
+import { useThemeColors } from "../../../../../../hooks/themeHooks";
 // Style imports. 
 import './GalleryViewer.css';
 
