@@ -50,6 +50,7 @@ const Posts = () => {
     // Call the fetchSubreddits function to trigger the API request and update Redux state
     useEffect(() => {
         fetchSubreddits();
+        window.scrollTo(0,0); // Go to top of page. 
     }, [currentSubreddit]);
 
     return (
