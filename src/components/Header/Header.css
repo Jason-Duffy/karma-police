@@ -47,6 +47,7 @@
 .list-block {
     border-radius: 8px;
     border: 1px solid grey;
+    padding-bottom: 10px;
 }
 
 .menu-container.mobile.hidden {
@@ -85,11 +86,29 @@
     /* closed state: normal position */
 }
 
+.arrested-list-container.mobile {
+    position: absolute;
+    width: 100%;
+}
+
+.arrested-list-container.mobile.open {
+    display: block;
+}
+
+.arrested-list-container.mobile.closed {
+    display: none;
+    /* closed state: normal position */
+}
+
 #block-2 {
     margin-top: 5px;
 }
 
 #block-3 {
+    margin-top: 5px;
+}
+
+#block-4 {
     margin-top: 5px;
 }
 

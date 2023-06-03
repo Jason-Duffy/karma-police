@@ -4,6 +4,7 @@ import React from "react";
 import { useThemeObject } from "../../hooks/themeHooks";
 import SubredditList from "../../elements/SubredditList/SubredditList";
 import Sort from "../Header/Sort/Sort";
+import ArrestsList from "../../elements/ArrestsList/ArrestsList";
 // Style imports.
 import './Sidebar.css';
 
@@ -22,6 +23,10 @@ const SubredditMenu = () => {
             <div className="sidebar-sr-list" style={background}>
                 <p className="sidebar-sr-label" style={primaryText}>Subreddit</p>
                 <SubredditList />
+            </div>
+            <div className="sidebar-arrests-list" style={background}>
+            <p className="sidebar-arrests-label" style={primaryText}>Arrested Users</p> 
+                <ArrestsList />
             </div>
         </div>
     );

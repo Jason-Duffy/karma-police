@@ -1,6 +1,6 @@
 // React module imports.
-import React from "react";
-import { useSelector } from 'react-redux';
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from 'react-redux';
 // Local imports.
 import { useThemeObject } from '../../hooks/themeHooks';
 import DisplayToggle from './DisplayToggle/DisplayToggle';
@@ -10,7 +10,10 @@ import Sort from "../../elements/SortButtons/SortButtons";
 import SubredditsButton from "../../elements/SubredditsButton/SubredditsButton";
 import SubredditList from "../../elements/SubredditList/SubredditList";
 import { selectMenuButtonState } from "../../redux/menuButtonSlice";
-import { selectSubredditButtonState } from "../../redux/subredditButtonSlice";
+import { selectSubredditButtonState, toggleSubredditButtonState } from "../../redux/subredditButtonSlice";
+import ArrestedButton from "../../elements/ArrestedButton/ArrestedButton";
+import ArrestsList from "../../elements/ArrestsList/ArrestsList";
+import { selectArrestedButtonState, toggleArrestedButtonState } from "../../redux/arrestedButtonSlice";
 // Style imports.
 import './Header.css';
 
@@ -22,26 +25,58 @@ const Header = () => {
     const borderColor = useThemeObject("color", "secondaryText");
     const menuBackground = useThemeObject("backgroundColor", "background");
 
-    // Get and manage the current menu and subreddit button states
+    // Get and manage the current menu, subreddit and arrested button states
     const menuButtonState = useSelector(selectMenuButtonState);
     const subredditButtonState = useSelector(selectSubredditButtonState);
+    const arrestedButtonState = useSelector(selectArrestedButtonState);
 
-    // Conditional classNames
+    const dispatch = useDispatch();
+
+    // Toggle arrested button action dispatch
+    const toggleArrestedButton = () => {
+        dispatch(toggleArrestedButtonState());
+    };
+
+    // Toggle subreddit button action dispatch
+    const toggleSubredditButton = () => {
+        dispatch(toggleSubredditButtonState());
+    };
+
+    // Conditional className - Menu
     let menuContainerClass = '';
-
     if (menuButtonState === 'open') {
         menuContainerClass = 'menu-container mobile open';
     } else {
         menuContainerClass = 'menu-container mobile closed';
     }
 
-    // Conditional className
+    // Conditional className - Subreddit List
     let srListContainerClass = '';
     if (subredditButtonState === 'open' && menuButtonState === 'open') {
         srListContainerClass = 'sr-list-container mobile open';
     } else {
         srListContainerClass = 'sr-list-container mobile closed';
     }
+
+    // Conditional className - Arrested List
+    let arrestedListContainerClass = '';
+    if (arrestedButtonState === 'open' && menuButtonState === 'open') {
+        arrestedListContainerClass = 'arrested-list-container mobile open';
+    } else {
+        arrestedListContainerClass = 'arrested-list-container mobile closed';
+    }
+
+    useEffect(() => {
+        if (subredditButtonState === "open" && arrestedButtonState === "open") {
+            toggleSubredditButton();
+        }
+    }, [arrestedButtonState]);
+
+    useEffect(() => {
+        if (subredditButtonState === "open" && arrestedButtonState === "open") {
+            toggleArrestedButton();
+        }
+    }, [subredditButtonState]);
 
     return (
         <div className="header-container" style={background}>
@@ -65,11 +100,17 @@ const Header = () => {
                 </div>
                 <div className="menu-block" id="block-2" style={menuBackground}>
                     <SubredditsButton />
+                    <ArrestedButton />
                     <Sort />
                 </div>
                 <div className={srListContainerClass}>
-                    <div className="list-block " id="block-3" style={menuBackground}>
+                    <div className="list-block" id="block-3" style={menuBackground}>
                         <SubredditList />
+                    </div>
+                </div>
+                <div className={arrestedListContainerClass}>
+                    <div className="list-block" id="block-4" style={menuBackground}>
+                        <ArrestsList />
                     </div>
                 </div>
             </div>
