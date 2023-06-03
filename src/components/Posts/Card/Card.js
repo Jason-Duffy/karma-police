@@ -1,7 +1,7 @@
 // React module imports.
 import React from "react";
 // Local imports.
-import { useThemeColors, useThemeObject } from '../../../hooks/themeHooks';
+import { useThemeObject } from '../../../hooks/themeHooks';
 import UserInfo from "./UserInfo/UserInfo";
 import CardContent from "./CardContent/CardContent";
 import PostInfo from "./PostInfo/PostInfo";
@@ -12,15 +12,13 @@ import './Card.css';
 // Card.js
 const Card = ({ post }) => {
 
-    // Inline style variables and objects.
-    const themeColors = useThemeColors();
-    const accentColor = themeColors.accent;
+    // Inline style variables.
     const primaryText = useThemeObject("color", "primaryText");
     const borderColor = useThemeObject("backgroundColor", "border");
 
     return (
         <div className="card-container" style={primaryText}>
-            <UserInfo post={post} accentColor={accentColor} />
+            <UserInfo post={post} />
             <div className="card" style={borderColor}>
                 <CardContent
                     post={post}
@@ -29,7 +27,7 @@ const Card = ({ post }) => {
                     post={post}
                 />
             </div>
-            <ArrestAction accentColor={accentColor} />
+            <ArrestAction post={post} />
         </div>
     );
 };

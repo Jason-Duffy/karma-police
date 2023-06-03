@@ -6,6 +6,7 @@ import Card from './Card/Card';
 import { setSubredditData, selectSubredditData } from "../../redux/subredditDataSlice";
 import { selectSubreddit } from "../../redux/subredditSlice";
 import { selectSort } from "../../redux/sortSlice";
+import { selectArrestedUsers } from "../../redux/arrestedSlice";
 // Style imports.
 
 
@@ -15,6 +16,7 @@ const Posts = () => {
     const dispatch = useDispatch();
     const subredditData = useSelector(selectSubredditData);
     const currentSubreddit = useSelector(selectSubreddit);
+    const arrestedUsers = useSelector(selectArrestedUsers);
 
     const fetchSubreddits = async () => {
         try {
@@ -72,16 +74,19 @@ const Posts = () => {
         window.scrollTo(0, 0); // Go to top of page. 
     }, [currentSubreddit]);
 
+    // Filter posts by checking if post author is in arrested users list
+    const filteredPosts = subredditData.filter(post => !arrestedUsers.includes(post.username));
+
     // Create a new, sorted array of posts based on sort state.
     const sortOrder = useSelector(selectSort);
     let sortedSubredditData = [];
 
     if (sortOrder === "descending") {
-        sortedSubredditData = [...subredditData]
-        .sort((a, b) => b.userData.karma - a.userData.karma);
+        sortedSubredditData = [...filteredPosts]
+            .sort((a, b) => b.userData.karma - a.userData.karma);
     } else {
-        sortedSubredditData = [...subredditData]
-        .sort((a, b) => a.userData.karma - b.userData.karma);
+        sortedSubredditData = [...filteredPosts]
+            .sort((a, b) => a.userData.karma - b.userData.karma);
     }
 
 
