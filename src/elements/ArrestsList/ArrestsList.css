@@ -28,8 +28,8 @@
     border-radius: 30px;
     margin-left: 20px;
     margin-bottom: 20px;
-    filter: drop-shadow(1px 1px 1px black);
     cursor: pointer;
+    filter: drop-shadow(1px 1px 1px black);
 }
 
 #release-all:active {
