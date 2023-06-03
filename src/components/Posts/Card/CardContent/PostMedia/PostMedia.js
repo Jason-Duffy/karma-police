@@ -1,10 +1,12 @@
 // React module imports. 
 import React from "react";
 import he from 'he';
+import DOMPurify from 'dompurify';
 import styled from 'styled-components';
 // Local imports.
 import GalleryViewer from "./GalleryViewer/GalleryViewer";
 import { useThemeColors } from "../../../../../hooks/themeHooks";
+import PostText from "../PostText/PostText";
 // Style imports.
 import './PostMedia.css';
 
@@ -34,6 +36,7 @@ const PostMedia = ({ post }) => {
         postTitle
     } = post;
 
+    // Decode urls.
     const decodedUrl = he.decode(url);
     const decodedUrlOverridden = he.decode(url);
 
@@ -73,10 +76,12 @@ const PostMedia = ({ post }) => {
                 return renderCrosspostImageGallery();
             } else if (postHint === "image" && !crossposts[0].is_video && !crossposts[0].media) {
                 return renderImage();
+            } else if (crossposts[0].selftext_html) {
+                return renderCrosspostTextOnly();
             } else if (crossposts[0].removed_by_category === "deleted") {
                 return <p className="error-message">This post has been deleted.</p>
             } else {
-                return <p className="error-message">CROSSPOST - ERROR - MEDIA NOT RECOGNISED - post_hint ={postHint}</p>
+                return <p className="error-message">CROSSPOST - ERROR - MEDIA NOT RECOGNISED</p>
             }
         } else if (postHint === "image" && !isVideo && !media) {
             return renderImage();
@@ -177,6 +182,15 @@ const PostMedia = ({ post }) => {
                     {decodedUrlOverridden}
                 </StyledLink>
             </div>
+        )
+    }
+
+    const renderCrosspostTextOnly = () => {
+        // Decode and sanitise html entities from crosspost text.
+        const decodedText = crossposts[0].selftext_html && he.decode(crossposts[0].selftext_html);
+        const sanitisedHTML = DOMPurify.sanitize(decodedText);
+        return (
+            <PostText decodedText={sanitisedHTML} />
         )
     }
 
