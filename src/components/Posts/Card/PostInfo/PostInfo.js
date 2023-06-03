@@ -1,10 +1,8 @@
 // React module imports.
 import React from "react";
-import { useSelector } from "react-redux";
 import { FaYinYang, FaRegClock, FaRegComment } from "react-icons/fa";
 // Local imports.
 import { useThemeColors } from "../../../../hooks/themeHooks";
-import { selectUserData } from "../../../../redux/userSlice";
 // Style imports.
 import "./PostInfo.css";
 
@@ -12,9 +10,9 @@ import "./PostInfo.css";
 const PostInfo = ({ post }) => {
 
     const {
-        username,
         created,
-        comments
+        comments,
+        userData: { karma }
     } = post;
 
     // Get theme colors. 
@@ -52,11 +50,6 @@ const PostInfo = ({ post }) => {
     if (value > 1) {
         unit += 's';
     }
-
-    // Get Author Karma data.
-    const userData = useSelector((state) => selectUserData(state, username));
-
-    const karma = userData && userData.karma;
 
     return (
         <div className="post-info">
