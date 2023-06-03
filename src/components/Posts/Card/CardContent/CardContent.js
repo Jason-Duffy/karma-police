@@ -1,7 +1,6 @@
 // React module imports.
 import React from "react";
 import he from 'he';
-import DOMPurify from 'dompurify';
 // Local imports.
 import PostMedia from "./PostMedia/PostMedia";
 import PostText from "./PostText/PostText";
@@ -13,7 +12,6 @@ const CardContent = ({ post }) => {
     // Destructured values from object.
     const {
         postTitle,
-        postText,
         pollData,
     } = post;
 
@@ -22,10 +20,6 @@ const CardContent = ({ post }) => {
 
     // Decode html entities from post title. 
     const decodedTitle = postTitle && he.decode(postTitle);
-
-    // Decode and sanitise html entities from post text.
-    const decodedText = postText && he.decode(postText);
-    const sanitisedHTML = DOMPurify.sanitize(decodedText);
 
     const renderPoll = () => {
         if (pollData) {
@@ -49,7 +43,7 @@ const CardContent = ({ post }) => {
                 post={post}
             />
             { renderPoll() }
-            <PostText decodedText={sanitisedHTML} />
+            <PostText post={post} />
         </div>
     );
 };

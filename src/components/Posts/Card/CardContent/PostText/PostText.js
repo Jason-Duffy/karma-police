@@ -1,6 +1,8 @@
 // React module imports.
 import React, { useEffect, useRef } from "react";
 import styled from 'styled-components';
+import he from 'he';
+import DOMPurify from 'dompurify';
 // Local imports.
 import { useThemeColors } from "../../../../../hooks/themeHooks";
 // Style imports. 
@@ -36,7 +38,27 @@ const PostTextContainer = styled.div`
     }
     `;
 
-const PostText = ({ decodedText }) => {
+const PostText = ({ post }) => {
+
+    // Destuctured values from post prop.
+    const {
+        postText,
+        crossposts
+    } = post;
+
+    // Vars for text rendering.
+    let decodedText = "";
+    let sanitisedHTML = "";
+
+    if (crossposts) {
+        // Decode and sanitise html entities from crosspost text.
+        decodedText = crossposts[0].selftext_html && he.decode(crossposts[0].selftext_html);
+        sanitisedHTML = DOMPurify.sanitize(decodedText);
+    } else {
+        // Decode and sanitise html entities from post text.
+        decodedText = postText && he.decode(postText);
+        sanitisedHTML = DOMPurify.sanitize(decodedText);
+    }
 
     // Create a reference to the post text container. 
     const postTextRef = useRef(null);
@@ -55,7 +77,7 @@ const PostText = ({ decodedText }) => {
             }
         }
     }, [decodedText]);
-    
+
 
 
     // Get theme color variables. 
@@ -68,7 +90,7 @@ const PostText = ({ decodedText }) => {
     return (
         <PostTextContainer
             className="post-text"
-            dangerouslySetInnerHTML={{ __html: decodedText }}
+            dangerouslySetInnerHTML={{ __html: sanitisedHTML }}
             linkColor={linkColor}
             textColor={textColor}
             headingColor={headingColor}
