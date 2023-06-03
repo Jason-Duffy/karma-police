@@ -35,3 +35,7 @@
     min-height: 50vh;
     width: auto;
   }
+
+  .error-message {
+    padding-left: 10px;
+  }

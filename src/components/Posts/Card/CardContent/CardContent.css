@@ -15,11 +15,13 @@
 }
 
 .poll-container {
-
   display: flex;
   flex-direction: column;
-  align-items: center;
   width: 100%;
+}
+
+.poll-container p {
+  padding-left: 10px;
 }
 
 .poll-container a {
@@ -31,14 +33,6 @@
   margin-top: 25px;
 }
 
-.poll-container a:link {
-  color: inherit;
-}
-
-.poll-container a:visited {
-  color: inherit;
-}
-
 .poll-container li {
   line-height: 40px;
   list-style-type: circle;
@@ -46,14 +40,6 @@
 }
 
 .link-container a {
-  margin-left: 10px;
+  margin-left: 20px;
   line-height: 20px;
-}
-
-.link-container a:link {
-  color: inherit;
-}
-
-.link-container a:visited {
-  color: inherit;
 }

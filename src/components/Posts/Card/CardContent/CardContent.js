@@ -9,7 +9,7 @@ import { useThemeObject } from "../../../../hooks/themeHooks";
 // Style imports. 
 import "./CardContent.css";
 
-const CardContent = ({ postTitle, postText, url, media, isVideo, pollData, postHint, galleryData, mediaMetaData, crossposts }) => {
+const CardContent = ({ postTitle, postText, url, urlOverridden, media, isVideo, pollData, postHint, galleryData, mediaMetaData, crossposts }) => {
 
     // Get style variables. 
     const borderColor = useThemeObject("backgroundColor", "border");
@@ -25,7 +25,7 @@ const CardContent = ({ postTitle, postText, url, media, isVideo, pollData, postH
         if (pollData) {
             return (
                 <div className="poll-container">
-                    <a href={url} target="blank">Link to Poll on Reddit.</a>
+                    <p>Reddit Poll - Not currently voteable, click "View Poll" to vote on Reddit.com</p>
                     <ul>
                         {pollData.options.map((option) => (
                             <li key={option.id}>{option.text}</li>
@@ -47,6 +47,8 @@ const CardContent = ({ postTitle, postText, url, media, isVideo, pollData, postH
                 galleryData={galleryData}
                 mediaMetaData={mediaMetaData}
                 crossposts={crossposts}
+                urlOverridden={urlOverridden}
+                postTitle={postTitle}
             />
             { renderPoll() }
             <PostText decodedText={sanitisedHTML} />

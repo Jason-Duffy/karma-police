@@ -55,6 +55,7 @@ const Posts = () => {
                         galleryData={post.gallery_data}
                         mediaMetaData={post.media_metadata}
                         crossposts={post.crosspost_parent_list}
+                        urlOverridden={post.url_overridden_by_dest}
                         key={i}
                     />
                 ))
