@@ -13,6 +13,8 @@ import './PostText.css';
 const PostTextContainer = styled.div`
     a {
         color: ${props => props.linkColor};
+        word-wrap: break-word;
+        overflow-wrap: break-word;
     }
 
     h1, h2, h3, h4, h5, h6 {

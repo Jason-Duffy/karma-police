@@ -36,7 +36,7 @@
     filter: none;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 975px) {
     .empty-message {
         align-self: center;
     }
