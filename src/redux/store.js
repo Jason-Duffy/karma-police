@@ -5,7 +5,6 @@ import subredditReducer from './subredditSlice';
 import menuButtonReducer from './menuButtonSlice';
 import subredditButtonReducer from './subredditButtonSlice';
 import subredditDataReducer from './subredditDataSlice';
-import userReducer from './userSlice';
 
 
 export default configureStore({
@@ -15,7 +14,6 @@ export default configureStore({
     subreddit: subredditReducer,
     menu: menuButtonReducer,
     subredditButton: subredditButtonReducer,
-    subredditData: subredditDataReducer,
-    user: userReducer
+    subredditData: subredditDataReducer
   },
 })
