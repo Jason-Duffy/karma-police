@@ -87,7 +87,7 @@ const PostMedia = ({ post }) => {
         } else if (urlOverridden) {
             return renderUrlOverridden();
         } else {
-            return <p>NO MEDIA DETECTED</p>;
+            return <></>;
         }
     }
 
