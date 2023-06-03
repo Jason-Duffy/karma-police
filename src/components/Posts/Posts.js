@@ -23,7 +23,7 @@ const Posts = () => {
 
             // Extract the relevant information from the data
             const newSubredditData = data.data.children.map(child => ({
-                title: child.data.title,
+                postTitle: child.data.title,
                 username: child.data.author,
                 created: child.data.created,
                 comments: child.data.num_comments,

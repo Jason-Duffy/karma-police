@@ -34,6 +34,9 @@ const PostMedia = ({ post }) => {
         postTitle
     } = post;
 
+    const decodedUrl = he.decode(url);
+    const decodedUrlOverridden = he.decode(url);
+
     // Get theme colors.
     const themeColors = useThemeColors();
     const accentColor = themeColors.accent;
@@ -136,7 +139,7 @@ const PostMedia = ({ post }) => {
     const renderImage = () => {
         return (
             <div className="image-container">
-                <img className="post-image" src={url} alt="" />
+                <img className="post-image" src={decodedUrl} alt="" />
             </div>
         );
     }
@@ -160,7 +163,9 @@ const PostMedia = ({ post }) => {
     const renderUrl = () => {
         return (
             <div className="link-container">
-                <a href={url} target="blank">{url}</a>
+                <StyledLink href={decodedUrl} target="_blank" rel="noopener noreferrer" themeColor={accentColor}>
+                    {decodedUrl}
+                </StyledLink>
             </div>
         )
     }
@@ -168,8 +173,8 @@ const PostMedia = ({ post }) => {
     const renderUrlOverridden = () => {
         return (
             <div className="link-container">
-                <StyledLink href={url} target="_blank" rel="noopener noreferrer" themeColor={accentColor}>
-                    {url}
+                <StyledLink href={decodedUrlOverridden} target="_blank" rel="noopener noreferrer" themeColor={accentColor}>
+                    {decodedUrlOverridden}
                 </StyledLink>
             </div>
         )
