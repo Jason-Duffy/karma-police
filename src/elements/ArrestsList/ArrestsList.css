@@ -1,8 +1,3 @@
-#arrests-list.mobile{
-    margin-top: 10px;
-    margin-left: 0px;
-}
-
 #arrests-list{
     margin-top: 10px;
     margin-bottom: 17px;
@@ -16,7 +11,7 @@
 }
 
 #arrested-name:hover {
-    margin-left: 5px;
+    margin-left: 45px;
     transition-delay: 10ms;
     transition-property: margin-left;
 }
@@ -27,8 +22,28 @@
     align-items: flex-start;
 }
 
+#release-all {
+    border: 0;
+    padding: 8px 12px;
+    border-radius: 30px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    filter: drop-shadow(1px 1px 1px black);
+    cursor: pointer;
+}
+
+#release-all:active {
+    filter: none;
+}
+
 @media only screen and (max-width: 768px) {
     .empty-message {
         align-self: center;
+    }
+
+    #release-all {
+        align-self: center;
+        margin-left: 0px;
+        margin-bottom: 0px;
     }
 }

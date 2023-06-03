@@ -2,7 +2,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 // Local imports.
-import { removeArrestedUser, selectArrestedUsers } from '../../redux/arrestedSlice';
+import { removeArrestedUser, selectArrestedUsers, removeAllArrestedUsers } from '../../redux/arrestedSlice';
 import { useThemeObject } from '../../hooks/themeHooks';
 // Style imports.
 import './ArrestsList.css';
@@ -11,6 +11,8 @@ const ArrestsList = () => {
 
     const primaryText = useThemeObject("color", "primaryText")
     const secondaryText = useThemeObject("color", "secondaryText");
+    const buttonStyle = useThemeObject("backgroundColor", "accent");
+    const buttonText = useThemeObject("color", "primaryText");
     const arrestedUsers = useSelector(selectArrestedUsers);
     const emptyMessage = arrestedUsers.length === 0 ? "No Users Currently Arrested" : "Tap Username to Release";
 
@@ -20,6 +22,10 @@ const ArrestsList = () => {
 
     const handleRemoveUser = (user) => {
         dispatch(removeArrestedUser(user));
+    }
+
+    const handleRemoveAllUsers = () => {
+        dispatch(removeAllArrestedUsers());
     }
 
     return (
@@ -34,6 +40,17 @@ const ArrestsList = () => {
                     ))
                 }
             </ul>
+            {
+                arrestedUsers.length > 1 ?
+                    <button
+                        id="release-all"
+                        type="button"
+                        style={buttonStyle}
+                        onClick={handleRemoveAllUsers}
+                    >
+                        <span id="release-all-button-label" style={buttonText}>Release All Users</span>
+                    </ button>
+                    : <></>}
         </div>
     );
 };
