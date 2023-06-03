@@ -3,12 +3,23 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { FaYinYang, FaRegClock, FaRegComment } from "react-icons/fa";
 // Local imports.
+import { useThemeColors } from "../../../../hooks/themeHooks";
 import { selectUserData } from "../../../../redux/userSlice";
 // Style imports.
 import "./PostInfo.css";
 
 
-const PostInfo = ({ username, created, comments, accentColor }) => {
+const PostInfo = ({ post }) => {
+
+    const {
+        username,
+        created,
+        comments
+    } = post;
+
+    // Get theme colors. 
+    const themeColors = useThemeColors();
+    const accentColor = themeColors.accent;
 
     const iconSize = 20;
 

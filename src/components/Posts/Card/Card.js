@@ -10,22 +10,8 @@ import ArrestAction from "./ArrestAction/ArrestAction";
 import './Card.css';
 
 // Card.js
-const Card = ({
-    title, 
-    username,
-    created,
-    comments,
-    postHint,
-    url,
-    postText,
-    media,
-    isVideo,
-    pollData,
-    galleryData,
-    mediaMetaData,
-    crossposts,
-    urlOverridden
-}) => {
+const Card = ({ post }) => {
+
     // Inline style variables and objects.
     const themeColors = useThemeColors();
     const accentColor = themeColors.accent;
@@ -34,26 +20,13 @@ const Card = ({
 
     return (
         <div className="card-container" style={primaryText}>
-            <UserInfo username={username} accentColor={accentColor} />
+            <UserInfo post={post} accentColor={accentColor} />
             <div className="card" style={borderColor}>
                 <CardContent
-                    postTitle={title}
-                    postText={postText}
-                    url={url}
-                    media={media}
-                    isVideo={isVideo}
-                    pollData={pollData}
-                    postHint={postHint}
-                    galleryData={galleryData}
-                    mediaMetaData={mediaMetaData}
-                    crossposts={crossposts}
-                    urlOverridden={urlOverridden}
+                    post={post}
                 />
                 <PostInfo
-                    username={username}
-                    created={created}
-                    comments={comments}
-                    accentColor={accentColor}
+                    post={post}
                 />
             </div>
             <ArrestAction accentColor={accentColor} />

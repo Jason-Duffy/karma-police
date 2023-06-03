@@ -9,7 +9,13 @@ import { useThemeObject } from "../../../../hooks/themeHooks";
 // Style imports. 
 import "./CardContent.css";
 
-const CardContent = ({ postTitle, postText, url, urlOverridden, media, isVideo, pollData, postHint, galleryData, mediaMetaData, crossposts }) => {
+const CardContent = ({ post }) => {
+    // Destructured values from object.
+    const {
+        postTitle,
+        postText,
+        pollData,
+    } = post;
 
     // Get style variables. 
     const borderColor = useThemeObject("backgroundColor", "border");
@@ -40,15 +46,7 @@ const CardContent = ({ postTitle, postText, url, urlOverridden, media, isVideo, 
         <div className="card-content" style={borderColor}>
             <p className="post-title">{decodedTitle}</p>
             <PostMedia
-                url={url}
-                media={media}
-                isVideo={isVideo}
-                postHint={postHint}
-                galleryData={galleryData}
-                mediaMetaData={mediaMetaData}
-                crossposts={crossposts}
-                urlOverridden={urlOverridden}
-                postTitle={postTitle}
+                post={post}
             />
             { renderPoll() }
             <PostText decodedText={sanitisedHTML} />

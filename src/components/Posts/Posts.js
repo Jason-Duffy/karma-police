@@ -22,7 +22,22 @@ const Posts = () => {
             const data = await response.json();
 
             // Extract the relevant information from the data
-            const newSubredditData = data.data.children.map(child => child.data);
+            const newSubredditData = data.data.children.map(child => ({
+                title: child.data.title,
+                username: child.data.author,
+                created: child.data.created,
+                comments: child.data.num_comments,
+                postHint: child.data.post_hint,
+                url: child.data.url,
+                postText: child.data.selftext_html,
+                media: child.data.media,
+                isVideo: child.data.is_video,
+                pollData: child.data.poll_data,
+                galleryData: child.data.gallery_data,
+                mediaMetaData: child.data.media_metadata,
+                crossposts: child.data.crosspost_parent_list,
+                urlOverridden: child.data.url_overridden_by_dest
+            }));
 
             // Update your app's state or Redux store with the fetched subreddits
             dispatch(setSubredditData(newSubredditData));
@@ -42,20 +57,7 @@ const Posts = () => {
             {subredditData.length > 0 ? (
                 subredditData.map((post, i) => (
                     <Card
-                        title={post.title}
-                        username={post.author}
-                        created={post.created}
-                        comments={post.num_comments}
-                        postHint={post.post_hint}
-                        url={post.url}
-                        postText={post.selftext_html}
-                        media={post.media}
-                        isVideo={post.is_video}
-                        pollData={post.poll_data}
-                        galleryData={post.gallery_data}
-                        mediaMetaData={post.media_metadata}
-                        crossposts={post.crosspost_parent_list}
-                        urlOverridden={post.url_overridden_by_dest}
+                        post={post}
                         key={i}
                     />
                 ))

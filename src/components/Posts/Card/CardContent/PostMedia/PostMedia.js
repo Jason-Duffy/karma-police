@@ -20,7 +20,19 @@ const StyledLink = styled.a`
     color: ${props => props.themeColor};
     }`;
 
-const PostMedia = ({ url, postTitle, urlOverridden, media, isVideo, postHint, galleryData, mediaMetaData, crossposts }) => {
+const PostMedia = ({ post }) => {
+
+    const {
+        galleryData,
+        mediaMetaData,
+        crossposts,
+        media,
+        postHint,
+        isVideo,
+        urlOverridden,
+        url,
+        postTitle
+    } = post;
 
     // Get theme colors.
     const themeColors = useThemeColors();
