@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "07a90490407e7fc13f86",
-    "url": "/karma-police/static/css/main.0e7b6a6e.chunk.css"
+    "revision": "15d05ff19f2f87c29dd5",
+    "url": "/karma-police/static/css/main.a5588316.chunk.css"
   },
   {
-    "revision": "07a90490407e7fc13f86",
-    "url": "/karma-police/static/js/main.07a90490.chunk.js"
+    "revision": "15d05ff19f2f87c29dd5",
+    "url": "/karma-police/static/js/main.15d05ff1.chunk.js"
   },
   {
     "revision": "54b2f3b21963b34ed16a",
@@ -16,7 +16,7 @@ self.__precacheManifest = [
     "url": "/karma-police/static/js/runtime~main.29196719.js"
   },
   {
-    "revision": "0a12fef4ae7199c894e8eca0ea3a9b26",
+    "revision": "c551a63f4d6dc3cfaf644b92b81c6f72",
     "url": "/karma-police/index.html"
   }
 ];
