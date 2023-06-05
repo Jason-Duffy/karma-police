@@ -10,8 +10,8 @@ test('renders header text', () => {
       <App />
     </Provider>
   );
-  const karmaText = screen.getByText(/KARMA/i);
+  const karmaText = screen.getByRole('heading', { name: /KARMA/i });
   expect(karmaText).toBeInTheDocument();
-  const policeText = screen.getByText(/POLICE/i);
+  const policeText = screen.getByRole('heading', { name: /POLICE/i });
   expect(policeText).toBeInTheDocument();
 });
