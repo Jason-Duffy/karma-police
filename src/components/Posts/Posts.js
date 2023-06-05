@@ -120,7 +120,7 @@ const Posts = () => {
     return (
         <div>
             {noResults ? (
-                <NoSearchResultsCard className="desktop"/>
+                <NoSearchResultsCard />
             ) : (
                 sortedSubredditData.length > 0 ? (
                     sortedSubredditData.map((post, i) => (
