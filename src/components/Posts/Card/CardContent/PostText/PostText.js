@@ -45,22 +45,15 @@ const PostText = ({ post }) => {
     // Destuctured values from post prop.
     const {
         postText,
-        crossposts
     } = post;
 
     // Vars for text rendering.
     let decodedText = "";
     let sanitisedHTML = "";
 
-    if (crossposts) {
-        // Decode and sanitise html entities from crosspost text.
-        decodedText = crossposts[0].selftext_html && he.decode(crossposts[0].selftext_html);
-        sanitisedHTML = DOMPurify.sanitize(decodedText);
-    } else {
-        // Decode and sanitise html entities from post text.
-        decodedText = postText && he.decode(postText);
-        sanitisedHTML = DOMPurify.sanitize(decodedText);
-    }
+    // Decode and sanitise html entities from post text.
+    decodedText = postText && he.decode(postText);
+    sanitisedHTML = DOMPurify.sanitize(decodedText);
 
     // Create a reference to the post text container. 
     const postTextRef = useRef(null);

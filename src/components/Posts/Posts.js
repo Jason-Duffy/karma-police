@@ -47,6 +47,22 @@ const Posts = () => {
                         urlOverridden: child.data.url_overridden_by_dest
                     };
 
+                    // Check if there is crosspost data
+                    if (child.data.crosspost_parent_list) {
+                        const crosspost = child.data.crosspost_parent_list[0];
+                        post.postTitle = crosspost.title;
+                        post.created = crosspost.created;
+                        post.comments = crosspost.num_comments;
+                        post.url = crosspost.url;
+                        post.postText = crosspost.selftext_html;
+                        post.media = crosspost.media;
+                        post.isVideo = crosspost.is_video;
+                        post.pollData = crosspost.poll_data;
+                        post.galleryData = crosspost.gallery_data;
+                        post.mediaMetaData = crosspost.media_metadata;
+                        post.urlOverridden = crosspost.url_overridden_by_dest;
+                    }
+
                     // Fetch the user data
                     const userDataResponse = await fetch(`https://www.reddit.com/user/${post.username}/about.json`);
                     const userData = await userDataResponse.json();
