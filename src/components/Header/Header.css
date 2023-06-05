@@ -100,6 +100,15 @@
     /* closed state: normal position */
 }
 
+.no-search-results-notice.mobile.open {
+    display: block;
+}
+
+.no-search-results-notice.mobile.closed {
+    display: none;
+}
+
+
 #block-2 {
     margin-top: 5px;
 }
@@ -109,6 +118,10 @@
 }
 
 #block-4 {
+    margin-top: 5px;
+}
+
+#block-5 {
     margin-top: 5px;
 }
 

@@ -1,0 +1,27 @@
+.no-search-results-card-container {
+    margin-top: 112px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.no-search-results-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.no-search-results-card-container p {
+    padding: 28px;
+    margin: 0;
+}
+
+@media only screen and (max-width: 975px) {
+    .no-search-results-card-container {
+        display: none;
+    }
+}

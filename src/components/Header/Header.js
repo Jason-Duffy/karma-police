@@ -14,6 +14,7 @@ import { selectSubredditButtonState, toggleSubredditButtonState } from "../../re
 import ArrestedButton from "../../elements/ArrestedButton/ArrestedButton";
 import ArrestsList from "../../elements/ArrestsList/ArrestsList";
 import { selectArrestedButtonState, toggleArrestedButtonState } from "../../redux/arrestedButtonSlice";
+import { selectNoResults } from "../../redux/searchResultsSlice";
 // Style imports.
 import './Header.css';
 
@@ -24,11 +25,13 @@ const Header = () => {
     const accentColor = useThemeObject("color", "accent");
     const borderColor = useThemeObject("color", "secondaryText");
     const menuBackground = useThemeObject("backgroundColor", "background");
+    const primaryText = useThemeObject("color", "primaryText");
 
     // Get and manage the current menu, subreddit and arrested button states
     const menuButtonState = useSelector(selectMenuButtonState);
     const subredditButtonState = useSelector(selectSubredditButtonState);
     const arrestedButtonState = useSelector(selectArrestedButtonState);
+    const noResults = useSelector(selectNoResults);
 
     const dispatch = useDispatch();
 
@@ -78,6 +81,14 @@ const Header = () => {
         }
     }, [subredditButtonState]);
 
+    // Conditional className - No search results notice.
+    let noSearchResultsNoticeClass = '';
+    if (noResults && menuButtonState === 'open') {
+        noSearchResultsNoticeClass = 'no-search-results-notice mobile open';
+    } else {
+        noSearchResultsNoticeClass = 'no-search-results-notice mobile closed';
+    }
+
     return (
         <div className="header-container" style={background}>
             <div className="header" style={background}>
@@ -112,6 +123,12 @@ const Header = () => {
                     <div className="list-block" id="block-4" style={menuBackground}>
                         <ArrestsList />
                     </div>
+                </div>
+                <div className={noSearchResultsNoticeClass}>
+                    <div className="menu-block" id="block-5" style={menuBackground}>
+                        <p style={primaryText}>Sorry! No posts match your search term.</p>
+                    </div>
+
                 </div>
             </div>
         </div>

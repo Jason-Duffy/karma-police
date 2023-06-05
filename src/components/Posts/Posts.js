@@ -3,11 +3,12 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 // Local imports. 
 import Card from './Card/Card';
+import NoSearchResultsCard from "./NoSearchResultsCard/NoSearchResultsCard";
 import { setSubredditData, selectSubredditData } from "../../redux/subredditDataSlice";
 import { selectSubreddit } from "../../redux/subredditSlice";
 import { selectSort } from "../../redux/sortSlice";
 import { selectArrestedUsers } from "../../redux/arrestedSlice";
-import { selectSearchResults } from "../../redux/searchResultsSlice";
+import { selectSearchResults, selectNoResults } from "../../redux/searchResultsSlice";
 // Style imports.
 
 
@@ -19,6 +20,8 @@ const Posts = () => {
     const currentSubreddit = useSelector(selectSubreddit);
     const arrestedUsers = useSelector(selectArrestedUsers);
     const searchResults = useSelector(selectSearchResults);
+    const noResults = useSelector(selectNoResults);
+
 
     const fetchSubreddits = async () => {
         try {
@@ -26,7 +29,7 @@ const Posts = () => {
             const response = await fetch(`https://www.reddit.com/${subredditName}.json`);
             const data = await response.json();
 
-            // Fetch the user data for each post
+            // Fetch the post data for each post.
             const postsWithUserData = await Promise.all(
                 data.data.children.map(async child => {
                     const post = {
@@ -47,7 +50,7 @@ const Posts = () => {
                         urlOverridden: child.data.url_overridden_by_dest
                     };
 
-                    // Check if there is crosspost data
+                    // Check if there is crosspost data & map to post data. 
                     if (child.data.crosspost_parent_list) {
                         const crosspost = child.data.crosspost_parent_list[0];
                         post.postTitle = crosspost.title;
@@ -63,7 +66,7 @@ const Posts = () => {
                         post.urlOverridden = crosspost.url_overridden_by_dest;
                     }
 
-                    // Fetch the user data
+                    // Fetch the user data.
                     const userDataResponse = await fetch(`https://www.reddit.com/user/${post.username}/about.json`);
                     const userData = await userDataResponse.json();
 
@@ -101,7 +104,7 @@ const Posts = () => {
         filteredPosts = filteredPosts.filter(post => searchResults.includes(post.postId));
     }
 
-    // Create a new, sorted array of posts based on sort state.
+    // Create a new, sorted array of posts based on sort order.
     const sortOrder = useSelector(selectSort);
     let sortedSubredditData = [];
 
@@ -116,18 +119,22 @@ const Posts = () => {
 
     return (
         <div>
-            {sortedSubredditData.length > 0 ? (
-                sortedSubredditData
-                    .map((post, i) => (
+            {noResults ? (
+                <NoSearchResultsCard className="desktop"/>
+            ) : (
+                sortedSubredditData.length > 0 ? (
+                    sortedSubredditData.map((post, i) => (
                         <Card
                             post={post}
                             key={i}
                         />
                     ))
-            ) : (
-                <p>Loading...</p>
+                ) : (
+                    <></> // loading card here?
+                )
             )}
         </div>
     );
+    
 };
 export default Posts;

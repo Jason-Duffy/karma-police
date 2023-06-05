@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 // Local imports.
 import { useThemeColors } from '../../../hooks/themeHooks';
 import { selectSubredditData } from '../../../redux/subredditDataSlice';
-import { setSearchResults } from '../../../redux/searchResultsSlice';
+import { setSearchResults, clearSearchResults } from '../../../redux/searchResultsSlice';
 // Style imports.
 import './Searchbar.css';
 
@@ -35,21 +35,21 @@ const Searchbar = () => {
     // Search function handlers.
     const handleInputChange = (event) => {
         setInput(event.target.value);
-        if (event.target.value === '') {
-            dispatch(setSearchResults([]));
+        if (event.target.value.trim() === '') {
+            dispatch(clearSearchResults());
         }
     }
 
     const handleSearch = (event) => {
-        event.preventDefault(); // prevent the page from refreshing
+        event.preventDefault();
         const lowercasedInput = input.toLowerCase();
         const filteredPosts = posts.filter((post) => {
-            return (post.postTitle && post.postTitle.toLowerCase().includes(lowercasedInput)) || 
-                   (post.postText && post.postText.toLowerCase().includes(lowercasedInput));
+          return (post.postTitle && post.postTitle.toLowerCase().includes(lowercasedInput)) || 
+                 (post.postText && post.postText.toLowerCase().includes(lowercasedInput));
         });
         const matchedPostIds = filteredPosts.map((post) => (post.postId));
-        dispatch(setSearchResults(matchedPostIds));
-    }
+          dispatch(setSearchResults(matchedPostIds));
+      }      
     
 
     return (
