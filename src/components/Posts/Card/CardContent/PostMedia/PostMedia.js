@@ -25,7 +25,6 @@ const PostMedia = ({ post }) => {
     const {
         galleryData,
         mediaMetaData,
-        crossposts,
         media,
         postHint,
         isVideo,
@@ -53,35 +52,11 @@ const PostMedia = ({ post }) => {
         });
     }
 
-    // Extract decoded URL's from crosspost galleryData
-    let crosspostGalleryImages = [];
-    if (crossposts && crossposts[0].gallery_data) {
-        crosspostGalleryImages = crossposts[0].gallery_data.items.map((item) => {
-            const galleryImageUrl = crossposts[0].media_metadata && crossposts[0].media_metadata[item.media_id].s.u;
-            // Remove escaped & character encodings from URL.
-            return galleryImageUrl && he.decode(galleryImageUrl);
-        });
-    }
-
     const renderMedia = () => {
         if (media && media.type === "youtube.com") {
             return renderYoutubeVideo();
         } else if (media && media.reddit_video) {
             return renderRedditVideo();
-        } else if (crossposts) {
-            if (crossposts[0].media && crossposts[0].media.reddit_video) {
-                return renderCrosspostRedditVideo();
-            } else if (crossposts[0].gallery_data) {
-                return renderCrosspostImageGallery();
-            } else if (postHint === "image" && !crossposts[0].is_video && !crossposts[0].media) {
-                return renderImage();
-            } else if (crossposts[0].removed_by_category === "deleted") {
-                return <p className="error-message">This post has been deleted.</p>
-            } else {
-                console.log("Crosspost Error - Media Type Not Recognised");
-                console.log(post);
-                return;
-            }
         } else if (postHint === "image" && !isVideo && !media) {
             return renderImage();
         } else if (galleryData) {
@@ -91,7 +66,7 @@ const PostMedia = ({ post }) => {
         } else if (urlOverridden) {
             return renderUrlOverridden();
         } else {
-            return <></>;
+            return;
         }
     }
 
@@ -125,21 +100,6 @@ const PostMedia = ({ post }) => {
         );
     }
 
-    const renderCrosspostRedditVideo = () => {
-        const decodedUrl = he.decode(crossposts[0].media.reddit_video.fallback_url);
-        return (
-            <div className="reddit-video-container">
-                <iframe
-                    className="video"
-                    title={postTitle}
-                    width={crossposts[0].media.reddit_video.width}
-                    height={crossposts[0].media.reddit_video.height}
-                    src={decodedUrl}>
-                </iframe>
-            </div>
-        );
-    }
-
     const renderImage = () => {
         return (
             <div className="image-container">
@@ -152,14 +112,6 @@ const PostMedia = ({ post }) => {
         return (
             <div className="image-container">
                 {galleryImages.length > 0 && <GalleryViewer images={galleryImages} />}
-            </div>
-        );
-    }
-
-    const renderCrosspostImageGallery = () => {
-        return (
-            <div className="image-container">
-                {crosspostGalleryImages.length > 0 && <GalleryViewer images={crosspostGalleryImages} />}
             </div>
         );
     }
