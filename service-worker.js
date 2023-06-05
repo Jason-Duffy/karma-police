@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/karma-police/precache-manifest.29d2314f9ed52e949301ebb77a8dcace.js"
+  "/karma-police/precache-manifest.8d5279cfc074b7184888da458af77ab9.js"
 );
 
 workbox.clientsClaim();
