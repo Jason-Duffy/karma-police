@@ -10,6 +10,8 @@ test('renders header text', () => {
       <App />
     </Provider>
   );
-  const headerText = screen.getByText(/KARMA POLICE/i);
-  expect(headerText).toBeInTheDocument();
+  const karmaText = screen.getByText(/KARMA/i);
+  expect(karmaText).toBeInTheDocument();
+  const policeText = screen.getByText(/POLICE/i);
+  expect(policeText).toBeInTheDocument();
 });
