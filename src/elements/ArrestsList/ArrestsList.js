@@ -34,8 +34,8 @@ const ArrestsList = () => {
             <ul id="arrests-list" style={secondaryText}>
                 {
                     arrestedUsers.map((user, i) => (
-                        <div className='arrested-user-container'>
-                            <li id="arrested-name" key={i} onClick={() => handleRemoveUser(user)}>{user}</li>
+                        <div key={i} className='arrested-user-container'>
+                            <li id="arrested-name" onClick={() => handleRemoveUser(user)}>{user}</li>
                         </div>
                     ))
                 }
