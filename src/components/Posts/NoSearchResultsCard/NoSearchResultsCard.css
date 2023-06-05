@@ -19,9 +19,3 @@
     padding: 28px;
     margin: 0;
 }
-
-@media only screen and (max-width: 975px) {
-    .no-search-results-card-container {
-        display: none;
-    }
-}
