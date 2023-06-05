@@ -7,6 +7,7 @@ import { setSubredditData, selectSubredditData } from "../../redux/subredditData
 import { selectSubreddit } from "../../redux/subredditSlice";
 import { selectSort } from "../../redux/sortSlice";
 import { selectArrestedUsers } from "../../redux/arrestedSlice";
+import { selectSearchResults } from "../../redux/searchResultsSlice";
 // Style imports.
 
 
@@ -17,6 +18,7 @@ const Posts = () => {
     const subredditData = useSelector(selectSubredditData);
     const currentSubreddit = useSelector(selectSubreddit);
     const arrestedUsers = useSelector(selectArrestedUsers);
+    const searchResults = useSelector(selectSearchResults);
 
     const fetchSubreddits = async () => {
         try {
@@ -28,6 +30,7 @@ const Posts = () => {
             const postsWithUserData = await Promise.all(
                 data.data.children.map(async child => {
                     const post = {
+                        postId: child.data.id,
                         postTitle: child.data.title,
                         username: child.data.author,
                         created: child.data.created,
@@ -75,7 +78,12 @@ const Posts = () => {
     }, [currentSubreddit]);
 
     // Filter posts by checking if post author is in arrested users list
-    const filteredPosts = subredditData.filter(post => !arrestedUsers.includes(post.username));
+    let filteredPosts = subredditData.filter(post => !arrestedUsers.includes(post.username));
+
+    // Check if there are search results and filter posts accordingly
+    if (searchResults.length > 0) {
+        filteredPosts = filteredPosts.filter(post => searchResults.includes(post.postId));
+    }
 
     // Create a new, sorted array of posts based on sort state.
     const sortOrder = useSelector(selectSort);
