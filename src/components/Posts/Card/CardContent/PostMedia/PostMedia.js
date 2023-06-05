@@ -10,6 +10,16 @@ import './PostMedia.css';
 
 // Create a styled component that will apply the theme colors.
 const StyledLink = styled.a`
+
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 90%;
+
     color: ${props => props.themeColor};
 
     &:link {

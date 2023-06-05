@@ -15,11 +15,18 @@ const PostTextContainer = styled.div`
         color: ${props => props.linkColor};
         word-wrap: break-word;
         overflow-wrap: break-word;
+        display: block;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 90%;
+        margin-right: 10px
     }
 
     h1, h2, h3, h4, h5, h6 {
         padding-top: 20px;
         color: ${props => props.headingColor};
+        margin-right: 10px;
     }
 
     p {
