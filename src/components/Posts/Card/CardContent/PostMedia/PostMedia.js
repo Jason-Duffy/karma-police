@@ -53,6 +53,7 @@ const PostMedia = ({ post }) => {
         });
     }
 
+    // Extract decoded URL's from crosspost galleryData
     let crosspostGalleryImages = [];
     if (crossposts && crossposts[0].gallery_data) {
         crosspostGalleryImages = crossposts[0].gallery_data.items.map((item) => {
