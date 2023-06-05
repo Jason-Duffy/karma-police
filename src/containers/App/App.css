@@ -28,7 +28,7 @@
 .sidebar-container {
     display: flex;
     flex-direction: column;
-    position: relative;
+    position: sticky;
     width: 24%;
     min-width: 220px;
     margin-left: 2%;

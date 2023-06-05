@@ -1,12 +1,11 @@
 .sort {
     height: 70px;
-    width: inherit;
     display: flex;
     align-items: center;
     justify-content: space-between;
     border-radius: 8px;
-    position: fixed;
     margin-top: 10px;
+    width: 100%;
 }
 
 #sort-label {

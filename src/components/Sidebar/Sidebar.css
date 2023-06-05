@@ -2,12 +2,13 @@
     min-height: 100px;
     margin-top: 34px;
     border-radius: 8px;
-    position: fixed;
-    width: inherit;
+    position: relative;
+    width: 100%;
 }
 
 .sidebar-sort {
-    margin-bottom: 110px;
+    border-radius: 8px;
+    margin-bottom: 30px;
     width: inherit;
 }
 
