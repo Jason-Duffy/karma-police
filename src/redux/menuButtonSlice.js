@@ -6,10 +6,11 @@ const menuButtonSlice = createSlice({
     initialState: 'closed',
     reducers: {
         toggleMenuButtonState: (state) => state === 'closed' ? 'open' : 'closed',
+        closeMenu: () => 'closed'
     },
 });
 
-export const { toggleMenuButtonState } = menuButtonSlice.actions;
+export const { toggleMenuButtonState, closeMenu } = menuButtonSlice.actions;
 
 export const selectMenuButtonState = state => state.menu;
 

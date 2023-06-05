@@ -5,10 +5,11 @@ const subredditButtonSlice = createSlice({
     initialState: 'closed',  // assuming the button starts off in the 'off' state
     reducers: {
         toggleSubredditButtonState: (state) => state === 'closed' ? 'open' : 'closed',
+        closeSubredditButton: () => 'closed'
     },
 });
 
-export const { toggleSubredditButtonState } = subredditButtonSlice.actions;
+export const { toggleSubredditButtonState, closeSubredditButton } = subredditButtonSlice.actions;
 
 export const selectSubredditButtonState = state => state.subredditButton;
 

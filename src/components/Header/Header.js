@@ -10,10 +10,10 @@ import Sort from "../../elements/SortButtons/SortButtons";
 import SubredditsButton from "../../elements/SubredditsButton/SubredditsButton";
 import SubredditList from "../../elements/SubredditList/SubredditList";
 import { selectMenuButtonState } from "../../redux/menuButtonSlice";
-import { selectSubredditButtonState, toggleSubredditButtonState } from "../../redux/subredditButtonSlice";
+import { selectSubredditButtonState, closeSubredditButton } from "../../redux/subredditButtonSlice";
 import ArrestedButton from "../../elements/ArrestedButton/ArrestedButton";
 import ArrestsList from "../../elements/ArrestsList/ArrestsList";
-import { selectArrestedButtonState, toggleArrestedButtonState } from "../../redux/arrestedButtonSlice";
+import { selectArrestedButtonState, closeArrestedButton } from "../../redux/arrestedButtonSlice";
 import { selectNoResults } from "../../redux/searchResultsSlice";
 // Style imports.
 import './Header.css';
@@ -34,16 +34,6 @@ const Header = () => {
     const noResults = useSelector(selectNoResults);
 
     const dispatch = useDispatch();
-
-    // Toggle arrested button action dispatch
-    const toggleArrestedButton = () => {
-        dispatch(toggleArrestedButtonState());
-    };
-
-    // Toggle subreddit button action dispatch
-    const toggleSubredditButton = () => {
-        dispatch(toggleSubredditButtonState());
-    };
 
     // Conditional className - Menu
     let menuContainerClass = '';
@@ -69,18 +59,6 @@ const Header = () => {
         arrestedListContainerClass = 'arrested-list-container mobile closed';
     }
 
-    useEffect(() => {
-        if (subredditButtonState === "open" && arrestedButtonState === "open") {
-            toggleSubredditButton();
-        }
-    }, [arrestedButtonState]);
-
-    useEffect(() => {
-        if (subredditButtonState === "open" && arrestedButtonState === "open") {
-            toggleArrestedButton();
-        }
-    }, [subredditButtonState]);
-
     // Conditional className - No search results notice.
     let noSearchResultsNoticeClass = '';
     if (noResults && menuButtonState === 'open') {
@@ -88,6 +66,26 @@ const Header = () => {
     } else {
         noSearchResultsNoticeClass = 'no-search-results-notice mobile closed';
     }
+
+    useEffect(() => {
+        if (subredditButtonState === "open" && arrestedButtonState === "open") {
+            dispatch(closeSubredditButton());
+        }
+    }, [arrestedButtonState]);
+
+    useEffect(() => {
+        if (subredditButtonState === "open" && arrestedButtonState === "open") {
+            dispatch(closeArrestedButton());
+        }
+    }, [subredditButtonState]);
+
+    useEffect(() => {
+        if (menuButtonState === 'open' && noResults) {
+            dispatch(closeArrestedButton());
+            dispatch(closeSubredditButton());
+        }
+    }, [noResults]);
+
 
     return (
         <div className="header-container" style={background}>

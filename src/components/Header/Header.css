@@ -6,7 +6,7 @@
     height: 60px;
     position: fixed;
     width: 96%;
-    z-index: 3;
+    z-index: 4;
     margin-left: 2%;
     margin-right: 2%;
 }
@@ -31,7 +31,7 @@
     margin-right: 5%;
     margin-top: 60px;
     row-gap: 5px;
-    z-index: 2;
+    z-index: 3;
 }
 
 .menu-block {
