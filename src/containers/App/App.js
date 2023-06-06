@@ -1,6 +1,7 @@
 // React module imports.
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { HashRouter as Router, Route, Routes } from 'react-router-dom';
 // Local imports.
 import { useThemeColors, useThemeObject } from '../../hooks/themeHooks';
 import { selectTheme } from '../../redux/themeSlice';
@@ -8,6 +9,7 @@ import { selectMenuButtonState, closeMenu } from '../../redux/menuButtonSlice';
 import Header from '../../components/Header/Header';
 import Sidebar from '../../components/Sidebar/Sidebar';
 import Posts from '../../components/Posts/Posts';
+import RedirectToDefaultSubreddit from '../../elements/RedirectToDefaultSubreddit/RedirectToDefaultSubreddit';
 // Style imports
 import './App.css';
 import '../../stylesheets/globalStyles.css';
@@ -52,24 +54,28 @@ export default function App() {
     }
   };
 
-
   return (
-    <div className="page-container" style={background}>
-      <div className="container-wrap">
-        <div className="App">
-          <Header />
-          <div
-            className={`menu-overlay ${menuButtonState === 'open' ? 'visible' : ''}`}
-            onClick={handleCloseMenu}
-          />
-          <div className='main-content'>
-            <Posts />
-          </div>
-          <div className='sidebar-container desktop'>
-            <Sidebar />
+    <Router>
+      <div className="page-container" style={background}>
+        <div className="container-wrap">
+          <div className="App">
+            <Header />
+            <div
+              className={`menu-overlay ${menuButtonState === 'open' ? 'visible' : ''}`}
+              onClick={handleCloseMenu}
+            />
+            <div className='main-content'>
+              <Routes>
+                <Route path="/r/:subreddit" element={<Posts />} />
+                <Route path="/" element={<RedirectToDefaultSubreddit />} />
+              </Routes>
+            </div>
+            <div className='sidebar-container desktop'>
+              <Sidebar />
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </Router>
   );
-}
+};
