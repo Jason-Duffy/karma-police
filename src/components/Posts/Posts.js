@@ -71,18 +71,29 @@ const Posts = () => {
                     post.urlOverridden = crosspost.url_overridden_by_dest;
                 }
 
-                // Fetch and add user data. 
-                try {
-                    const userResponse = await fetch(`https://www.reddit.com/user/${child.data.author}/about.json`);
-                    const userData = await userResponse.json();
-                    // Add the user data to the post, only keeping the fields we need
+                // Fetch and add user data.
+
+                // If user is deleted, add filler data to prevent errors.
+                if (post.username === '[deleted]') {
                     post.userData = {
-                        username: userData.data.name,
-                        karma: userData.data.total_karma,
-                        pfp: userData.data.icon_img
+                        username: '[deleted]',
+                        karma: 0,
+                        pfp: ""
                     };
-                } catch (error) {
-                    console.error("Error during user fetch:", error);
+                } else {
+                    try {
+                        const userResponse = await fetch(`https://www.reddit.com/user/${child.data.author}/about.json`);
+                        const userData = await userResponse.json();
+                        // Add the user data to the post, only keeping the fields we need
+                        post.userData = {
+                            username: userData.data.name,
+                            karma: userData.data.total_karma,
+                            pfp: userData.data.icon_img
+                        };
+
+                    } catch (error) {
+                        console.error("Error during user fetch:", error);
+                    }
                 }
 
                 return post;
