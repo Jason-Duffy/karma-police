@@ -1,13 +1,13 @@
 {
   "main.css": "/karma-police/static/css/main.29ea1d90.chunk.css",
-  "main.js": "/karma-police/static/js/main.f182dc17.chunk.js",
-  "main.js.map": "/karma-police/static/js/main.f182dc17.chunk.js.map",
+  "main.js": "/karma-police/static/js/main.16f3b476.chunk.js",
+  "main.js.map": "/karma-police/static/js/main.16f3b476.chunk.js.map",
   "static/js/1.603abc7a.chunk.js": "/karma-police/static/js/1.603abc7a.chunk.js",
   "static/js/1.603abc7a.chunk.js.map": "/karma-police/static/js/1.603abc7a.chunk.js.map",
   "runtime~main.js": "/karma-police/static/js/runtime~main.29196719.js",
   "runtime~main.js.map": "/karma-police/static/js/runtime~main.29196719.js.map",
   "static/css/main.29ea1d90.chunk.css.map": "/karma-police/static/css/main.29ea1d90.chunk.css.map",
   "index.html": "/karma-police/index.html",
-  "precache-manifest.9f4b97d67ed4f2d65c3c1582112fc706.js": "/karma-police/precache-manifest.9f4b97d67ed4f2d65c3c1582112fc706.js",
+  "precache-manifest.c944eda9f3b00cd702fdb47823d1f0d7.js": "/karma-police/precache-manifest.c944eda9f3b00cd702fdb47823d1f0d7.js",
   "service-worker.js": "/karma-police/service-worker.js"
 }
