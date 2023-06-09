@@ -4,17 +4,17 @@ Karma Police is a Reddit client that allows users to browse posts from a selecte
 
 ## Technologies Used
 
-- Git version control: Version control system for tracking changes in source code during development.
-- GitHub Pages: Static site hosting service for deploying and showcasing web applications.
-- GitHub Actions: CI/CD platform for automating workflows and tasks in software development.
-- Jest: JavaScript testing framework for writing and running tests.
-- Enzyme: JavaScript testing utility for testing React components' output and behavior.
-- React: JavaScript library for building user interfaces.
-- React Router Dom: Routing library for single-page applications in React.
-- React Redux: Official Redux bindings for React for state management.
-- Styled Components: CSS-in-JS library for styling React components.
-- React Icons: Library of popular icon packs for React applications.
-- Figma: An interface design tool used for wireframing.
+- **Git version control:** Version control system for tracking changes in source code during development.
+- **GitHub Pages:** Static site hosting service for deploying and showcasing web applications.
+- **GitHub Actions:** CI/CD platform for automating workflows and tasks in software development.
+- **Jest:** JavaScript testing framework for writing and running tests.
+- **Enzyme:** JavaScript testing utility for testing React components' output and behavior.
+- **React:** JavaScript library for building user interfaces.
+- **React Router Dom:** Routing library for single-page applications in React.
+- **React Redux:** Official Redux bindings for React for state management.
+- **Styled Components:** CSS-in-JS library for styling React components.
+- **React Icons:** Library of popular icon packs for React applications.
+- **Figma:** An interface design tool used for wireframing.
 
 ## Features
 
