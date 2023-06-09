@@ -14,6 +14,7 @@ Karma Police is a Reddit client that allows users to browse posts from a selecte
 - React Redux: Official Redux bindings for React for state management.
 - Styled Components: CSS-in-JS library for styling React components.
 - React Icons: Library of popular icon packs for React applications.
+- Figma: An interface design tool used for wireframing.
 
 ## Features
 
@@ -23,6 +24,12 @@ Karma Police is a Reddit client that allows users to browse posts from a selecte
 - Provides a responsive and intuitive user interface for easy navigation and interaction.
 - Supports dark and light themes for personalized user experience.
 - Mobile view features a clean, compact menu system with animations.
+
+## Wireframes & Initial Design
+
+I used [Figma](https://www.figma.com/) to wireframe both the desktop and mobile versions of the app. I later deviated from this a little as I made further decisions during development, such as the colour scheme, fonts, icons and some styling preferences. For example, I found there wasn't enough contrast in the original colour scheme to make the text easy to read and the app accessible.
+
+![Figma Wireframes for Karma Police](./docs/images/wireframes.png)
 
 ## Future Work
 
@@ -40,15 +47,15 @@ I was keen to avoid scope creep, so kept this project within the brief outlined 
 
 ## Getting Started
 
-To view Karma Police in your browser, visit: `https://jason-duffy.github.io/karma-police/`
+To view Karma Police in your browser, visit: <https://jason-duffy.github.io/karma-police/>
 
 To run Karma Police on your local machine, follow these steps:
 
 1. Clone the repository: `git clone https://github.com/jason-duffy/karma-police.git`
 2. Install the dependencies: `npm install`
 3. Start the development server: `npm start`
-4. Open your browser and visit: `http://localhost:3000`
+4. Open your browser and visit: <http://localhost:3000>
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE).
+This project is licensed under the [MIT License](./license.txt).
