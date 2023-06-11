@@ -25,7 +25,7 @@ const SubredditList = () => {
     const accentColor = useThemeObject("color", "accent");
 
     return (
-        <div>
+        <div data-testid='subredditList-1'>
             <ul id="sr-list" style={secondaryText}>
                 {
                     subredditList.map((subreddit, i) => {
