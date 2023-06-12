@@ -1,5 +1,5 @@
 // React module imports.
-import React, { useEffect } from "react";
+import React, { useEffect, useCallback } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 // Local imports. 
@@ -24,7 +24,7 @@ const Posts = () => {
     let { subreddit } = useParams();
     subreddit = "r/" + subreddit;
 
-    const fetchSubreddits = async (subreddit) => {
+    const fetchSubreddits = useCallback(async (subreddit) => {
 
         if (!subreddit) {
             console.error("Subreddit not defined!");
@@ -34,6 +34,13 @@ const Posts = () => {
         try {
             const subredditName = subreddit;
             const response = await fetch(`https://www.reddit.com/${subredditName}.json`);
+
+            if (response.status === 403) {
+                // Handle the 403 error here
+                console.error("403 Forbidden Error: You are not allowed to access this subreddit.");
+                return;
+            }
+
             const data = await response.json();
 
             const posts = data.data.children.map(async (child) => {
@@ -107,14 +114,14 @@ const Posts = () => {
         } catch (error) {
             console.error("Error during fetch:", error);
         }
-    };
+    }, [dispatch]);
 
 
     // Call the fetchSubreddits function to trigger the API request and update Redux state
     useEffect(() => {
         fetchSubreddits(subreddit);
-        window.scrollTo(0, 0); // Go to top of page. 
-    }, [subreddit]);
+        window.scrollTo(0, 0); // Go to top of page.
+    }, [subreddit, fetchSubreddits]);
 
     // Filter posts by checking if post author is in arrested users list
     let filteredPosts = subredditData.filter(post => !arrestedUsers.includes(post.username));
