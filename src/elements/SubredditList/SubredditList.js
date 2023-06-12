@@ -21,33 +21,26 @@ const StyledNavLink = styled(NavLink)`
 
 const SubredditList = () => {
 
-    // Get style objects from hooks.
     const secondaryText = useThemeObject("color", "secondaryText");
     const accentColor = useThemeObject("color", "accent");
-
-    // Helper function to render subreddits from list in JSON.
-    const renderSubredditList = (subredditList) => {
-        return subredditList.map((subreddit, i) => {
-          return (
-            <li id="sr-name" key={i}>
-              <StyledNavLink 
-                to={`/${subreddit}`}
-                secondarytext={secondaryText.color}
-                accentcolor={accentColor.color}
-              >
-                {subreddit}
-              </StyledNavLink>
-            </li>
-          );
-        });
-      }
-      
 
     return (
         <div data-testid='subredditList-1'>
             <ul id="sr-list" style={secondaryText}>
                 {
-                    renderSubredditList(subredditList)
+                    subredditList.map((subreddit, i) => {
+                        return (
+                            <li id="sr-name" key={i}>
+                                <StyledNavLink 
+                                    to={`/${subreddit}`}
+                                    secondarytext={secondaryText.color}
+                                    accentcolor={accentColor.color}
+                                >
+                                    {subreddit}
+                                </StyledNavLink>
+                            </li>
+                        );
+                    })
                 }
             </ul>
         </div>
