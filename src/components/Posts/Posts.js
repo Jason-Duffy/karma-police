@@ -1,10 +1,11 @@
 // React module imports.
-import React, { useEffect, useCallback } from "react";
+import React, { useEffect, useCallback, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 // Local imports. 
 import Card from './Card/Card';
 import NoSearchResultsCard from "./NoSearchResultsCard/NoSearchResultsCard";
+import ErrorCard from "./ErrorCard/ErrorCard";
 import { setSubredditData, selectSubredditData } from "../../redux/subredditDataSlice";
 import { selectSort } from "../../redux/sortSlice";
 import { selectArrestedUsers } from "../../redux/arrestedSlice";
@@ -21,9 +22,14 @@ const Posts = () => {
     const searchResults = useSelector(selectSearchResults);
     const noResults = useSelector(selectNoResults);
 
+    // Get current subreddit from URL params. 
     let { subreddit } = useParams();
     subreddit = "r/" + subreddit;
 
+    // Local state to store returned error code.
+    const [error, setError] = useState(null);
+
+    // Helper function to fetch subreddit, post and user data.
     const fetchSubreddits = useCallback(async (subreddit) => {
 
         if (!subreddit) {
@@ -34,10 +40,11 @@ const Posts = () => {
         try {
             const subredditName = subreddit;
             const response = await fetch(`https://www.reddit.com/${subredditName}.json`);
+            await setError(response.status);
 
-            if (response.status === 403) {
-                // Handle the 403 error here
-                console.error("403 Forbidden Error: You are not allowed to access this subreddit.");
+            if (response.status) {
+
+                console.error(`${error}`);
                 return;
             }
 
@@ -145,21 +152,23 @@ const Posts = () => {
 
     return (
         <div>
-            {noResults ? (
-                <NoSearchResultsCard />
+          {error ? (
+            <ErrorCard error={error} />
+          ) : noResults ? (
+            <NoSearchResultsCard />
+          ) : (
+            sortedSubredditData.length > 0 ? (
+              sortedSubredditData.map((post, i) => (
+                <Card
+                  post={post}
+                  key={i}
+                />
+              ))
             ) : (
-                sortedSubredditData.length > 0 ? (
-                    sortedSubredditData.map((post, i) => (
-                        <Card
-                            post={post}
-                            key={i}
-                        />
-                    ))
-                ) : (
-                    <></> // loading card here?
-                )
-            )}
+              <></> // loading card here?
+            )
+          )}
         </div>
-    );
-};
+      );
+    };
 export default Posts;
