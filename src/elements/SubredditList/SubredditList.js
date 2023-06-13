@@ -24,23 +24,27 @@ const SubredditList = () => {
     const secondaryText = useThemeObject("color", "secondaryText");
     const accentColor = useThemeObject("color", "accent");
 
+    const renderSubredditList = (list) => {
+        return list.map((subreddit, i) => {
+            return (
+                <li id="sr-name" key={i}>
+                    <StyledNavLink 
+                        to={`/${subreddit}`}
+                        secondarytext={secondaryText.color}
+                        accentcolor={accentColor.color}
+                    >
+                        {subreddit}
+                    </StyledNavLink>
+                </li>
+            );
+        })
+    }
+
     return (
         <div data-testid='subredditList-1'>
             <ul id="sr-list" style={secondaryText}>
                 {
-                    subredditList.map((subreddit, i) => {
-                        return (
-                            <li id="sr-name" key={i}>
-                                <StyledNavLink 
-                                    to={`/${subreddit}`}
-                                    secondarytext={secondaryText.color}
-                                    accentcolor={accentColor.color}
-                                >
-                                    {subreddit}
-                                </StyledNavLink>
-                            </li>
-                        );
-                    })
+                    renderSubredditList(subredditList)
                 }
             </ul>
         </div>
