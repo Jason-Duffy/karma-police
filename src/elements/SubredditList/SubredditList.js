@@ -24,7 +24,8 @@ const SubredditList = () => {
     const secondaryText = useThemeObject("color", "secondaryText");
     const accentColor = useThemeObject("color", "accent");
 
-    const renderSubredditList = (list) => {
+    // Helper function to render list of subreddits.
+    const renderList = (list) => {
         return list.map((subreddit, i) => {
             return (
                 <li id="sr-name" key={i}>
@@ -44,7 +45,7 @@ const SubredditList = () => {
         <div data-testid='subredditList-1'>
             <ul id="sr-list" style={secondaryText}>
                 {
-                    renderSubredditList(subredditList)
+                    renderList(subredditList)
                 }
             </ul>
         </div>
