@@ -71,12 +71,14 @@ const Header = () => {
         if (subredditButtonState === "open" && arrestedButtonState === "open") {
             dispatch(closeSubredditButton());
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [arrestedButtonState]);
 
     useEffect(() => {
         if (subredditButtonState === "open" && arrestedButtonState === "open") {
             dispatch(closeArrestedButton());
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [subredditButtonState]);
 
     useEffect(() => {
@@ -84,6 +86,7 @@ const Header = () => {
             dispatch(closeArrestedButton());
             dispatch(closeSubredditButton());
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [noResults]);
 
 

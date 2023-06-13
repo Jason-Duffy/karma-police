@@ -78,6 +78,7 @@ const PostText = ({ post }) => {
                 links[i].rel = 'noopener noreferrer';
             }
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [decodedText]);
 
 
