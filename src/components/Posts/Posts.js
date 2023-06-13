@@ -2,6 +2,7 @@
 import React, { useEffect, useCallback, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
+import { getReasonPhrase } from 'http-status-codes';
 // Local imports. 
 import Card from './Card/Card';
 import NoSearchResultsCard from "./NoSearchResultsCard/NoSearchResultsCard";
@@ -44,14 +45,12 @@ const Posts = () => {
             await setResponseErrorCode(errorCode);
 
             if (errorCode >= 300) {
-                
-                console.error(`${errorCode} Error - Failed to fetch resource.`);
+                const statusDescription = getReasonPhrase(errorCode);
+                console.error(`Error: ${errorCode} ${statusDescription}`);
                 return;
             }
 
             const data = await response.json();
-
-            console.log(data);
 
             const posts = data.data.children.map(async (child) => {
                 const post = {
