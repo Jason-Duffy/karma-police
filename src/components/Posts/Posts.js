@@ -27,7 +27,7 @@ const Posts = () => {
     subreddit = "r/" + subreddit;
 
     // Local state to store returned error code.
-    const [error, setError] = useState(null);
+    const [responseErrorCode, setResponseErrorCode] = useState(null);
 
     // Helper function to fetch subreddit, post and user data.
     const fetchSubreddits = useCallback(async (subreddit) => {
@@ -40,15 +40,18 @@ const Posts = () => {
         try {
             const subredditName = subreddit;
             const response = await fetch(`https://www.reddit.com/${subredditName}.json`);
-            await setError(response.status);
+            const errorCode = response.status;
+            await setResponseErrorCode(errorCode);
 
-            if (response.status) {
-
-                console.error(`${error}`);
+            if (errorCode >= 300) {
+                
+                console.error(`${errorCode} Error - Failed to fetch resource.`);
                 return;
             }
 
             const data = await response.json();
+
+            console.log(data);
 
             const posts = data.data.children.map(async (child) => {
                 const post = {
@@ -70,7 +73,7 @@ const Posts = () => {
                 };
 
                 // Check if there is crosspost data & map to post data. 
-                if (child.data.crosspost_parent_list) {
+                if (child.data.crosspost_parent_list && child.data.crosspost_parent_list.length > 0) {
                     const crosspost = child.data.crosspost_parent_list[0];
                     post.postTitle = crosspost.title;
                     post.created = crosspost.created;
@@ -152,8 +155,8 @@ const Posts = () => {
 
     return (
         <div>
-          {error ? (
-            <ErrorCard error={error} />
+          {responseErrorCode >= 300 ? (
+            <ErrorCard errorCode={responseErrorCode} />
           ) : noResults ? (
             <NoSearchResultsCard />
           ) : (

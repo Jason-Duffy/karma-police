@@ -5,7 +5,7 @@ import { useThemeObject } from "../../../hooks/themeHooks";
 // Style imports.
 import "../NoSearchResultsCard/NoSearchResultsCard.css"
 
-const ErrorCard = (error) => {
+const ErrorCard = (errorCode) => {
 
     // Inline style variables.
     const primaryText = useThemeObject("color", "primaryText");
