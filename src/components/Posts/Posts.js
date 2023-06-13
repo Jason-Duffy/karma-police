@@ -48,77 +48,78 @@ const Posts = () => {
                 const statusDescription = getReasonPhrase(errorCode);
                 console.error(`Error: ${errorCode} ${statusDescription}`);
                 return;
+            } else {
+                const data = await response.json();
+
+                const posts = data.data.children.map(async (child) => {
+                    const post = {
+                        postId: child.data.id,
+                        postTitle: child.data.title,
+                        username: child.data.author,
+                        created: child.data.created,
+                        comments: child.data.num_comments,
+                        postHint: child.data.post_hint,
+                        url: child.data.url,
+                        postText: child.data.selftext_html,
+                        media: child.data.media,
+                        isVideo: child.data.is_video,
+                        pollData: child.data.poll_data,
+                        galleryData: child.data.gallery_data,
+                        mediaMetaData: child.data.media_metadata,
+                        crossposts: child.data.crosspost_parent_list,
+                        urlOverridden: child.data.url_overridden_by_dest
+                    };
+
+                    // Check if there is crosspost data & map to post data. 
+                    if (child.data.crosspost_parent_list && child.data.crosspost_parent_list.length > 0) {
+                        const crosspost = child.data.crosspost_parent_list[0];
+                        post.postTitle = crosspost.title;
+                        post.created = crosspost.created;
+                        post.comments = crosspost.num_comments;
+                        post.url = crosspost.url;
+                        post.postText = crosspost.selftext_html;
+                        post.media = crosspost.media;
+                        post.isVideo = crosspost.is_video;
+                        post.pollData = crosspost.poll_data;
+                        post.galleryData = crosspost.gallery_data;
+                        post.mediaMetaData = crosspost.media_metadata;
+                        post.urlOverridden = crosspost.url_overridden_by_dest;
+                    }
+
+                    // Fetch and add user data.
+
+                    // If user is deleted, add filler data to prevent errors.
+                    if (post.username === '[deleted]') {
+                        post.userData = {
+                            username: '[deleted]',
+                            karma: 0,
+                            pfp: ""
+                        };
+                    } else {
+                        try {
+                            const userResponse = await fetch(`https://www.reddit.com/user/${child.data.author}/about.json`);
+                            const userData = await userResponse.json();
+                            // Add the user data to the post, only keeping the fields we need
+                            post.userData = {
+                                username: userData.data.name,
+                                karma: userData.data.total_karma,
+                                pfp: userData.data.icon_img
+                            };
+
+                        } catch (error) {
+                            console.error("Error during user fetch:", error);
+                        }
+                    }
+
+                    return post;
+                });
+
+                Promise.all(posts)
+                    .then(resolvedPosts => {
+                        dispatch(setSubredditData(resolvedPosts));
+                    });
             }
 
-            const data = await response.json();
-
-            const posts = data.data.children.map(async (child) => {
-                const post = {
-                    postId: child.data.id,
-                    postTitle: child.data.title,
-                    username: child.data.author,
-                    created: child.data.created,
-                    comments: child.data.num_comments,
-                    postHint: child.data.post_hint,
-                    url: child.data.url,
-                    postText: child.data.selftext_html,
-                    media: child.data.media,
-                    isVideo: child.data.is_video,
-                    pollData: child.data.poll_data,
-                    galleryData: child.data.gallery_data,
-                    mediaMetaData: child.data.media_metadata,
-                    crossposts: child.data.crosspost_parent_list,
-                    urlOverridden: child.data.url_overridden_by_dest
-                };
-
-                // Check if there is crosspost data & map to post data. 
-                if (child.data.crosspost_parent_list && child.data.crosspost_parent_list.length > 0) {
-                    const crosspost = child.data.crosspost_parent_list[0];
-                    post.postTitle = crosspost.title;
-                    post.created = crosspost.created;
-                    post.comments = crosspost.num_comments;
-                    post.url = crosspost.url;
-                    post.postText = crosspost.selftext_html;
-                    post.media = crosspost.media;
-                    post.isVideo = crosspost.is_video;
-                    post.pollData = crosspost.poll_data;
-                    post.galleryData = crosspost.gallery_data;
-                    post.mediaMetaData = crosspost.media_metadata;
-                    post.urlOverridden = crosspost.url_overridden_by_dest;
-                }
-
-                // Fetch and add user data.
-
-                // If user is deleted, add filler data to prevent errors.
-                if (post.username === '[deleted]') {
-                    post.userData = {
-                        username: '[deleted]',
-                        karma: 0,
-                        pfp: ""
-                    };
-                } else {
-                    try {
-                        const userResponse = await fetch(`https://www.reddit.com/user/${child.data.author}/about.json`);
-                        const userData = await userResponse.json();
-                        // Add the user data to the post, only keeping the fields we need
-                        post.userData = {
-                            username: userData.data.name,
-                            karma: userData.data.total_karma,
-                            pfp: userData.data.icon_img
-                        };
-
-                    } catch (error) {
-                        console.error("Error during user fetch:", error);
-                    }
-                }
-
-                return post;
-            });
-
-            Promise.all(posts)
-                .then(resolvedPosts => {
-                    dispatch(setSubredditData(resolvedPosts));
-                });
 
         } catch (error) {
             console.error("Error during fetch:", error);
@@ -154,23 +155,23 @@ const Posts = () => {
 
     return (
         <div>
-          {responseErrorCode >= 300 ? (
-            <ErrorCard errorCode={responseErrorCode} />
-          ) : noResults ? (
-            <NoSearchResultsCard />
-          ) : (
-            sortedSubredditData.length > 0 ? (
-              sortedSubredditData.map((post, i) => (
-                <Card
-                  post={post}
-                  key={i}
-                />
-              ))
+            {responseErrorCode >= 300 ? (
+                <ErrorCard errorCode={responseErrorCode} />
+            ) : noResults ? (
+                <NoSearchResultsCard />
             ) : (
-              <></> // loading card here?
-            )
-          )}
+                sortedSubredditData.length > 0 ? (
+                    sortedSubredditData.map((post, i) => (
+                        <Card
+                            post={post}
+                            key={i}
+                        />
+                    ))
+                ) : (
+                    <></> // loading card here?
+                )
+            )}
         </div>
-      );
-    };
+    );
+};
 export default Posts;
