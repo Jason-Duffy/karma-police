@@ -25,16 +25,20 @@ const Sort = () => {
     };
 
     return (
-        <div className="arrows">
+        <div
+            data-testid="sortbuttons-1"
+            className="arrows">
             <FaArrowCircleDown
+                data-testid="down-arrow"
                 className={`down-arrow ${sortMethod === 'descending' ? 'selected' : ''}`}
                 size={40}
                 color={accentColor}
                 onClick={changeSortMethod('descending')}
             />
             <FaArrowCircleUp
+                data-testid="up-arrow"
                 className={`up-arrow ${sortMethod === 'ascending' ? 'selected' : ''}`}
-                size={40}
+                size={40}q
                 color={accentColor}
                 onClick={changeSortMethod('ascending')}
             />
