@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const subredditButtonSlice = createSlice({
     name: 'subredditButton',
-    initialState: 'closed',  // assuming the button starts off in the 'off' state
+    initialState: 'closed',
     reducers: {
         toggleSubredditButtonState: (state) => state === 'closed' ? 'open' : 'closed',
         closeSubredditButton: () => 'closed'
