@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 // Local imports.
 import subredditList from '../../assets/data/subreddits.json';
-import { useThemeObject } from "../../hooks/themeHooks";
+import { useThemeColors } from "../../hooks/themeHooks";
 import './SubredditList.css';
 
 // Create a styled component for your links
@@ -21,18 +21,20 @@ const StyledNavLink = styled(NavLink)`
 
 const SubredditList = () => {
 
-    const secondaryText = useThemeObject("color", "secondaryText");
-    const accentColor = useThemeObject("color", "accent");
+    // Get theme variables. 
+    const themeColors = useThemeColors();
+    const secondaryText = themeColors.secondaryText;
+    const accentColor = themeColors.accent;
 
     // Helper function to render list of subreddits.
     const renderList = (list) => {
         return list.map((subreddit, i) => {
             return (
                 <li id="sr-name" key={i}>
-                    <StyledNavLink 
+                    <StyledNavLink
                         to={`/${subreddit}`}
-                        secondarytext={secondaryText.color}
-                        accentcolor={accentColor.color}
+                        secondarytext={secondaryText}
+                        accentcolor={accentColor}
                     >
                         {subreddit}
                     </StyledNavLink>
@@ -43,7 +45,7 @@ const SubredditList = () => {
 
     return (
         <div data-testid='subredditList-1'>
-            <ul id="sr-list" style={secondaryText}>
+            <ul id="sr-list" style={{ color: secondaryText }}>
                 {
                     renderList(subredditList)
                 }
