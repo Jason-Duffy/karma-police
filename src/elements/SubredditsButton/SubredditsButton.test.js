@@ -9,9 +9,7 @@ describe('SubredditsButton component', () => {
     test('should render SubredditsButton component', () => {
         render(
             <Provider store={store}>
-                <Router>
-                    <SubredditsButton />
-                </Router>
+                <SubredditsButton />
             </Provider>
         );
         const subredditsButtonElement = screen.getByTestId('subredditsButton-1');
@@ -21,9 +19,7 @@ describe('SubredditsButton component', () => {
     test('should toggle subreddit button state when clicked', async () => {
         render(
             <Provider store={store}>
-                <Router>
-                    <SubredditsButton />
-                </Router>
+                <SubredditsButton />
             </Provider>
         );
         const button = screen.getByRole('button');
