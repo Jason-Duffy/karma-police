@@ -22,14 +22,16 @@ const SubredditsButton = () => {
     };
 
     return (
-        <div className="subreddits-button-container">
+        <div
+            className="subreddits-button-container"
+            data-testid='subredditsButton-1'>
             <button
                 id="subreddits-button"
                 type="button"
                 style={buttonStyle}
                 onClick={toggleSubredditButton}
             >
-                <span id="subreddits-button-label" style={{color: buttonText}}>Subreddits</span>
+                <span id="subreddits-button-label" style={{ color: buttonText }}>Subreddits</span>
             </ button>
         </div>
     );
