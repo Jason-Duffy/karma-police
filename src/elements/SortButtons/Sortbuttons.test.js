@@ -1,6 +1,5 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import { HashRouter as Router } from 'react-router-dom';
 import { render, screen, fireEvent } from '@testing-library/react';
 import Sortbuttons from './SortButtons';
 import store from '../../redux/store';
