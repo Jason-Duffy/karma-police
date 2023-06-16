@@ -31,6 +31,7 @@ const MenuButton = () => {
     return (
         <div className="menuButton-container">
             <HiMenu
+                data-testid="menu-button"
                 className={menuButtonClass}
                 style={buttonColor}
                 color={background}
