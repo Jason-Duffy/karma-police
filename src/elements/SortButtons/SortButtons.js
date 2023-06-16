@@ -38,7 +38,7 @@ const Sort = () => {
             <FaArrowCircleUp
                 data-testid="up-arrow"
                 className={`up-arrow ${sortMethod === 'ascending' ? 'selected' : ''}`}
-                size={40}q
+                size={40}
                 color={accentColor}
                 onClick={changeSortMethod('ascending')}
             />
