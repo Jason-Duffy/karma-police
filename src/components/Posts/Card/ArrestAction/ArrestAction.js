@@ -18,14 +18,23 @@ const ArrestAction = ({ post }) => {
     const themeColors = useThemeColors();
     const accentColor = themeColors.accent;
 
-    const handleArrest = () => { 
+    const handleArrest = () => {
         dispatch(addArrestedUser(username));
     }
 
     const iconSize = "40";
     return (
         <div className="arrest" onClick={handleArrest}>
-            <GiHandcuffs className="cuffs" color={accentColor} size={iconSize} /> <span>Arrest This Man/Girl</span>
+            <GiHandcuffs
+                data-testid='arrest-icon'
+                className="cuffs"
+                color={accentColor}
+                size={iconSize}
+            />
+
+            <span>
+                Arrest This Man/Girl
+            </span>
         </div>
     );
 };
