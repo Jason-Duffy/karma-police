@@ -31,6 +31,7 @@ const GalleryViewer = ({ images }) => {
         <div className="gallery-viewer">
             {currentIndex > 0 ? (
                 <FaArrowAltCircleLeft
+                    data-testid='previous-button'
                     className="gallery-viewer-button"
                     size={iconSize}
                     color={buttonColor}
@@ -41,6 +42,7 @@ const GalleryViewer = ({ images }) => {
 
             {currentIndex < images.length - 1 ? (
                 <FaArrowAltCircleRight
+                    data-testid='next-button'
                     className="gallery-viewer-button"
                     size={iconSize}
                     color={buttonColor}
