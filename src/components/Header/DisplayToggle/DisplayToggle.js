@@ -18,16 +18,25 @@ const Icon = () => {
 
     return (
         theme === 'dark' ?
-            <FaMoon color='#D9D9D9' onClick={toggleThemeMode} size={23} />
+            <FaMoon
+                data-testid='moon-icon'
+                color='#D9D9D9'
+                onClick={toggleThemeMode}
+                size={23} />
             :
-            <FaSun color='#F2CA00' onClick={toggleThemeMode} size={23} />
+            <FaSun
+                data-testid='sun-icon'
+                color='#F2CA00'
+                onClick={toggleThemeMode}
+                size={23} />
     );
 }
 
 const DisplayToggle = () => {
 
     return (
-        <div className='theme-icon'>
+        <div
+            className='theme-icon'>
             <Icon />
         </div>
     );
