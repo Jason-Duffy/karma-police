@@ -45,25 +45,4 @@ describe('ArrestsList component', () => {
         );
         expect(screen.getByText('No Users Currently Arrested')).toBeInTheDocument();
     });
-/*
-    test('arrested users are displayed as list items', async () => {
-        store.dispatch(addArrestedUser('user1'));
-        store.dispatch(addArrestedUser('user2'));
-        store.dispatch(addArrestedUser('user3'));
-        render(
-            <Provider store={store}>
-                <ArrestsList />
-            </Provider>
-        );
-        // Wait for the list items to appear asynchronously
-        const user1 = await screen.findByText('user1');
-        const user2 = await screen.findByText('user2');
-        const user3 = await screen.findByText('user3');
-
-        // Assert that each arrested user is displayed as a list item
-        expect(user1).toBeInTheDocument();
-        expect(user2).toBeInTheDocument();
-        expect(user3).toBeInTheDocument();
-    });
-    */
 });
