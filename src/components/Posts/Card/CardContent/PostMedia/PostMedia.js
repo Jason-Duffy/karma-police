@@ -100,6 +100,7 @@ const PostMedia = ({ post }) => {
         return (
             <div className="reddit-video-container">
                 <iframe
+                    data-testid="reddit_video" 
                     className="video"
                     title={postTitle}
                     width={media.reddit_video.width}
@@ -113,14 +114,14 @@ const PostMedia = ({ post }) => {
     const renderImage = () => {
         return (
             <div className="image-container">
-                <img className="post-image" src={decodedUrl} alt="" />
+                <img data-testid="image" className="post-image" src={decodedUrl} alt="" />
             </div>
         );
     }
 
     const renderImageGallery = () => {
         return (
-            <div className="image-container">
+            <div data-testid="image-gallery" className="image-container">
                 {galleryImages.length > 0 && <GalleryViewer images={galleryImages} />}
             </div>
         );
@@ -129,7 +130,7 @@ const PostMedia = ({ post }) => {
     const renderUrl = () => {
         return (
             <div className="link-container">
-                <StyledLink href={decodedUrl} target="_blank" rel="noopener noreferrer" themeColor={accentColor}>
+                <StyledLink data-testid="link" href={decodedUrl} target="_blank" rel="noopener noreferrer" themeColor={accentColor}>
                     {decodedUrl}
                 </StyledLink>
             </div>
