@@ -28,8 +28,6 @@ const ArrestsList = () => {
         dispatch(removeAllArrestedUsers());
     }
 
-    console.log(arrestedUsers);
-
     return (
         <div className='arrests-list-container'>
             <p className='empty-message' style={primaryText}>{emptyMessage}</p>
