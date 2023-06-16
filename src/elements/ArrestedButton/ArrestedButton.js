@@ -24,6 +24,7 @@ const ArrestedButton = () => {
     return (
         <div className="arrested-button-container">
             <button
+                data-testid="arrested-button"
                 id="arrested-button"
                 type="button"
                 style={buttonStyle}
