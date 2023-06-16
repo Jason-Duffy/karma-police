@@ -1,6 +1,5 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import { HashRouter as Router } from 'react-router-dom';
 import { render, screen, fireEvent } from '@testing-library/react';
 import GalleryViewer from './GalleryViewer';
 import store from '../../../../../../redux/store';
@@ -51,6 +50,7 @@ describe('GalleryViewer component', () => {
         )
         let nextButton = screen.getByTestId('next-button');
         fireEvent.click(nextButton);
+        nextButton = screen.getByTestId('next-button');
         const prevButton = screen.getByTestId('previous-button');
         expect(prevButton).toBeInTheDocument();
         expect(nextButton).toBeInTheDocument();
