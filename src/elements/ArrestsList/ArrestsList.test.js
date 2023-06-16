@@ -8,7 +8,7 @@ import arrestedSlice from '../../redux/arrestedSlice';
 
 const store = configureStore({
     reducer: {
-        arrested: arrestedSlice.reducer,
+        arrested: arrestedSlice,
         theme: {
             value: 'dark',
         },
