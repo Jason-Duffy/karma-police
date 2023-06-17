@@ -14,7 +14,11 @@ const NoSearchResultsCard = () => {
     return (
         <div className="no-search-results-card-container" style={borderColor}>
             <div className="no-search-results-card">
-                <p style={primaryText}>Sorry! No posts match your search term.</p>
+                <p
+                    data-testid="no-results-message"
+                    style={primaryText}>
+                    Sorry! No posts match your search term.
+                </p>
             </div>
         </div>
     );
