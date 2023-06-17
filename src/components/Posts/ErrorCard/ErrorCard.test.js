@@ -24,7 +24,6 @@ describe('ErrorCard component', () => {
         )
         const textElement = screen.getByTestId('error-message');
         const textHtml = textElement.innerHTML;
-        console.log(textHtml);
         expect(textHtml).toContain('403');
         expect(textHtml).toContain('Forbidden');
     });
