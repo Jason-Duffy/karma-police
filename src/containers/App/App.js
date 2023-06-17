@@ -61,10 +61,11 @@ export default function App() {
           <div className="App">
             <Header />
             <div
+              data-testid="menu-overlay"
               className={`menu-overlay ${menuButtonState === 'open' ? 'visible' : ''}`}
               onClick={handleCloseMenu}
             />
-            <div className='main-content'>
+            <div className='main-content' data-testid="main-content">
               <Routes>
                 <Route path="/r/:subreddit" element={<Posts />} />
                 <Route path="/" element={<RedirectToDefaultSubreddit />} />
