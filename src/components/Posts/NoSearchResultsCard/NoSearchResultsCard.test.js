@@ -22,7 +22,6 @@ describe('NoSearchResultsCard component', () => {
         )
         const textElement = screen.getByTestId('no-results-message');
         const textHtml = textElement.innerHTML;
-        console.log(textHtml);
         expect(textHtml).toContain('Sorry! No posts match your search term.');
     });
 });
