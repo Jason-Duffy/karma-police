@@ -6,7 +6,7 @@ import { useThemeObject } from "../../../hooks/themeHooks";
 // Style imports.
 import "../NoSearchResultsCard/NoSearchResultsCard.css"
 
-const ErrorCard = ({errorCode}) => {
+const ErrorCard = ({ errorCode }) => {
 
     // Inline style variables.
     const primaryText = useThemeObject("color", "primaryText");
@@ -17,7 +17,11 @@ const ErrorCard = ({errorCode}) => {
     return (
         <div className="no-search-results-card-container" style={borderColor}>
             <div className="no-search-results-card">
-                <p style={primaryText}>Whoops! There's been an error: {errorCode} {statusDescription}. Try another subreddit.</p>
+                <p
+                    data-testid="error-message"
+                    style={primaryText}>
+                    Whoops! There's been an error: {errorCode} {statusDescription}. Try another subreddit.
+                </p>
             </div>
         </div>
     );
