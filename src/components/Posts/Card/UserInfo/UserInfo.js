@@ -38,7 +38,7 @@ const UserInfo = ({ post }) => {
                     height={imageSize}>
                 </img>
             ) : (
-                <FaUserCircle color={accentColor} size={iconSize} />
+                <FaUserCircle data-testid="user-icon" color={accentColor} size={iconSize} />
             )}
             <p className="username">{username}</p>
         </div>
