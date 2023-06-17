@@ -28,7 +28,7 @@ const CardContent = ({ post }) => {
                     <p>Reddit Poll - Not currently voteable, click "View Poll" to vote on Reddit.com</p>
                     <ul>
                         {pollData.options.map((option) => (
-                            <li key={option.id}>{option.text}</li>
+                            <li data-testid="list-item" key={option.id}>{option.text}</li>
                         ))}
                     </ul>
                 </div>
@@ -38,7 +38,7 @@ const CardContent = ({ post }) => {
 
     return (
         <div className="card-content" style={borderColor}>
-            <p className="post-title">{decodedTitle}</p>
+            <p className="post-title" data-testid="post-title">{decodedTitle}</p>
             <PostMedia
                 post={post}
             />
