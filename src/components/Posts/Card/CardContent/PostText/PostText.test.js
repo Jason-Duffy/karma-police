@@ -49,7 +49,7 @@ describe('PostText component', () => {
 
     test('links containing dangerous html tags should be sanitised', () => {
         const mockPost = {
-            postText: '<script> Some Malicions Code </script> <span>Some Safe Text</span>'
+            postText: '<script> Some Malicious Code </script> <span>Some Safe Text</span>'
         };
         render(
             <Provider store={store}>
