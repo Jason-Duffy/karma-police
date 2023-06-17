@@ -55,15 +55,15 @@ const PostInfo = ({ post }) => {
         <div className="post-info">
             <div className="karma-score">
                 <FaYinYang color={accentColor} size={iconSize} />
-                <span>{karma}</span>
+                <span data-testid="karma-score">{karma}</span>
             </div>
             <div className="post-age">
                 <FaRegClock color={accentColor} size={iconSize} />
-                <span>{value} {unit}</span>
+                <span data-testid="post-age">{value} {unit}</span>
             </div>
             <div className="post-comments">
                 <FaRegComment color={accentColor} size={iconSize} />
-                <span>{comments}</span>
+                <span data-testid="post-comments">{comments}</span>
             </div>
         </div>
     );
