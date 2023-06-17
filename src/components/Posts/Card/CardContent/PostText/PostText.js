@@ -65,7 +65,7 @@ const PostText = ({ post }) => {
     // Create a reference to the post text container. 
     const postTextRef = useRef(null);
     const host = window.location.origin;
-    const reddit = 'https://www.reddit.com/';
+    const reddit = 'https://www.reddit.com';
 
     useEffect(() => {
         if (postTextRef.current) {
@@ -92,6 +92,7 @@ const PostText = ({ post }) => {
 
     return (
         <PostTextContainer
+            data-testid="post-text"
             className="post-text"
             dangerouslySetInnerHTML={{ __html: sanitisedHTML }}
             linkColor={linkColor}
