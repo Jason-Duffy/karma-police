@@ -163,7 +163,7 @@ const Posts = () => {
                 sortedSubredditData.length > 0 ? (
                     sortedSubredditData.map((post, i) => (
                         <Card
-                            id={`card-no-${i}`}
+                            cardId={`card-no-${i}`}
                             post={post}
                             key={i}
                         />

@@ -10,14 +10,14 @@ import ArrestAction from "./ArrestAction/ArrestAction";
 import './Card.css';
 
 // Card.js
-const Card = ({ post }) => {
+const Card = ({ post, cardId }) => {
 
     // Inline style variables.
     const primaryText = useThemeObject("color", "primaryText");
     const borderColor = useThemeObject("backgroundColor", "border");
 
     return (
-        <div className="card-container" style={primaryText}>
+        <div className="card-container" id={cardId} style={primaryText}>
             <UserInfo post={post} />
             <div className="card" style={borderColor}>
                 <CardContent
