@@ -67,6 +67,7 @@ const PostText = ({ post }) => {
     const host = window.location.origin;
     const reddit = 'https://www.reddit.com';
 
+    // Ensure relative links in post text have reddit.com as their base URL.
     useEffect(() => {
         if (postTextRef.current) {
             const links = postTextRef.current.getElementsByTagName('a');
