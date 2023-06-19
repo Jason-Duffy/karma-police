@@ -4,20 +4,13 @@
     margin-bottom: 17px;
 }
 
-#sr-name {
+.sr-name {
     line-height: 40px;
     list-style-type: circle;
     cursor: pointer;
 }
 
-#sr-button {
-    border: 0;
-    background-color: transparent;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-#sr-name:hover {
+.sr-name:hover {
     margin-left: 5px;
     transition-delay: 10ms;
     transition-property: margin-left;
