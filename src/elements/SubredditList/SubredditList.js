@@ -35,6 +35,7 @@ const SubredditList = () => {
                         to={`/${subreddit}`}
                         secondarytext={secondaryText}
                         accentcolor={accentColor}
+                        id={subreddit}
                     >
                         {subreddit}
                     </StyledNavLink>
