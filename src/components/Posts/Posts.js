@@ -154,7 +154,7 @@ const Posts = () => {
     }
 
     return (
-        <div>
+        <div data-testid="posts-component">
             {responseErrorCode >= 300 ? (
                 <ErrorCard errorCode={responseErrorCode} />
             ) : noResults ? (
