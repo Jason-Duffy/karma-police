@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/karma-police/static/css/main.1a09cca6.css",
-    "main.js": "/karma-police/static/js/main.2fc84a3e.js",
+    "main.js": "/karma-police/static/js/main.fb76328c.js",
     "index.html": "/karma-police/index.html",
     "main.1a09cca6.css.map": "/karma-police/static/css/main.1a09cca6.css.map",
-    "main.2fc84a3e.js.map": "/karma-police/static/js/main.2fc84a3e.js.map"
+    "main.fb76328c.js.map": "/karma-police/static/js/main.fb76328c.js.map"
   },
   "entrypoints": [
     "static/css/main.1a09cca6.css",
-    "static/js/main.2fc84a3e.js"
+    "static/js/main.fb76328c.js"
   ]
 }
