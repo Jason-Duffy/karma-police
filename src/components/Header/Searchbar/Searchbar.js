@@ -55,6 +55,7 @@ const Searchbar = () => {
     return (
         <form onSubmit={handleSearch}>
             <input
+                id="search-input"
                 type="search"
                 value={input}
                 onChange={handleInputChange}
@@ -64,6 +65,7 @@ const Searchbar = () => {
                 onBlur={() => setIsFocused(false)}
             />
             <button
+                id="submit-button"
                 type="submit"
             >Search</button>
         </form>
