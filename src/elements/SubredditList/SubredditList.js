@@ -30,7 +30,7 @@ const SubredditList = () => {
     const renderList = (list) => {
         return list.map((subreddit, i) => {
             return (
-                <li class="sr-name" key={i} id={subreddit}>
+                <li className="sr-name" key={i} id={subreddit}>
                     <StyledNavLink
                         to={`/${subreddit}`}
                         secondarytext={secondaryText}
