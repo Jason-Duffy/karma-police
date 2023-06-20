@@ -11,6 +11,7 @@ import './PostText.css';
 // Create styled component for post text. 
 // Workaround for styling child html entities whilst using dangerouslySetInnerHtml
 const PostTextContainer = styled.div`
+    text-align: justify;
     a {
         color: ${props => props.linkColor};
         word-wrap: break-word;
