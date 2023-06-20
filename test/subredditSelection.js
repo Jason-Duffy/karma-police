@@ -2,7 +2,7 @@
 const { By, Key, Builder, until } = require("selenium-webdriver");
 var should = require("chai").should();
 require("chromedriver");
-
+const { findAndClickElement } = require("./functions/helperFunctions");
 
 describe('Subreddit selection', () => {
     let driver;
@@ -20,10 +20,21 @@ describe('Subreddit selection', () => {
     });
 
     it('should default to r/radiohead', async () => {
-
+        // Get current URL.
+        const currentUrl = await driver.getCurrentUrl();
+        // ------- Assertions -------- //
+        currentUrl.should.contain('r/radiohead');
     });
 
     it('clicking another subreddit should change url and render new posts', async () => {
-
+        // xpath variable for next subreddit to navigate to. 
+        const nextSubredditPath = '/html/body/div/div/div/div/div[4]/div/div[2]/div/ul/li[2]/a';
+        await findAndClickElement(driver, nextSubredditPath);
+        // Wait for cards to load. 
+        await driver.wait(until.elementsLocated(By.className("card")));
+        // Get current URL.
+        const currentUrl = await driver.getCurrentUrl();
+        // ------- Assertions -------- //
+        currentUrl.should.contain('r/britishproblems');
     });
 });
