@@ -1,19 +1,13 @@
 // Test environment dependencies
 const { By, Key, Builder, until } = require("selenium-webdriver");
 const chrome = require("selenium-webdriver/chrome");
+const { findAndClickElement } = require("./functions/helperFunctions");
 var should = require("chai").should();
 require("chromedriver");
 
 describe('Arrest action', () => {
     let driver;
     let usernameFromPost;
-
-    // Helper function to reliably find and click elements.
-    const findAndClickElement = async ( xpath ) => {
-        await driver.wait(until.elementLocated(By.xpath(xpath)));
-        await driver.wait(until.elementIsVisible(driver.findElement(By.xpath(xpath))));
-        await driver.findElement(By.xpath(xpath)).click();
-    }
     
     before(async () => {
         // Configure Chrome options
@@ -108,7 +102,7 @@ describe('Arrest action', () => {
 
         // Click "Arrest" on the first 3 posts.
         for (let i = 0; i < 3; ++i) {
-            await findAndClickElement(cardPath);
+            await findAndClickElement(driver, cardPath);
         }
         // Wait for the last card to disappear so the release button is clickable.
         await driver.sleep(500);
@@ -128,7 +122,7 @@ describe('Arrest action', () => {
         const buttonPath = '/html/body/div/div/div/div/div[4]/div/div[3]/div/button';
 
         // Get "release all" button and click it.
-        await findAndClickElement(buttonPath);
+        await findAndClickElement(driver, buttonPath);
 
         // Get usernames from visible posts.
         let visiblePostUsernames = await driver.findElements(By.className('username'));
