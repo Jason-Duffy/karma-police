@@ -7,7 +7,6 @@ require("chromedriver");
 describe('Search function', () => {
     let driver;
     let searchBar;
-    let submitButton;
 
     // Launch the browser before all test cases in the describe block
     before(async () => {
