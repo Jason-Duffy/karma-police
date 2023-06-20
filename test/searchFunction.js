@@ -25,7 +25,7 @@ describe('Search function', () => {
     });
 
     // it block.
-    it('returns either posts or no search results message', async () => {
+    it('returns either relevant posts or "no search results" message', async () => {
         await searchBar.sendKeys("thom", Key.RETURN);
         // Get all title and text elements from resulting cards. 
         let titleElements = await driver.findElements(By.className('post-title'));
@@ -62,7 +62,10 @@ describe('Search function', () => {
         // ------- Assertions -------- //
         combinedResults.forEach(result => {
             (result.should.contain('thom') ||
-                noResultsText.should.contain('Sorry! No posts match your search term.'));
+                noResultsText.should.contain(
+                    'Sorry! No posts match your search term.'
+                )
+            );
         });
     });
 });
