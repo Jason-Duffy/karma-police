@@ -7,8 +7,8 @@
     position: fixed;
     width: 96%;
     z-index: 4;
-    margin-left: 2%;
-    margin-right: 2%;
+    padding-left: 2%;
+    padding-right: 2%;
 }
 
 .logo {
@@ -55,7 +55,7 @@
 }
 
 .menu-container.mobile {
-    position: absolute;
+    position: fixed;
     /* start at the bottom of the header */
     transition: transform 0.3s ease-out;
     /* transition will affect the transform property */
