@@ -1,6 +1,6 @@
 # Karma Police
 
-Karma Police is a Reddit client that allows users to browse posts from a selected subreddit and sort them based on the user's total karma score.
+[Karma Police](https://jason-duffy.github.io/karma-police/) is a Reddit client that allows users to browse posts from a selected subreddit and sort them based on the user's total karma score.
 
 ## Technologies Used
 
