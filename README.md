@@ -8,7 +8,7 @@ Karma Police is a Reddit client that allows users to browse posts from a selecte
 - **GitHub Pages:** Static site hosting service for deploying and showcasing web applications.
 - **GitHub Actions:** CI/CD platform for automating workflows and tasks in software development.
 - **Jest:** JavaScript testing framework for writing and running tests.
-- **Enzyme:** JavaScript testing utility for testing React components' output and behavior.
+- **Selenium:** End-to-end testing library for automating front end testing.
 - **React:** JavaScript library for building user interfaces.
 - **React Router Dom:** Routing library for single-page applications in React.
 - **React Redux:** Official Redux bindings for React for state management.
@@ -52,9 +52,19 @@ To view Karma Police in your browser, visit: <https://jason-duffy.github.io/karm
 To run Karma Police on your local machine, follow these steps:
 
 1. Clone the repository: `git clone https://github.com/jason-duffy/karma-police.git`
-2. Install the dependencies: `npm install`
-3. Start the development server: `npm start`
-4. Open your browser and visit: <http://localhost:3000>
+2. cd to the root directory
+3. Install the dependencies: `npm install`
+4. Start the development server: `npm start`
+5. Open your browser and visit: <http://localhost:3000>
+
+## Testing
+
+To run automated tests on your local repo, follow these steps:
+
+1. cd to the root directory
+2. To run the unit/integration test suite: `npm test`
+3. To generate a test coverage report: `npm run test-coverage`
+4. To run end-to-end tests with Selenium: `npm run test-end-to-end`
 
 ## License
 
