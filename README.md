@@ -6,7 +6,7 @@ Karma Police is a Reddit client that allows users to browse posts from a selecte
 
 - **Git version control:** Version control system for tracking changes in source code during development.
 - **GitHub Pages:** Static site hosting service for deploying and showcasing web applications.
-- **GitHub Actions:** CI/CD platform for automating workflows and tasks in software development.
+- **GitHub Actions:** CI/CD platform for automating workflows and tests in software development.
 - **Jest:** JavaScript testing framework for writing and running tests.
 - **Selenium:** End-to-end testing library for automating front end testing.
 - **React:** JavaScript library for building user interfaces.
@@ -59,12 +59,11 @@ To run Karma Police on your local machine, follow these steps:
 
 ## Testing
 
-To run automated tests on your local repo, follow these steps:
+To run automated tests on your local repo, cd to the root directory and use the following commands:
 
-1. cd to the root directory
-2. To run the unit/integration test suite: `npm test`
-3. To generate a test coverage report: `npm run test-coverage`
-4. To run end-to-end tests with Selenium: `npm run test-end-to-end`
+- To run the unit/integration test suite: `npm test`
+- To generate a test coverage report: `npm run test-coverage`
+- To run end-to-end tests with Selenium: `npm run test-end-to-end`
 
 ## License
 
