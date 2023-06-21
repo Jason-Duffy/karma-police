@@ -10,7 +10,3 @@
     column-gap: 5px;
     align-items: center;
 }
-
-.post-age, .post-comments {
-    cursor: pointer;
-}
